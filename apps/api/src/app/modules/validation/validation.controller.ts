@@ -1,13 +1,32 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { ValidateService } from './validation.service';
-import { ValidateLabelDto, CrossCheckDto } from './validation.dto';
+import {
+  ValidateLabelDto,
+  CrossCheckDto,
+  StartValidationJobDto,
+  ValidationJobStatusResponse,
+} from './validation.dto';
 import { ValidationResult, CrossCheckResult } from '@ttb/shared-types';
 
 @ApiTags('validation')
 @Controller('validate')
 export class ValidationController {
   constructor(private validateService: ValidateService) {}
+
+  @Post('progress/start')
+  @ApiOperation({ summary: 'Start backend validation progress job' })
+  @ApiResponse({ status: 201, description: 'Validation progress job started' })
+  startProgress(@Body() payload: StartValidationJobDto): ValidationJobStatusResponse {
+    return this.validateService.startValidationProgressJob(payload);
+  }
+
+  @Get('progress/:jobId')
+  @ApiOperation({ summary: 'Get backend validation progress job status' })
+  @ApiResponse({ status: 200, description: 'Validation progress job status' })
+  getProgress(@Param('jobId') jobId: string): ValidationJobStatusResponse {
+    return this.validateService.getValidationProgressJob(jobId);
+  }
 
   @Post('label')
   @ApiOperation({ summary: 'Validate a label' })

@@ -4,20 +4,122 @@ import { useState } from 'react';
 import { Layers, Upload, FileText, Archive, Image } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import {
+  ValidationProgress,
+  type ValidationStep,
+  type ValidationJobStatus,
+} from '@/components/ui/validation-progress';
+import { toast } from '@/hooks/use-toast';
 
 export default function BatchValidationPage() {
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+
+  const validationStepLabels = [
+    'Upload Received',
+    'Image Preprocessing',
+    'OCR Text Extraction',
+    'Field Extraction',
+    'Application Data Cross Check',
+    'TTB Rule Validation',
+    'Compliance Report Generation',
+  ];
+
+  const initialSteps: ValidationStep[] = validationStepLabels.map((label, index) => ({
+    id: `step-${index + 1}`,
+    label,
+    status: 'pending',
+  }));
+
   const [loading, setLoading] = useState(false);
   const [fileCount, setFileCount] = useState(0);
+  const [steps, setSteps] = useState<ValidationStep[]>(initialSteps);
+  const [jobStatus, setJobStatus] = useState<ValidationJobStatus>('running');
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setFileCount(e.target.files.length);
+
+      if (e.target.files.length > 0) {
+        toast({
+          title: 'Batch upload started',
+          description: 'Processing multiple labels.',
+        });
+      }
     }
+  };
+
+  const pollValidationProgress = async (jobId: string): Promise<ValidationJobStatus> => {
+    let status: ValidationJobStatus = 'running';
+
+    while (status === 'running') {
+      const response = await fetch(`${API_BASE_URL}/validate/progress/${jobId}`);
+      if (!response.ok) {
+        throw new Error('Failed to retrieve validation progress');
+      }
+
+      const data = await response.json();
+      setSteps(data.steps || initialSteps);
+      status = data.status as ValidationJobStatus;
+      setJobStatus(status);
+
+      if (status === 'running') {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+      }
+    }
+
+    return status;
   };
 
   const handleSubmit = async () => {
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setJobStatus('running');
+    setSteps(initialSteps);
+
+    let result: ValidationJobStatus = 'error';
+
+    try {
+      const startResponse = await fetch(`${API_BASE_URL}/validate/progress/start`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ mode: 'batch', batchSize: fileCount }),
+      });
+
+      if (!startResponse.ok) {
+        throw new Error('Failed to start batch validation progress job');
+      }
+
+      const startData = await startResponse.json();
+      result = await pollValidationProgress(startData.jobId);
+    } catch (_error) {
+      result = 'error';
+      setJobStatus('error');
+      setSteps(
+        initialSteps.map((step, index) => (index === 0 ? { ...step, status: 'error' } : step))
+      );
+    }
+
+    if (result === 'success') {
+      toast({
+        title: 'Validation completed',
+        description: 'Compliance report is ready.',
+        variant: 'success',
+      });
+    } else if (result === 'warning') {
+      toast({
+        title: 'Validation completed with warnings',
+        description: 'Some discrepancies were detected.',
+        variant: 'warning',
+      });
+    } else {
+      toast({
+        title: 'Validation failed',
+        description: 'Please check the uploaded files.',
+        variant: 'destructive',
+      });
+    }
+
     setLoading(false);
   };
 
@@ -109,6 +211,15 @@ export default function BatchValidationPage() {
             >
               {loading ? 'Processing...' : `Validate ${fileCount} File(s)`}
             </Button>
+
+            {loading && (
+              <ValidationProgress
+                title="Validation Progress"
+                steps={steps}
+                status={jobStatus}
+                className="transition-all duration-300"
+              />
+            )}
           </CardContent>
         </Card>
       </div>

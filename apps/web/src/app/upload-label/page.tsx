@@ -7,18 +7,131 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import {
+  ValidationProgress,
+  type ValidationStep,
+  type ValidationJobStatus,
+} from '@/components/ui/validation-progress';
+import { toast } from '@/hooks/use-toast';
 
 export default function UploadLabelPage() {
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+
+  const validationStepLabels = [
+    'Upload Received',
+    'Image Preprocessing',
+    'OCR Text Extraction',
+    'Field Extraction',
+    'Application Data Cross Check',
+    'TTB Rule Validation',
+    'Compliance Report Generation',
+  ];
+
+  const initialSteps: ValidationStep[] = validationStepLabels.map((label, index) => ({
+    id: `step-${index + 1}`,
+    label,
+    status: 'pending',
+  }));
+
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [steps, setSteps] = useState<ValidationStep[]>(initialSteps);
+  const [jobStatus, setJobStatus] = useState<ValidationJobStatus>('running');
+
+  const pollValidationProgress = async (jobId: string): Promise<ValidationJobStatus> => {
+    let status: ValidationJobStatus = 'running';
+
+    while (status === 'running') {
+      const response = await fetch(`${API_BASE_URL}/validate/progress/${jobId}`);
+      if (!response.ok) {
+        throw new Error('Failed to retrieve validation progress');
+      }
+
+      const data = await response.json();
+      setSteps(data.steps || initialSteps);
+      status = data.status as ValidationJobStatus;
+      setJobStatus(status);
+
+      if (status === 'running') {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+      }
+    }
+
+    return status;
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    toast({
+      title: 'Application data submitted',
+      description: 'Ready to run validation.',
+    });
+
     setLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setSuccess(true);
+    setJobStatus('running');
+    setSteps(initialSteps);
+
+    let result: ValidationJobStatus = 'error';
+
+    try {
+      const startResponse = await fetch(`${API_BASE_URL}/validate/progress/start`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ mode: 'single' }),
+      });
+
+      if (!startResponse.ok) {
+        throw new Error('Failed to start validation progress job');
+      }
+
+      const startData = await startResponse.json();
+      result = await pollValidationProgress(startData.jobId);
+    } catch (_error) {
+      result = 'error';
+      setJobStatus('error');
+      setSteps(
+        initialSteps.map((step, index) => (index === 0 ? { ...step, status: 'error' } : step))
+      );
+    }
+
+    setSuccess(result !== 'error');
+
+    if (result === 'success') {
+      toast({
+        title: 'Validation completed',
+        description: 'Compliance report is ready.',
+        variant: 'success',
+      });
+    } else if (result === 'warning') {
+      toast({
+        title: 'Validation completed with warnings',
+        description: 'Some discrepancies were detected.',
+        variant: 'warning',
+      });
+    } else {
+      toast({
+        title: 'Validation failed',
+        description: 'Please check the uploaded files.',
+        variant: 'destructive',
+      });
+    }
+
     setLoading(false);
+  };
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
+    if (!e.target.files?.length) {
+      return;
+    }
+
+    toast({
+      title: 'Label uploaded successfully',
+      description: 'Image received and queued for validation.',
+      variant: 'success',
+    });
   };
 
   return (
@@ -57,6 +170,7 @@ export default function UploadLabelPage() {
                       className="sr-only"
                       id="file-upload"
                       aria-label="Upload label image"
+                      onChange={handleFileUpload}
                     />
                     <label htmlFor="file-upload" className="cursor-pointer">
                       <div className="space-y-3">
@@ -192,8 +306,17 @@ export default function UploadLabelPage() {
                     disabled={loading}
                     aria-label={loading ? 'Uploading label data' : 'Submit label data'}
                   >
-                    {loading ? 'Uploading...' : 'Submit Label Data'}
+                    {loading ? 'Running Validation...' : 'Submit Label Data'}
                   </Button>
+
+                  {loading && (
+                    <ValidationProgress
+                      title="Validation Progress"
+                      steps={steps}
+                      status={jobStatus}
+                      className="mt-2 transition-all duration-300"
+                    />
+                  )}
 
                   {success && (
                     <div

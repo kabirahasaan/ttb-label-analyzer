@@ -137,3 +137,12 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Nx
+.nx/
+
+# Local OS files
+.DS_Store
+
+# Lockfiles (repo uses pnpm)
+package-lock.json

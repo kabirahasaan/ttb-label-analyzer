@@ -21,6 +21,7 @@ export interface ParsedTTBRule {
 export interface TTBRuleSource {
   document: string;
   url: string;
+  cfr?: string;
   section?: string;
   quotation?: string;
 }

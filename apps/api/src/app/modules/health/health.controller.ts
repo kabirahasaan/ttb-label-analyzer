@@ -10,7 +10,6 @@ export class HealthController {
   @ApiResponse({
     status: 200,
     description: 'Service is healthy',
-    type: HealthCheckResponse,
   })
   check(): HealthCheckResponse {
     return {

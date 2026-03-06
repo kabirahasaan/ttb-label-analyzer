@@ -1,0 +1,1 @@
+{"version":3,"file":"class-type.rule.d.ts","sourceRoot":"","sources":["class-type.rule.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,oBAAoB,EAAiB,MAAM,mBAAmB,CAAC;AAExF,qBAAa,aAAc,YAAW,cAAc;IAClD,EAAE,SAAqB;IACvB,IAAI,SAAoB;IACxB,WAAW,SAAuD;IAClE,QAAQ,SAAe;IAEvB,OAAO,CAAC,UAAU,CAAiE;IAEnF,SAAS,CAAC,SAAS,EAAE,GAAG,GAAG,oBAAoB;CAYhD"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"abv.rule.d.ts","sourceRoot":"","sources":["abv.rule.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,oBAAoB,EAAiB,MAAM,mBAAmB,CAAC;AAExF,qBAAa,OAAQ,YAAW,cAAc;IAC5C,EAAE,SAAc;IAChB,IAAI,SAA6B;IACjC,WAAW,SAAyD;IACpE,QAAQ,SAAe;IAEvB,SAAS,CAAC,SAAS,EAAE,GAAG,GAAG,oBAAoB;CAahD"}

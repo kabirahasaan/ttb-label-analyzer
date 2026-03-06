@@ -1,0 +1,1 @@
+{"version":3,"file":"government-warning.rule.d.ts","sourceRoot":"","sources":["government-warning.rule.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,oBAAoB,EAAiB,MAAM,mBAAmB,CAAC;AAExF,qBAAa,qBAAsB,YAAW,cAAc;IAC1D,EAAE,SAA6B;IAC/B,IAAI,SAA8B;IAClC,WAAW,SAAmE;IAC9E,QAAQ,SAAe;IAEvB,OAAO,CAAC,mBAAmB,CACqI;IAEhK,SAAS,CAAC,SAAS,EAAE,GAAG,GAAG,oBAAoB;CAahD"}

@@ -1,0 +1,19 @@
+# Build stage
+FROM node:20-alpine AS deps
+WORKDIR /app
+RUN npm install -g pnpm
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
+
+# Set up source
+FROM deps AS source
+COPY . .
+
+# Build
+FROM source AS build
+RUN pnpm build
+
+# Development container
+FROM source as dev
+ENV NODE_ENV=development
+CMD ["pnpm", "dev"]

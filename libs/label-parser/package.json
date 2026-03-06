@@ -1,0 +1,17 @@
+{
+  "name": "@ttb/label-parser",
+  "version": "1.0.0",
+  "description": "Label parsing and OCR library for TTB Label Analyzer",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.2.10",
+    "@ttb/shared-types": "*",
+    "tesseract.js": "^5.0.4"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@ttb/test-data-generator",
+  "version": "1.0.0",
+  "description": "Test data generator for TTB Label Analyzer",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "ttb-generate-test-data": "dist/bin/generate.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src",
+    "generate": "node dist/bin/generate.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "@ttb/shared-types": "*"
+  }
+}

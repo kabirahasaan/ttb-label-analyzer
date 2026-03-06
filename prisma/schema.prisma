@@ -1,0 +1,128 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Label {
+  id                String              @id @default(cuid())
+  brandName         String
+  alcoholByVolume   Float
+  netContents       String
+  governmentWarning String
+  classType         String
+  producerName      String
+  imageUrl          String?
+  extractedText     String?
+  rawOcrData        Json?
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  validationResults ValidationResult[]
+  auditLogs         AuditLog[]
+
+  @@index([brandName])
+  @@index([createdAt])
+}
+
+model Application {
+  id              String              @id @default(cuid())
+  brandName       String
+  alcoholByVolume Float
+  netContents     String
+  producerName    String
+  colaNumber      String?
+  approvalDate    DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  validationPoints ValidationPoint[]
+  auditLogs       AuditLog[]
+
+  @@index([brandName])
+  @@index([colaNumber])
+}
+
+model ValidationResult {
+  id                  String              @id @default(cuid())
+  labelId             String
+  label               Label               @relation(fields: [labelId], references: [id], onDelete: Cascade)
+  status              ValidationStatus    @default(PENDING)
+  ttbValidationResult Json?
+  applicationMatchId  String?
+  discrepancies       String[]
+  warnings            String[]
+  errors              String[]
+  isCompliant         Boolean             @default(false)
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+  validationErrors    ValidationError[]
+  auditLogs           AuditLog[]
+
+  @@index([labelId])
+  @@index([status])
+}
+
+model ValidationError {
+  id                  String             @id @default(cuid())
+  validationResultId  String
+  validationResult    ValidationResult   @relation(fields: [validationResultId], references: [id], onDelete: Cascade)
+  errorCode           String
+  errorMessage        String
+  severity            ErrorSeverity
+  field               String?
+  suggestedFix        String?
+  createdAt           DateTime           @default(now())
+
+  @@index([validationResultId])
+  @@index([errorCode])
+}
+
+model ValidationPoint {
+  id            String      @id @default(cuid())
+  applicationId String
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  fieldName     String
+  expectedValue String
+  createdAt     DateTime    @default(now())
+
+  @@index([applicationId])
+}
+
+model AuditLog {
+  id           String   @id @default(cuid())
+  action       String
+  entityType   String
+  entityId     String
+  labelId      String?
+  label        Label?   @relation(fields: [labelId], references: [id], onDelete: SetNull)
+  applicationId String?
+  application  Application? @relation(fields: [applicationId], references: [id], onDelete: SetNull)
+  validationId String?
+  validationResult ValidationResult? @relation(fields: [validationId], references: [id], onDelete: SetNull)
+  userId       String?
+  details      Json?
+  createdAt    DateTime @default(now())
+
+  @@index([entityType])
+  @@index([entityId])
+  @@index([createdAt])
+}
+
+enum ValidationStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum ErrorSeverity {
+  INFO
+  WARNING
+  ERROR
+  CRITICAL
+}

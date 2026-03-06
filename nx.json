@@ -1,0 +1,28 @@
+{
+  "extends": "nx/presets/npm.json",
+  "npx": {
+    "throwOnUnknownOptions": true
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "test": {
+      "cache": true,
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+    },
+    "lint": {
+      "cache": true
+    }
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": ["default", "!{projectRoot}/**/*.spec.ts", "!{projectRoot}/**/*.test.ts"],
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/**/*"]
+  },
+  "affected": {
+    "defaultBase": "main"
+  }
+}

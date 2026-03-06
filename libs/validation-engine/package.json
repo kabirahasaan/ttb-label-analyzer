@@ -1,0 +1,17 @@
+{
+  "name": "@ttb/validation-engine",
+  "version": "1.0.0",
+  "description": "Validation engine for TTB Label Analyzer",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.2.10",
+    "@ttb/shared-types": "*",
+    "@ttb/ttb-rules": "*"
+  }
+}

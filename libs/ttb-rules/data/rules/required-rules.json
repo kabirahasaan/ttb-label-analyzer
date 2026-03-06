@@ -1,0 +1,62 @@
+[
+  {
+    "id": "brand-name-required",
+    "name": "Brand Name Required",
+    "category": "required",
+    "description": "All alcoholic beverage labels must display a brand name that is easily identifiable",
+    "requirements": [
+      "Brand name must be displayed on the front label",
+      "Brand name must be easily readable",
+      "Brand name must be in English or English translation provided",
+      "Brand name cannot contain misleading statements"
+    ],
+    "applicableTo": ["beer", "wine", "spirits", "mead", "cider"],
+    "source": {
+      "document": "Beer Wine And Spirits Guide",
+      "url": "https://www.ttb.gov/press-center/news-releases/2023-06-29-beer-wine-and-spirits-retail-labeling-requirements",
+      "cfr": "27 CFR § 4.28, § 5.37, § 7.51"
+    },
+    "cfr": "27 CFR § 4.28, § 5.37, § 7.51",
+    "lastUpdated": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": "abv-statement-required",
+    "name": "Alcohol by Volume Statement Required",
+    "category": "required",
+    "description": "The percentage of alcohol by volume (ABV) must appear on all alcoholic beverage labels",
+    "requirements": [
+      "ABV must be expressed as percentage by volume",
+      "ABV statement must appear on front label or back label",
+      "Maximum variance allowed: 0.5% of stated ABV",
+      "For beers: ABV optional if not tested"
+    ],
+    "applicableTo": ["beer", "wine", "spirits", "mead", "cider"],
+    "source": {
+      "document": "ABV Requirements",
+      "url": "https://www.ttb.gov/alcohol-beverage-labeling/abv-statement-requirements",
+      "cfr": "27 CFR § 4.38 (wine), § 5.48 (spirits), § 7.65 (beer)"
+    },
+    "cfr": "27 CFR § 4.38, § 5.48, § 7.65",
+    "lastUpdated": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": "health-warning-required",
+    "name": "Health Warning Statement Required",
+    "category": "required",
+    "description": "All alcohol beverage labels must contain government-mandated health warning",
+    "requirements": [
+      "Must include warning about health risks and pregnancy",
+      "Must include warning about operating machinery",
+      "Must use exact government text or approved variations",
+      "Must appear on principal display or information panel"
+    ],
+    "applicableTo": ["beer", "wine", "spirits", "mead", "cider"],
+    "source": {
+      "document": "Health Warning Requirements",
+      "url": "https://www.ttb.gov/alcohol-beverage-labeling/health-warning-statement-text-and-format-requirements",
+      "cfr": "27 CFR § 4.32, § 5.32, § 7.45"
+    },
+    "cfr": "27 CFR § 4.32, § 5.32, § 7.45",
+    "lastUpdated": "2024-01-15T10:30:00Z"
+  }
+]

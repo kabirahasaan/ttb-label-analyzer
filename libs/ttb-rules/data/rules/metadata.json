@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2024-01-15T10:30:00Z",
+  "totalRules": 27,
+  "categories": {
+    "required": 15,
+    "conditional": 8,
+    "prohibited": 3,
+    "warning": 1
+  },
+  "beverageTypes": {
+    "beer": 12,
+    "wine": 14,
+    "spirits": 11,
+    "mead": 8,
+    "cider": 8
+  },
+  "statisticsPerType": {
+    "beer": {
+      "total": 12,
+      "required": 8,
+      "conditional": 3,
+      "prohibited": 1,
+      "warning": 0
+    },
+    "wine": {
+      "total": 14,
+      "required": 9,
+      "conditional": 4,
+      "prohibited": 1,
+      "warning": 0
+    },
+    "spirits": {
+      "total": 11,
+      "required": 7,
+      "conditional": 3,
+      "prohibited": 1,
+      "warning": 0
+    },
+    "mead": {
+      "total": 8,
+      "required": 5,
+      "conditional": 2,
+      "prohibited": 1,
+      "warning": 0
+    },
+    "cider": {
+      "total": 8,
+      "required": 5,
+      "conditional": 2,
+      "prohibited": 1,
+      "warning": 0
+    }
+  }
+}

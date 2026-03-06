@@ -136,14 +136,46 @@ export class TTBRulesEngine {
   }
 
   validateGovernmentWarning(warning: string | undefined): ValidationRuleResult {
-    const passed = !!warning && warning.trim().length > 0;
+    const normalizedWarning = this.normalizeWhitespace(warning || '');
+    const requiredPrefix = 'GOVERNMENT WARNING:';
+    const clauseOne =
+      'According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects.';
+    const clauseTwo =
+      'Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.';
+
+    const hasContent = normalizedWarning.length > 0;
+    const hasRequiredPrefix = normalizedWarning.startsWith(requiredPrefix);
+    const hasClauseOne = normalizedWarning.includes(clauseOne);
+    const hasClauseTwo = normalizedWarning.includes(clauseTwo);
+    const passed = hasContent && hasRequiredPrefix && hasClauseOne && hasClauseTwo;
+
+    let message = '';
+    let suggestion: string | undefined;
+
+    if (!hasContent) {
+      message = 'Government warning statement is required';
+      suggestion = 'Add the mandatory TTB government warning statement';
+    } else if (!hasRequiredPrefix) {
+      message = 'Government warning must start with exact uppercase prefix: GOVERNMENT WARNING:';
+      suggestion = 'Use exact uppercase prefix and standard statutory language';
+    } else if (!hasClauseOne || !hasClauseTwo) {
+      message = 'Government warning must include both mandatory statutory clauses';
+      suggestion =
+        'Include the complete warning text for pregnancy risk and impaired operation/health risks';
+    }
+
     return {
       ruleId: 'government-warning',
       ruleName: 'Government Warning Label',
       passed,
       severity: ErrorSeverity.ERROR,
-      message: !passed ? 'Government warning statement is required' : '',
+      message,
+      suggestion,
     };
+  }
+
+  private normalizeWhitespace(value: string): string {
+    return value.replace(/\s+/g, ' ').trim();
   }
 
   validateClassType(classType: string | undefined): ValidationRuleResult {

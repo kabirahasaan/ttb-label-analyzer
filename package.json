@@ -31,6 +31,8 @@
     "fetch:ttb-rules:cached-only": "npm run fetch:ttb-rules -- --cached-only",
     "fetch:ttb-rules:stats": "npm run fetch:ttb-rules -- --stats",
     "fetch:ttb-rules:export-csv": "npm run fetch:ttb-rules -- --export-csv",
+    "ac:perf": "node scripts/acceptance/performance-check.js",
+    "ac:a11y": "node scripts/acceptance/a11y-smoke.js",
     "prepare": "husky install"
   },
   "dependencies": {

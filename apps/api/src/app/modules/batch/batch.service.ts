@@ -29,15 +29,31 @@ export class BatchService {
     const results = [];
     let successCount = 0;
     let failureCount = 0;
+    const maxConcurrency = batchValidateDto.maxConcurrency ?? 10;
 
-    for (const labelId of batchValidateDto.labelIds) {
-      try {
-        const validationResult = this.validateService.validateLabel(labelId);
-        results.push(validationResult);
-        successCount++;
-      } catch (error) {
-        this.logger.error(`Failed to validate label: ${labelId}`, error as Error);
-        failureCount++;
+    this.logger.info(`Batch concurrency configured: ${maxConcurrency}`, {
+      batchId,
+      maxConcurrency,
+    });
+
+    const chunks = this.chunkArray(batchValidateDto.labelIds, maxConcurrency);
+
+    for (const chunk of chunks) {
+      const settled = await Promise.allSettled(
+        chunk.map(async (labelId) => {
+          const validationResult = this.validateService.validateLabel(labelId);
+          return { labelId, validationResult };
+        })
+      );
+
+      for (const item of settled) {
+        if (item.status === 'fulfilled') {
+          results.push(item.value.validationResult);
+          successCount++;
+        } else {
+          this.logger.error('Failed to validate label in batch chunk', item.reason as Error);
+          failureCount++;
+        }
       }
     }
 
@@ -68,5 +84,16 @@ export class BatchService {
 
   private generateBatchId(): string {
     return `batch_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  }
+
+  private chunkArray<T>(items: T[], chunkSize: number): T[][] {
+    const safeChunkSize = Math.max(1, chunkSize);
+    const chunks: T[][] = [];
+
+    for (let index = 0; index < items.length; index += safeChunkSize) {
+      chunks.push(items.slice(index, index + safeChunkSize));
+    }
+
+    return chunks;
   }
 }

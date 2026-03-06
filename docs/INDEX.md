@@ -76,6 +76,11 @@ Complete documentation for the TTB Label Compliance Validation Platform. All doc
   - Architecture overview
   - Next steps
 
+- **[AC_IMPLEMENTATION_SUMMARY.md](./AC_IMPLEMENTATION_SUMMARY.md)** - Acceptance criteria status matrix
+  - Criteria-by-criteria implementation mapping
+  - Newly implemented gaps closed
+  - Verification commands and evidence checklist
+
 ## 📖 How to Use This Documentation
 
 ### For First-Time Users

@@ -83,9 +83,19 @@ export class CrossCheckValidator {
 
   private valuesMatch(value1: unknown, value2: unknown): boolean {
     if (typeof value1 === 'string' && typeof value2 === 'string') {
-      return value1.toLowerCase().trim() === value2.toLowerCase().trim();
+      return this.normalizeText(value1) === this.normalizeText(value2);
     }
     return value1 === value2;
+  }
+
+  private normalizeText(value: string): string {
+    return value
+      .normalize('NFKD')
+      .replace(/['’`]/g, '')
+      .replace(/[^a-zA-Z0-9]+/g, ' ')
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, ' ');
   }
 
   private numbersMatch(

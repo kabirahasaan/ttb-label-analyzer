@@ -1,4 +1,4 @@
-import { IsArray, IsString, IsOptional } from 'class-validator';
+import { IsArray, IsString, IsOptional, IsBoolean, IsInt, Max, Min } from 'class-validator';
 
 export class BatchValidateDto {
   @IsArray()
@@ -11,5 +11,12 @@ export class BatchValidateDto {
   applicationIds?: string[];
 
   @IsOptional()
+  @IsBoolean()
   runCrossCheck?: boolean;
+
+  @IsOptional()
+  @IsInt()
+  @Min(1)
+  @Max(50)
+  maxConcurrency?: number;
 }

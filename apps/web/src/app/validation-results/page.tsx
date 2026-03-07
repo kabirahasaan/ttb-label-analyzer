@@ -14,6 +14,7 @@ import {
   RefreshCw,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { typography, spacing } from '@/styles/page-consistency';
 
 interface ValidationResult {
   id: string;
@@ -238,14 +239,12 @@ export default function ValidationResultsPage() {
   }
 
   return (
-    <div className="bg-white py-16">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-10">
+    <div className={`bg-white ${spacing.pageVertical}`}>
+      <div className={spacing.pageContainer}>
+        <div className={spacing.headerSection}>
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Validation Results
-            </h1>
-            <p className="mt-4 text-lg text-gray-600">
+            <h1 className={typography.pageTitle}>Validation Results</h1>
+            <p className={typography.pageSubtitle}>
               Review compliance reports and validation findings for your labels
             </p>
           </div>

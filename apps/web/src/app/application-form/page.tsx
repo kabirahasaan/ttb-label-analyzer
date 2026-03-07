@@ -13,6 +13,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { typography, spacing } from '@/styles/page-consistency';
 import { toast } from '@/hooks/use-toast';
 
 interface ApplicationRecord {
@@ -674,15 +675,15 @@ export default function ApplicationFormPage(): JSX.Element {
   };
 
   return (
-    <div className="bg-white py-16">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        <div className="mb-10 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Application Data Entry
-          </h1>
-          <p className="mt-4 text-lg text-gray-600">
-            Add one application manually, or upload a CSV/JSON file to add many at once.
-          </p>
+    <div className={`bg-white ${spacing.pageVertical}`}>
+      <div className={spacing.pageContainer}>
+        <div className={spacing.headerSection}>
+          <div className="text-center">
+            <h1 className={typography.pageTitle}>Application Data Entry</h1>
+            <p className={typography.pageSubtitle}>
+              Add one application manually, or upload a CSV/JSON file to add many at once.
+            </p>
+          </div>
         </div>
 
         <div className="mb-8">

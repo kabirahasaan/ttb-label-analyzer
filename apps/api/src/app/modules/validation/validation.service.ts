@@ -210,6 +210,7 @@ export class ValidateService {
       errors: payload.errors || [],
       warnings: payload.warnings || [],
       discrepancies: payload.discrepancies || [],
+      validationTime: payload.validationTime,
       createdAt: new Date(),
     };
 
@@ -219,6 +220,7 @@ export class ValidateService {
       resultId,
       status: storedResult.status,
       brandName: storedResult.brandName,
+      validationTime: `${storedResult.validationTime}ms`,
     });
 
     return storedResult;

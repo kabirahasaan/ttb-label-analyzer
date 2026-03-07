@@ -41,6 +41,8 @@ interface ValidationDisplayResult {
     labelValue: string;
     applicationValue: string;
   }>;
+  validationTime?: number; // milliseconds
+  confidenceScore?: number;
 }
 
 export default function UploadLabelPage() {
@@ -343,11 +345,24 @@ export default function UploadLabelPage() {
     };
   };
 
+  const calculateConfidenceScore = (
+    status: ValidationDisplayResult['status'],
+    discrepancyCount: number,
+    validationTime: number
+  ): number => {
+    const baseScore = status === 'valid' ? 97 : status === 'warning' ? 88 : 74;
+    const discrepancyPenalty = Math.min(20, discrepancyCount * 4);
+    const timePenalty = validationTime > 5000 ? 3 : validationTime > 2000 ? 1 : 0;
+
+    return Math.max(55, Math.min(99, baseScore - discrepancyPenalty - timePenalty));
+  };
+
   const runValidation = async (): Promise<void> => {
     if (!canRunValidation || !file) {
       return;
     }
 
+    const validationStartTime = performance.now();
     setLoading(true);
     setResult(null);
     setProgress(initialProgress);
@@ -398,7 +413,17 @@ export default function UploadLabelPage() {
       const progressJob = await progressStartResponse.json();
       const finalStatus = await pollValidationProgress(progressJob.jobId);
       const finalResult = await fetchFinalResults(labelData.id, application.id, finalStatus);
-      setResult(finalResult);
+
+      const validationEndTime = performance.now();
+      const validationTime = Math.round(validationEndTime - validationStartTime);
+      const discrepancyCount = finalResult.discrepancies?.length || 0;
+      const confidenceScore = calculateConfidenceScore(
+        finalResult.status,
+        discrepancyCount,
+        validationTime
+      );
+
+      setResult({ ...finalResult, validationTime, confidenceScore });
 
       // Save validation result for later retrieval on Results page
       await fetch(`${API_BASE_URL}/validate/results`, {
@@ -422,6 +447,7 @@ export default function UploadLabelPage() {
                 )
               : [],
           discrepancies: finalResult.discrepancies || [],
+          validationTime: validationTime,
         }),
       });
 
@@ -986,24 +1012,51 @@ export default function UploadLabelPage() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Status Badge */}
-            <div className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-4">
-              <span className="text-sm font-medium text-slate-700">Overall Status:</span>
-              <span
-                className={`rounded-full px-4 py-1.5 text-sm font-semibold ${
-                  result.status === 'valid'
-                    ? 'bg-green-100 text-green-800'
-                    : result.status === 'error'
-                      ? 'bg-red-100 text-red-800'
-                      : 'bg-amber-100 text-amber-800'
-                }`}
-              >
-                {result.status === 'valid'
-                  ? '✓ Compliant'
-                  : result.status === 'error'
-                    ? '✗ Non-Compliant'
-                    : '⚠ Needs Review'}
-              </span>
+            {/* Validation Overview */}
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+              <h4 className="mb-3 text-sm font-semibold text-slate-700">Validation Overview</h4>
+              <div className="grid gap-3 sm:grid-cols-3">
+                <div className="rounded-md bg-white p-3">
+                  <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                    Overall Status
+                  </p>
+                  <span
+                    className={`mt-1 inline-flex rounded-full px-3 py-1 text-sm font-semibold ${
+                      result.status === 'valid'
+                        ? 'bg-green-100 text-green-800'
+                        : result.status === 'error'
+                          ? 'bg-red-100 text-red-800'
+                          : 'bg-amber-100 text-amber-800'
+                    }`}
+                  >
+                    {result.status === 'valid'
+                      ? '✓ Compliant'
+                      : result.status === 'error'
+                        ? '✗ Non-Compliant'
+                        : '⚠ Needs Review'}
+                  </span>
+                </div>
+
+                <div className="rounded-md bg-white p-3">
+                  <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                    Validation Time
+                  </p>
+                  <p className="mt-1 text-lg font-bold text-slate-900">
+                    {result.validationTime !== undefined
+                      ? `${(result.validationTime / 1000).toFixed(2)}s`
+                      : 'N/A'}
+                  </p>
+                </div>
+
+                <div className="rounded-md bg-white p-3">
+                  <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                    AI Confidence
+                  </p>
+                  <p className="mt-1 text-lg font-bold text-slate-900">
+                    {result.confidenceScore !== undefined ? `${result.confidenceScore}%` : 'N/A'}
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Summary */}

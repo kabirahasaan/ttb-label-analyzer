@@ -1,4 +1,4 @@
-import { IsString, IsOptional, IsArray, IsEnum, IsInt, Min } from 'class-validator';
+import { IsString, IsOptional, IsArray, IsEnum, IsInt, Min, IsNumber } from 'class-validator';
 
 export class ValidateLabelDto {
   @IsString()
@@ -79,6 +79,7 @@ export interface StoredValidationResult {
     labelValue: string;
     applicationValue: string;
   }>;
+  validationTime: number; // milliseconds
   createdAt: Date;
 }
 
@@ -110,4 +111,7 @@ export class SaveValidationResultDto {
     labelValue: string;
     applicationValue: string;
   }>;
+
+  @IsNumber()
+  validationTime: number; // milliseconds
 }

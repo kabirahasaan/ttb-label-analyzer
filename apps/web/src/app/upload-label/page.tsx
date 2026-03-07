@@ -2,7 +2,15 @@
 
 import Image from 'next/image';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Camera, CheckCircle2, Download, FileImage, Play, AlertTriangle } from 'lucide-react';
+import {
+  Camera,
+  CheckCircle2,
+  Download,
+  FileImage,
+  Play,
+  AlertTriangle,
+  RefreshCw,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -96,7 +104,7 @@ export default function UploadLabelPage() {
   }, [applicationMode, file, manualData, selectedApplicationId]);
 
   // Smooth scroll helper
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>, offset = -20) => {
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>, offset = -100) => {
     if (ref.current) {
       const top = ref.current.getBoundingClientRect().top + window.scrollY + offset;
       window.scrollTo({ top, behavior: 'smooth' });
@@ -504,6 +512,45 @@ export default function UploadLabelPage() {
     URL.revokeObjectURL(downloadUrl);
   };
 
+  const handleStartNewValidation = (): void => {
+    // Reset all state
+    setFile(null);
+    if (previewUrl) {
+      URL.revokeObjectURL(previewUrl);
+    }
+    setPreviewUrl(null);
+    setSelectedApplicationId('');
+    setManualData({
+      brandName: '',
+      alcoholByVolume: '',
+      netContents: '',
+      producerName: '',
+      colaNumber: '',
+      approvalDate: '',
+    });
+    setResult(null);
+    setProgress(initialProgress);
+    setJobStatus('running');
+    setFormError('');
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Show success message
+    toast({
+      title: 'Ready for new validation',
+      description: 'Start by uploading a new label image.',
+      variant: 'default',
+    });
+
+    // Focus on upload section after scroll
+    setTimeout(() => {
+      if (uploadSectionRef.current) {
+        uploadSectionRef.current.focus();
+      }
+    }, 600);
+  };
+
   return (
     <main className="mx-auto w-full max-w-5xl px-4 py-8 md:px-6" aria-live="polite">
       <h1 className="mb-2 text-3xl font-semibold tracking-tight text-gray-900">Validate Label</h1>
@@ -559,7 +606,8 @@ export default function UploadLabelPage() {
 
       <Card
         ref={uploadSectionRef}
-        className={`mb-6 border-slate-200 shadow-sm transition-all ${!completedSteps.upload ? 'ring-2 ring-blue-500' : ''}`}
+        tabIndex={-1}
+        className={`mb-6 border-slate-200 shadow-sm transition-all outline-none ${!completedSteps.upload ? 'ring-2 ring-blue-500' : ''}`}
       >
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -1051,26 +1099,60 @@ export default function UploadLabelPage() {
               </div>
             )}
 
-            {/* Export Report Section */}
+            {/* Action Buttons Section */}
             <div className="border-t border-slate-200 pt-6">
-              <div className="flex flex-col items-center gap-3">
-                <p className="text-center text-sm text-slate-600">
-                  Need to save or share these results?
-                </p>
-                <Button
-                  variant="secondary"
-                  onClick={exportResult}
-                  className="group flex items-center gap-3 rounded-xl border-2 border-slate-300 bg-gradient-to-br from-white to-slate-50 px-8 py-6 shadow-md transition-all hover:scale-105 hover:border-blue-400 hover:shadow-lg active:scale-95"
-                  aria-label="Export validation result"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 transition-colors group-hover:bg-blue-500">
-                    <Download className="h-5 w-5 text-blue-600 transition-colors group-hover:text-white" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-base font-semibold text-slate-900">Export Detailed Report</div>
-                    <div className="text-xs text-slate-500">Download as JSON file</div>
-                  </div>
-                </Button>
+              <div className="flex flex-col items-center gap-4">
+                {/* Start New Validation Button */}
+                <div className="flex w-full flex-col items-center gap-3">
+                  <p className="text-center text-sm text-slate-600">
+                    Ready to validate another label?
+                  </p>
+                  <Button
+                    onClick={handleStartNewValidation}
+                    className="group flex items-center gap-3 rounded-xl border-2 border-green-300 bg-gradient-to-br from-green-50 to-emerald-50 px-8 py-6 shadow-md transition-all hover:scale-105 hover:border-green-500 hover:shadow-lg active:scale-95"
+                    aria-label="Start new validation"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 transition-colors group-hover:bg-green-500">
+                      <RefreshCw className="h-5 w-5 text-green-600 transition-colors group-hover:text-white" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-base font-semibold text-slate-900">
+                        Start New Validation
+                      </div>
+                      <div className="text-xs text-slate-600">Reset and validate another label</div>
+                    </div>
+                  </Button>
+                </div>
+
+                {/* Divider */}
+                <div className="flex w-full items-center gap-3 py-2">
+                  <div className="h-px flex-1 bg-slate-200" />
+                  <span className="text-xs text-slate-400">OR</span>
+                  <div className="h-px flex-1 bg-slate-200" />
+                </div>
+
+                {/* Export Report Button */}
+                <div className="flex flex-col items-center gap-3">
+                  <p className="text-center text-sm text-slate-600">
+                    Need to save or share these results?
+                  </p>
+                  <Button
+                    variant="secondary"
+                    onClick={exportResult}
+                    className="group flex items-center gap-3 rounded-xl border-2 border-slate-300 bg-gradient-to-br from-white to-slate-50 px-8 py-6 shadow-md transition-all hover:scale-105 hover:border-blue-400 hover:shadow-lg active:scale-95"
+                    aria-label="Export validation result"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 transition-colors group-hover:bg-blue-500">
+                      <Download className="h-5 w-5 text-blue-600 transition-colors group-hover:text-white" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-base font-semibold text-slate-900">
+                        Export Detailed Report
+                      </div>
+                      <div className="text-xs text-slate-500">Download as JSON file</div>
+                    </div>
+                  </Button>
+                </div>
               </div>
             </div>
           </CardContent>

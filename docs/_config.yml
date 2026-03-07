@@ -17,11 +17,11 @@ aux_links:
   Repository:
     - https://github.com/kabirahasaan/ttb-label-analyzer
 
-footer_content: "TTB Label Analyzer documentation. Last updated: March 7, 2026."
+footer_content: 'TTB Label Analyzer documentation. Last updated: March 7, 2026.'
 
 defaults:
   - scope:
-      path: ""
-      type: "pages"
+      path: ''
+      type: 'pages'
     values:
-      layout: "default"
+      layout: 'default'

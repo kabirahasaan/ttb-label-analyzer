@@ -1,7 +1,12 @@
 import { Controller, Post, Get, Put, Delete, Param, Body } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { ApplicationService } from './application.service';
-import { CreateApplicationDto, UpdateApplicationDto } from './application.dto';
+import {
+  CreateApplicationDto,
+  UpdateApplicationDto,
+  CreateApplicationsBatchDto,
+  CreateApplicationsBatchResponse,
+} from './application.dto';
 import { ApplicationData } from '@ttb/shared-types';
 
 @ApiTags('applications')
@@ -14,6 +19,15 @@ export class ApplicationController {
   @ApiResponse({ status: 201, description: 'Application created' })
   create(@Body() createApplicationDto: CreateApplicationDto): ApplicationData {
     return this.applicationService.create(createApplicationDto);
+  }
+
+  @Post('batch')
+  @ApiOperation({ summary: 'Create applications in batch' })
+  @ApiResponse({ status: 201, description: 'Batch application import completed' })
+  createBatch(
+    @Body() createApplicationsBatchDto: CreateApplicationsBatchDto
+  ): CreateApplicationsBatchResponse {
+    return this.applicationService.createBatch(createApplicationsBatchDto);
   }
 
   @Get()

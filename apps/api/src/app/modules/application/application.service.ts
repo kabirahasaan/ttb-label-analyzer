@@ -1,6 +1,12 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { randomUUID } from 'crypto';
-import { CreateApplicationDto, UpdateApplicationDto } from './application.dto';
+import {
+  CreateApplicationDto,
+  UpdateApplicationDto,
+  CreateApplicationsBatchDto,
+  CreateApplicationsBatchResponse,
+  BatchApplicationFailure,
+} from './application.dto';
 import { ApplicationData } from '@ttb/shared-types';
 import { LoggerService } from '@ttb/logger';
 import { getValidTestApplications } from '../../fixtures/test-applications.fixture';
@@ -12,6 +18,8 @@ import { getValidTestApplications } from '../../fixtures/test-applications.fixtu
 @Injectable()
 export class ApplicationService {
   private applications: Map<string, ApplicationData> = new Map();
+  private readonly defaultGovernmentWarning =
+    'GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.';
 
   constructor(private logger: LoggerService) {}
 
@@ -56,6 +64,83 @@ export class ApplicationService {
     this.logger.info(`Application created: ${id}`, { applicationId: id });
 
     return application;
+  }
+
+  createBatch(payload: CreateApplicationsBatchDto): CreateApplicationsBatchResponse {
+    const failures: BatchApplicationFailure[] = [];
+    const createdApplications: ApplicationData[] = [];
+
+    payload.applications.forEach((item, index) => {
+      const fallbackRowNumber = index + 1;
+      const rowNumber = item.rowNumber || fallbackRowNumber;
+
+      const normalizedBrandName = item.brandName?.trim();
+      const normalizedNetContents = item.netContents?.trim();
+      const normalizedProducerName = item.producerName?.trim();
+      const parsedAbv = Number(item.alcoholByVolume);
+
+      if (!normalizedBrandName) {
+        failures.push({ row: rowNumber, reason: 'Missing brandName' });
+        return;
+      }
+
+      if (!Number.isFinite(parsedAbv) || parsedAbv < 0 || parsedAbv > 100) {
+        failures.push({ row: rowNumber, reason: 'ABV must be between 0 and 100' });
+        return;
+      }
+
+      if (!normalizedNetContents) {
+        failures.push({ row: rowNumber, reason: 'Missing netContents' });
+        return;
+      }
+
+      if (!normalizedProducerName) {
+        failures.push({ row: rowNumber, reason: 'Missing producerName' });
+        return;
+      }
+
+      if (item.approvalDate) {
+        const parsedDate = new Date(item.approvalDate);
+        if (Number.isNaN(parsedDate.getTime())) {
+          failures.push({ row: rowNumber, reason: 'Invalid approvalDate' });
+          return;
+        }
+      }
+
+      try {
+        const created = this.create({
+          brandName: normalizedBrandName,
+          alcoholByVolume: parsedAbv,
+          netContents: normalizedNetContents,
+          producerName: normalizedProducerName,
+          colaNumber: item.colaNumber,
+          approvalDate: item.approvalDate,
+          governmentWarning: item.governmentWarning || this.defaultGovernmentWarning,
+        });
+
+        createdApplications.push(created);
+      } catch {
+        failures.push({ row: rowNumber, reason: 'Unexpected error while creating application' });
+      }
+    });
+
+    this.logger.info(`Batch application import completed`, {
+      total: payload.applications.length,
+      created: createdApplications.length,
+      failed: failures.length,
+    });
+
+    return {
+      total: payload.applications.length,
+      created: createdApplications.length,
+      failed: failures.length,
+      failures,
+      applications: createdApplications.map((application) => ({
+        id: application.id,
+        brandName: application.brandName,
+        colaNumber: application.colaNumber,
+      })),
+    };
   }
 
   findAll(): ApplicationData[] {

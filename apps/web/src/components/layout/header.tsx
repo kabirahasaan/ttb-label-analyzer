@@ -13,8 +13,8 @@ export function Header(): JSX.Element {
 
   const navigation = [
     { name: 'Validate Label', href: '/upload-label' },
-    { name: 'Application Form', href: '/application-form' },
     { name: 'Batch Validation', href: '/batch-validation' },
+    { name: 'Application Form', href: '/application-form' },
     { name: 'Results', href: '/validation-results' },
   ];
 

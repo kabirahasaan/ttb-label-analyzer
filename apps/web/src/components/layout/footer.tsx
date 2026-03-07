@@ -1,15 +1,11 @@
 import Link from 'next/link';
+import { FOOTER_PRODUCT_LINKS } from '@/constants/routes';
 
 export function Footer(): JSX.Element {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    product: [
-      { name: 'Upload Label', href: '/upload-label' },
-      { name: 'Application Form', href: '/application-form' },
-      { name: 'Batch Validation', href: '/batch-validation' },
-      { name: 'Results', href: '/validation-results' },
-    ],
+    product: FOOTER_PRODUCT_LINKS,
     resources: [
       { name: 'Documentation', href: '/docs' },
       { name: 'API Reference', href: '/api/docs' },

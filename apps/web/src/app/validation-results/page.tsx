@@ -15,6 +15,9 @@ import {
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { typography, spacing } from '@/styles/page-consistency';
+import { downloadCsv, downloadJson } from '@/lib/file';
+import { formatValidationFieldName } from '@/lib/validation-format';
+import { FieldComparisonCard } from '@/components/validation/field-comparison-card';
 
 interface ValidationResult {
   id: string;
@@ -30,17 +33,6 @@ interface ValidationResult {
   }>;
   createdAt: string;
 }
-
-// Human-friendly field name mapping
-const fieldNameMap: Record<string, string> = {
-  brandName: 'Brand Name',
-  alcoholByVolume: 'Alcohol by Volume (ABV)',
-  netContents: 'Net Contents',
-  producerName: 'Producer Name',
-  governmentWarning: 'Government Warning',
-  colaNumber: 'TTB COLA ID',
-  classType: 'Product Type',
-};
 
 const statusConfig = {
   COMPLIANT: {
@@ -88,19 +80,6 @@ export default function ValidationResultsPage() {
     setExpandedId(expandedId === id ? null : id);
   };
 
-  const exportAsJSON = (data: ValidationResult | ValidationResult[], filename: string) => {
-    const jsonStr = JSON.stringify(data, null, 2);
-    const blob = new Blob([jsonStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  };
-
   const exportAsCSV = (data: ValidationResult[], filename: string) => {
     const headers = [
       'TTB COLA ID',
@@ -121,20 +100,7 @@ export default function ValidationResultsPage() {
       new Date(result.createdAt).toLocaleString(),
     ]);
 
-    const csvContent = [
-      headers.join(','),
-      ...rows.map((row) => row.map((cell) => `"${cell}"`).join(',')),
-    ].join('\n');
-
-    const blob = new Blob([csvContent], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    downloadCsv(headers, rows, filename);
   };
 
   const handleExportSingle = (result: ValidationResult, format: 'json' | 'csv') => {
@@ -143,7 +109,7 @@ export default function ValidationResultsPage() {
     const colaPrefix = result.colaNumber ? `${result.colaNumber}-` : '';
 
     if (format === 'json') {
-      exportAsJSON(result, `${colaPrefix}${safeBrandName}-validation-${timestamp}.json`);
+      downloadJson(result as object, `${colaPrefix}${safeBrandName}-validation-${timestamp}.json`);
     } else {
       exportAsCSV([result], `${colaPrefix}${safeBrandName}-validation-${timestamp}.csv`);
     }
@@ -153,7 +119,7 @@ export default function ValidationResultsPage() {
     const timestamp = new Date().toISOString().split('T')[0];
 
     if (format === 'json') {
-      exportAsJSON(results, `validation-results-${timestamp}.json`);
+      downloadJson(results as object[], `validation-results-${timestamp}.json`);
     } else {
       exportAsCSV(results, `validation-results-${timestamp}.csv`);
     }
@@ -428,57 +394,16 @@ export default function ValidationResultsPage() {
                           </p>
                           <div className="space-y-3">
                             {result.discrepancies.map((discrepancy, idx) => {
-                              const fieldDisplayName =
-                                fieldNameMap[discrepancy.field] ||
-                                discrepancy.field
-                                  .replace(/([A-Z])/g, ' $1')
-                                  .replace(/^./, (str) => str.toUpperCase())
-                                  .trim();
-
                               return (
-                                <div
+                                <FieldComparisonCard
                                   key={`${result.id}-discrepancy-${idx}`}
-                                  className="rounded-lg border border-amber-200 bg-amber-50 p-4"
-                                >
-                                  <div className="mb-3 flex items-center gap-2">
-                                    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-amber-600">
-                                      <span className="text-xs font-bold text-white">
-                                        {idx + 1}
-                                      </span>
-                                    </div>
-                                    <h5 className="font-semibold text-amber-900">
-                                      {fieldDisplayName}
-                                    </h5>
-                                  </div>
-
-                                  <div className="grid gap-3 sm:grid-cols-2">
-                                    <div className="rounded-lg border border-green-300 bg-green-50 p-3">
-                                      <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-green-700">
-                                        <CheckCircle2 className="h-3.5 w-3.5" />
-                                        Approved Application
-                                      </div>
-                                      <p className="break-words text-sm text-green-900">
-                                        {discrepancy.applicationValue ||
-                                          '(Not specified in application)'}
-                                      </p>
-                                    </div>
-
-                                    <div className="rounded-lg border border-red-300 bg-red-50 p-3">
-                                      <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-red-700">
-                                        <XCircle className="h-3.5 w-3.5" />
-                                        Found on Label
-                                      </div>
-                                      <p className="break-words text-sm text-red-900">
-                                        {discrepancy.labelValue || '(Missing on label)'}
-                                      </p>
-                                    </div>
-                                  </div>
-
-                                  <div className="mt-3 rounded bg-amber-100 px-3 py-2 text-sm text-amber-800">
-                                    <strong>Action needed:</strong> Update the label to match the
-                                    approved application.
-                                  </div>
-                                </div>
+                                  index={idx}
+                                  fieldName={formatValidationFieldName(discrepancy.field)}
+                                  expectedValue={discrepancy.applicationValue}
+                                  actualValue={discrepancy.labelValue}
+                                  actualLabel="Found on Label"
+                                  actionText="Update the label to match the approved application."
+                                />
                               );
                             })}
                           </div>

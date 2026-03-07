@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Upload, FileText, Layers, CheckCircle2, ArrowRight } from 'lucide-react';
+import { APP_ROUTES } from '@/constants/routes';
 
 export default function HomePage(): JSX.Element {
   const features = [
@@ -7,7 +8,7 @@ export default function HomePage(): JSX.Element {
       icon: Upload,
       title: 'Upload Label',
       description: 'Scan alcohol beverage labels using advanced OCR technology.',
-      href: '/upload-label',
+      href: APP_ROUTES.uploadLabel,
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
     },
@@ -15,7 +16,7 @@ export default function HomePage(): JSX.Element {
       icon: FileText,
       title: 'Application Form',
       description: 'Enter COLA application data for comprehensive validation.',
-      href: '/application-form',
+      href: APP_ROUTES.applicationForm,
       color: 'text-purple-600',
       bgColor: 'bg-purple-50',
     },
@@ -23,7 +24,7 @@ export default function HomePage(): JSX.Element {
       icon: Layers,
       title: 'Batch Validation',
       description: 'Validate multiple labels simultaneously for efficiency.',
-      href: '/batch-validation',
+      href: APP_ROUTES.batchValidation,
       color: 'text-green-600',
       bgColor: 'bg-green-50',
     },
@@ -31,15 +32,23 @@ export default function HomePage(): JSX.Element {
       icon: CheckCircle2,
       title: 'Results',
       description: 'View detailed compliance reports and validation results.',
-      href: '/validation-results',
+      href: APP_ROUTES.validationResults,
       color: 'text-orange-600',
       bgColor: 'bg-orange-50',
     },
   ];
 
   const steps = [
-    { number: '01', title: 'Upload Label', description: 'Upload your alcohol beverage label image' },
-    { number: '02', title: 'Enter Application Data', description: 'Provide COLA application information' },
+    {
+      number: '01',
+      title: 'Upload Label',
+      description: 'Upload your alcohol beverage label image',
+    },
+    {
+      number: '02',
+      title: 'Enter Application Data',
+      description: 'Provide COLA application information',
+    },
     { number: '03', title: 'Run Validation', description: 'AI validates against TTB regulations' },
     { number: '04', title: 'Review Report', description: 'Get detailed compliance results' },
   ];
@@ -57,19 +66,19 @@ export default function HomePage(): JSX.Element {
               </span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
-              AI-assisted verification of alcohol beverage labels against TTB regulations and COLA application data.
-              Ensure compliance with confidence.
+              AI-assisted verification of alcohol beverage labels against TTB regulations and COLA
+              application data. Ensure compliance with confidence.
             </p>
             <div className="mt-10 flex items-center justify-center gap-4">
               <Link
-                href="/upload-label"
+                href={APP_ROUTES.uploadLabel}
                 className="group rounded-full bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:bg-blue-500 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
                 Upload Label
                 <ArrowRight className="ml-2 inline-block h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/batch-validation"
+                href={APP_ROUTES.batchValidation}
                 className="rounded-full border-2 border-gray-300 bg-white px-6 py-3 text-base font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
               >
                 Batch Validate
@@ -120,7 +129,9 @@ export default function HomePage(): JSX.Element {
       <div className="bg-gray-50 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">How it works</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              How it works
+            </h2>
             <p className="mt-4 text-lg text-gray-600">
               Four simple steps to complete label validation
             </p>
@@ -156,7 +167,7 @@ export default function HomePage(): JSX.Element {
           </p>
           <div className="mt-8">
             <Link
-              href="/upload-label"
+              href={APP_ROUTES.uploadLabel}
               className="inline-flex items-center rounded-full bg-white px-8 py-4 text-base font-semibold text-blue-600 shadow-lg transition-all hover:bg-blue-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
             >
               Get Started Now

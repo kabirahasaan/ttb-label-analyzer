@@ -17,6 +17,9 @@ import { typography, spacing, stepIndicators, cards } from '@/styles/page-consis
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from '@/hooks/use-toast';
+import { downloadCsv, downloadJson, downloadText } from '@/lib/file';
+import { formatValidationFieldName } from '@/lib/validation-format';
+import { FieldComparisonCard } from '@/components/validation/field-comparison-card';
 
 interface ApplicationRecord {
   id: string;
@@ -180,13 +183,7 @@ export default function BatchValidationPage() {
 COLA-2024-001,Hoppy Trails IPA,labels/hoppy-trails.jpg
 COLA-2024-002,Reserve Cabernet,labels/cabernet.jpg`;
 
-    const blob = new Blob([templateContent], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'batch-validation-applications-template.csv';
-    a.click();
-    URL.revokeObjectURL(url);
+    downloadText(templateContent, 'batch-validation-applications-template.csv', 'text/csv');
 
     toast({
       title: 'Template Downloaded',
@@ -372,13 +369,7 @@ COLA-2024-002,Reserve Cabernet,labels/cabernet.jpg`;
     const fileName = `batch-validation-results-${timestamp}.${format}`;
 
     if (format === 'json') {
-      const blob = new Blob([JSON.stringify(results, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = fileName;
-      a.click();
-      URL.revokeObjectURL(url);
+      downloadJson(results as object, fileName);
     } else {
       const headers = ['Label ID', 'Brand Name', 'Status', 'Errors', 'Warnings'];
       const rows = results.results
@@ -391,18 +382,7 @@ COLA-2024-002,Reserve Cabernet,labels/cabernet.jpg`;
           r.warnings.length.toString(),
         ]);
 
-      const csvContent = [
-        headers.join(','),
-        ...rows.map((row) => row.map((cell) => `"${cell}"`).join(',')),
-      ].join('\n');
-
-      const blob = new Blob([csvContent], { type: 'text/csv' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = fileName;
-      a.click();
-      URL.revokeObjectURL(url);
+      downloadCsv(headers, rows, fileName);
     }
 
     toast({
@@ -1050,62 +1030,13 @@ COLA-2024-002,Reserve Cabernet,labels/cabernet.jpg`;
 
                                 <div className="space-y-3">
                                   {result.discrepancies.map((discrepancy, idx) => (
-                                    <div
+                                    <FieldComparisonCard
                                       key={`${discrepancy.field}-${idx}`}
-                                      className="rounded-lg border border-amber-200 bg-amber-50 p-4"
-                                    >
-                                      <div className="mb-3 flex items-start gap-2">
-                                        <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-amber-200">
-                                          <span className="text-xs font-bold text-amber-800">
-                                            {idx + 1}
-                                          </span>
-                                        </div>
-                                        <div className="flex-1">
-                                          <h6 className="font-semibold text-amber-900">
-                                            {discrepancy.field
-                                              .replace(/([A-Z])/g, ' $1')
-                                              .replace(/^./, (str) => str.toUpperCase())
-                                              .trim()}
-                                          </h6>
-                                          <p className="mt-1 text-xs text-amber-700">
-                                            The information on your label doesn&apos;t match the
-                                            approved application
-                                          </p>
-                                        </div>
-                                      </div>
-
-                                      <div className="grid gap-3 sm:grid-cols-2">
-                                        <div className="rounded-md border border-green-300 bg-green-50 p-3">
-                                          <div className="mb-1 flex items-center gap-1.5">
-                                            <CheckCircle2 className="h-4 w-4 text-green-600" />
-                                            <span className="text-xs font-semibold uppercase tracking-wide text-green-800">
-                                              Approved Application
-                                            </span>
-                                          </div>
-                                          <p className="break-words text-sm font-medium text-green-900">
-                                            {discrepancy.expected ||
-                                              '(Not specified in application)'}
-                                          </p>
-                                        </div>
-
-                                        <div className="rounded-md border border-red-300 bg-red-50 p-3">
-                                          <div className="mb-1 flex items-center gap-1.5">
-                                            <AlertCircle className="h-4 w-4 text-red-600" />
-                                            <span className="text-xs font-semibold uppercase tracking-wide text-red-800">
-                                              Your Label
-                                            </span>
-                                          </div>
-                                          <p className="break-words text-sm font-medium text-red-900">
-                                            {discrepancy.actual || '(Missing on label)'}
-                                          </p>
-                                        </div>
-                                      </div>
-
-                                      <div className="mt-3 rounded-md bg-white p-2 text-xs text-slate-600">
-                                        <strong>Action needed:</strong> Update your label to match
-                                        the approved application value
-                                      </div>
-                                    </div>
+                                      index={idx}
+                                      fieldName={formatValidationFieldName(discrepancy.field)}
+                                      expectedValue={discrepancy.expected}
+                                      actualValue={discrepancy.actual}
+                                    />
                                   ))}
                                 </div>
                               </div>

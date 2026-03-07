@@ -1,26 +1,21 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import { APP_ROUTES, PRIMARY_NAV_LINKS } from '@/constants/routes';
 
 export function Header(): JSX.Element {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const navigation = [
-    { name: 'Validate Label', href: '/upload-label' },
-    { name: 'Batch Validation', href: '/batch-validation' },
-    { name: 'Application Form', href: '/application-form' },
-    { name: 'Results', href: '/validation-results' },
-  ];
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const lastScrollY = lastScrollYRef.current;
 
       // Show header when scrolling up or at the top
       if (currentScrollY < lastScrollY || currentScrollY < 10) {
@@ -31,7 +26,7 @@ export function Header(): JSX.Element {
         setIsVisible(false);
       }
 
-      setLastScrollY(currentScrollY);
+      lastScrollYRef.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -39,7 +34,7 @@ export function Header(): JSX.Element {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <header
@@ -53,7 +48,7 @@ export function Header(): JSX.Element {
       >
         {/* Logo */}
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href={APP_ROUTES.home} className="-m-1.5 p-1.5">
             <span className="text-xl font-semibold text-gray-900">TTB Label Validator</span>
           </Link>
         </div>
@@ -77,7 +72,7 @@ export function Header(): JSX.Element {
 
         {/* Desktop navigation */}
         <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item) => {
+          {PRIMARY_NAV_LINKS.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link
@@ -98,7 +93,7 @@ export function Header(): JSX.Element {
         {/* CTA Button */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
-            href="/upload-label"
+            href={APP_ROUTES.uploadLabel}
             className="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-500 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             Get Started →
@@ -110,7 +105,7 @@ export function Header(): JSX.Element {
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="space-y-1 border-t border-gray-200 bg-white px-6 pb-6 pt-4">
-            {navigation.map((item) => {
+            {PRIMARY_NAV_LINKS.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
@@ -128,7 +123,7 @@ export function Header(): JSX.Element {
               );
             })}
             <Link
-              href="/upload-label"
+              href={APP_ROUTES.uploadLabel}
               className="mt-4 block rounded-full bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-500"
               onClick={() => setMobileMenuOpen(false)}
             >

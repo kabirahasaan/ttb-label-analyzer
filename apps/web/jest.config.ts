@@ -28,10 +28,7 @@ const config: Config = {
     '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}',
   ],
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
-  transformIgnorePatterns: [
-    '/node_modules/',
-    '^.+\\.module\\.(css|sass|scss)$',
-  ],
+  transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
   moduleDirectories: ['node_modules', '<rootDir>/'],
   coverageThreshold: {
     global: {

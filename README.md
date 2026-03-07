@@ -465,11 +465,13 @@ npm run test:watch
 Tests individual components, functions, and utilities in isolation.
 
 **Web App**:
+
 - Location: `apps/web/src/**/__tests__/**/*.test.{ts,tsx}`
 - Components: FieldComparisonCard, validation utilities, file utilities
 - Coverage threshold: 70% (branches, functions, lines, statements)
 
 **API**:
+
 - Location: `apps/api/src/**/*.spec.ts`
 - Controllers, services, and business logic
 - Coverage threshold: 70%
@@ -552,17 +554,17 @@ open coverage/integration/lcov-report/index.html
 
 ### Test Scripts Summary
 
-| Command | Description |
-|---------|-------------|
-| `npm test` | Run all tests (unit + integration + E2E) |
-| `npm run test:unit` | Run unit tests only |
-| `npm run test:integration` | Run API integration tests |
-| `npm run test:e2e` | Run Playwright E2E tests |
-| `npm run test:watch` | Run unit tests in watch mode |
-| `npm run test:coverage` | Generate coverage reports |
-| `npm run test:coverage:report` | View coverage summary |
-| `npm run test:e2e:ui` | Run E2E in interactive mode |
-| `npm run test:e2e:headed` | Run E2E with visible browser |
+| Command                        | Description                              |
+| ------------------------------ | ---------------------------------------- |
+| `npm test`                     | Run all tests (unit + integration + E2E) |
+| `npm run test:unit`            | Run unit tests only                      |
+| `npm run test:integration`     | Run API integration tests                |
+| `npm run test:e2e`             | Run Playwright E2E tests                 |
+| `npm run test:watch`           | Run unit tests in watch mode             |
+| `npm run test:coverage`        | Generate coverage reports                |
+| `npm run test:coverage:report` | View coverage summary                    |
+| `npm run test:e2e:ui`          | Run E2E in interactive mode              |
+| `npm run test:e2e:headed`      | Run E2E with visible browser             |
 
 For detailed testing guidelines, see [TESTING.md](./TESTING.md).
 

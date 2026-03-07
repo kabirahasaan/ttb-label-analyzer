@@ -52,10 +52,7 @@ describe('Application API Integration Tests (e2e)', () => {
         netContents: '',
       };
 
-      return request(app.getHttpServer())
-        .post('/applications')
-        .send(invalidDto)
-        .expect(400);
+      return request(app.getHttpServer()).post('/applications').send(invalidDto).expect(400);
     });
   });
 

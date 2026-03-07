@@ -58,11 +58,7 @@ describe('FieldComparisonCard', () => {
 
   it('should display empty text for actual value when value is empty', () => {
     render(
-      <FieldComparisonCard
-        {...defaultProps}
-        actualValue=""
-        actualEmptyText="Value not found"
-      />
+      <FieldComparisonCard {...defaultProps} actualValue="" actualEmptyText="Value not found" />
     );
 
     expect(screen.getByText('Value not found')).toBeInTheDocument();

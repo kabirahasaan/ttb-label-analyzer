@@ -29,11 +29,15 @@ function displayCoverage(name, summary) {
   }
 
   const { lines, statements, functions, branches } = summary.total;
-  
+
   console.log(`${name}:`);
   console.log(`  Lines      : ${lines.pct.toFixed(2)}% (${lines.covered}/${lines.total})`);
-  console.log(`  Statements : ${statements.pct.toFixed(2)}% (${statements.covered}/${statements.total})`);
-  console.log(`  Functions  : ${functions.pct.toFixed(2)}% (${functions.covered}/${functions.total})`);
+  console.log(
+    `  Statements : ${statements.pct.toFixed(2)}% (${statements.covered}/${statements.total})`
+  );
+  console.log(
+    `  Functions  : ${functions.pct.toFixed(2)}% (${functions.covered}/${functions.total})`
+  );
   console.log(`  Branches   : ${branches.pct.toFixed(2)}% (${branches.covered}/${branches.total})`);
   console.log('');
 }

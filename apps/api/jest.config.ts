@@ -7,7 +7,12 @@ const config: Config = {
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
-  collectCoverageFrom: ['src/**/*.(t|j)s', '!src/**/*.spec.ts', '!src/**/*.interface.ts', '!src/**/index.ts'],
+  collectCoverageFrom: [
+    'src/**/*.(t|j)s',
+    '!src/**/*.spec.ts',
+    '!src/**/*.interface.ts',
+    '!src/**/index.ts',
+  ],
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
   roots: ['<rootDir>/src', '<rootDir>/test'],

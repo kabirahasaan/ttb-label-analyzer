@@ -7,7 +7,9 @@ test.describe('Home Page', () => {
 
   test('should display the homepage title and description', async ({ page }) => {
     await expect(page.locator('h1')).toContainText('Validate Alcohol Labels in');
-    await expect(page.getByText(/AI-assisted verification of alcohol beverage labels/i)).toBeVisible();
+    await expect(
+      page.getByText(/AI-assisted verification of alcohol beverage labels/i)
+    ).toBeVisible();
   });
 
   test('should have navigation links', async ({ page }) => {
@@ -18,17 +20,26 @@ test.describe('Home Page', () => {
   });
 
   test('should navigate to upload label page', async ({ page }) => {
-    await page.getByRole('link', { name: /Upload Label/i }).first().click();
+    await page
+      .getByRole('link', { name: /Upload Label/i })
+      .first()
+      .click();
     await expect(page).toHaveURL('/upload-label');
   });
 
   test('should navigate to batch validation page', async ({ page }) => {
-    await page.getByRole('link', { name: /Batch Validate/i }).first().click();
+    await page
+      .getByRole('link', { name: /Batch Validate/i })
+      .first()
+      .click();
     await expect(page).toHaveURL('/batch-validation');
   });
 
   test('should navigate to application form page', async ({ page }) => {
-    await page.getByRole('link', { name: /Application Form/i }).first().click();
+    await page
+      .getByRole('link', { name: /Application Form/i })
+      .first()
+      .click();
     await expect(page).toHaveURL('/application-form');
   });
 

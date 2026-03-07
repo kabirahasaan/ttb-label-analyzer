@@ -9,7 +9,6 @@ describe('Route Constants', () => {
       expect(APP_ROUTES.applicationForm).toBe('/application-form');
       expect(APP_ROUTES.validationResults).toBe('/validation-results');
     });
-
   });
 
   describe('PRIMARY_NAV_LINKS', () => {
@@ -27,7 +26,6 @@ describe('Route Constants', () => {
       expect(PRIMARY_NAV_LINKS[2].href).toBe(APP_ROUTES.applicationForm);
       expect(PRIMARY_NAV_LINKS[3].href).toBe(APP_ROUTES.validationResults);
     });
-
   });
 
   describe('FOOTER_PRODUCT_LINKS', () => {

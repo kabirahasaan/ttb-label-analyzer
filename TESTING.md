@@ -27,10 +27,12 @@ The project uses a comprehensive testing strategy that includes:
 Unit tests are implemented using Jest and React Testing Library for the web app, and Jest with NestJS Testing utilities for the API.
 
 **Locations**:
+
 - Web: `apps/web/src/**/__tests__/**/*.test.{ts,tsx}`
 - API: `apps/api/src/**/*.spec.ts`
 
 **Run**:
+
 ```bash
 npm run test:unit
 npm run test:unit:watch  # Watch mode
@@ -43,6 +45,7 @@ Integration tests verify API endpoints using supertest.
 **Location**: `apps/api/test/**/*.e2e-spec.ts`
 
 **Run**:
+
 ```bash
 npm run test:integration
 ```
@@ -54,6 +57,7 @@ End-to-end tests use Playwright to test complete user workflows.
 **Location**: `e2e/**/*.spec.ts`
 
 **Run**:
+
 ```bash
 npm run test:e2e                # All browsers
 npm run test:e2e:chromium       # Chromium only
@@ -250,11 +254,13 @@ describe('/endpoint', () => {
 After running tests with coverage, view reports:
 
 **HTML Reports**:
+
 - Unit: `coverage/unit/lcov-report/index.html`
 - Integration: `coverage/integration/lcov-report/index.html`
 - Playwright: Run `npx playwright show-report`
 
 **Terminal Summary**:
+
 ```bash
 npm run test:coverage:report
 ```
@@ -262,6 +268,7 @@ npm run test:coverage:report
 ### Coverage Thresholds
 
 Minimum coverage requirements:
+
 - Branches: 70%
 - Functions: 70%
 - Lines: 70%

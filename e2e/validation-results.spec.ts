@@ -52,7 +52,7 @@ test.describe('Validation Results - Responsive Design', () => {
 
     await page.goto('/validation-results');
     await page.waitForLoadState('networkidle');
-    
+
     expect(errors.length).toBe(0);
   });
 });

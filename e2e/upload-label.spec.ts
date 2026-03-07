@@ -25,8 +25,8 @@ test.describe('Upload Label - File Upload', () => {
     await page.goto('/upload-label');
 
     const fileInput = page.getByLabel('Select image file from disk');
-    
-    if (await fileInput.count() > 0) {
+
+    if ((await fileInput.count()) > 0) {
       // Create a simple 1x1 PNG image
       const pngBuffer = Buffer.from(
         'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',

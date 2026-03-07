@@ -121,6 +121,9 @@ export class TestDataGenerator {
       alcoholByVolume: overrides?.alcoholByVolume || abv,
       netContents: overrides?.netContents || contents,
       producerName: overrides?.producerName || producer,
+      governmentWarning:
+        overrides?.governmentWarning ||
+        'GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.',
       colaNumber: overrides?.colaNumber || this.generateColaNumber(),
       approvalDate: overrides?.approvalDate || this.generateApprovalDate(),
       createdAt: new Date(),
@@ -214,6 +217,8 @@ export class TestDataGenerator {
         alcoholByVolume: abv,
         netContents: contents,
         producerName: producer,
+        governmentWarning:
+          'GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.',
         colaNumber: this.generateColaNumber(),
         approvalDate: this.generateApprovalDate(),
         createdAt: new Date(),

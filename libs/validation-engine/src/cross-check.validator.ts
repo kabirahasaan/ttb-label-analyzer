@@ -78,6 +78,17 @@ export class CrossCheckValidator {
       });
     }
 
+    // Government warning check
+    if (!this.valuesMatch(label.governmentWarning, application.governmentWarning)) {
+      discrepancies.push({
+        field: 'governmentWarning',
+        labelValue: label.governmentWarning,
+        applicationValue: application.governmentWarning,
+        mismatch: true,
+        severity: ErrorSeverity.ERROR,
+      });
+    }
+
     return discrepancies;
   }
 
@@ -110,7 +121,7 @@ export class CrossCheckValidator {
   }
 
   private calculateMatchPercentage(discrepancies: CrossCheckDiscrepancy[]): number {
-    const totalFields = 4; // brandName, ABV, netContents, producerName
+    const totalFields = 5; // brandName, ABV, netContents, producerName, governmentWarning
     const matchedFields = totalFields - discrepancies.length;
     return Math.round((matchedFields / totalFields) * 100);
   }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+    <rect width="900" height="1200" fill="#ecfeff" />
+    <rect x="60" y="60" width="780" height="1080" rx="24" fill="#ffffff" stroke="#0e7490"
+        stroke-width="4" />
+    <text x="90" y="130" font-family="Arial, sans-serif" font-size="30" font-weight="700"
+        fill="#0e7490">COLA-2024-005 · POSITIVE PERFECT MATCH</text>
+    <text x="90" y="210" font-family="Arial, sans-serif" font-size="48" font-weight="700"
+        fill="#111827">Orchard Select Hard Cider</text>
+    <text x="90" y="280" font-family="Arial, sans-serif" font-size="34" fill="#1f2937">ALC/VOL 5.8%</text>
+    <text x="90" y="335" font-family="Arial, sans-serif" font-size="30" fill="#1f2937">NET CONTENTS
+        12 fl oz (355 mL)</text>
+    <text x="90" y="390" font-family="Arial, sans-serif" font-size="30" fill="#1f2937">APPLE VALLEY
+        CIDERY</text>
+    <text x="90" y="470" font-family="Arial, sans-serif" font-size="24" fill="#334155">ALLERGEN
+        STATEMENT: CONTAINS SULFITES</text>
+    <text x="90" y="520" font-family="Arial, sans-serif" font-size="24" fill="#334155">GOVERNMENT
+        WARNING PRESENT</text>
+    <text x="90" y="595" font-family="Arial, sans-serif" font-size="24" fill="#065f46">SCENARIO:
+        Expected COMPLIANT</text>
+</svg>

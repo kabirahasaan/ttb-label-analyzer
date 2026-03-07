@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+    <rect width="900" height="1200" fill="#fef2f2" />
+    <rect x="60" y="60" width="780" height="1080" rx="24" fill="#ffffff" stroke="#dc2626"
+        stroke-width="4" />
+    <text x="90" y="130" font-family="Arial, sans-serif" font-size="30" font-weight="700"
+        fill="#dc2626">COLA-2024-001 · NEGATIVE INCOMPLETE INFORMATION</text>
+    <text x="90" y="210" font-family="Arial, sans-serif" font-size="52" font-weight="700"
+        fill="#111827">Hoppy Trails IPA</text>
+    <text x="90" y="280" font-family="Arial, sans-serif" font-size="34" fill="#1f2937">ALC/VOL 6.5%</text>
+    <text x="90" y="335" font-family="Arial, sans-serif" font-size="30" fill="#ef4444">NET CONTENTS:
+        [MISSING]</text>
+    <text x="90" y="390" font-family="Arial, sans-serif" font-size="30" fill="#ef4444">PRODUCER:
+        [MISSING]</text>
+    <text x="90" y="470" font-family="Arial, sans-serif" font-size="24" fill="#334155">GOVERNMENT
+        WARNING:</text>
+    <text x="90" y="510" font-family="Arial, sans-serif" font-size="20" fill="#334155">(1) Women
+        should not drink alcoholic beverages during pregnancy because of risk of birth defects.</text>
+    <text x="90" y="545" font-family="Arial, sans-serif" font-size="20" fill="#334155">(2)
+        Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery.</text>
+    <text x="90" y="620" font-family="Arial, sans-serif" font-size="24" fill="#991b1b">SCENARIO:
+        Expected NON-COMPLIANT (incomplete required fields)</text>
+</svg>

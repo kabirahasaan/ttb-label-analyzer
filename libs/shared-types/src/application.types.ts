@@ -8,6 +8,7 @@ export interface ApplicationData {
   alcoholByVolume: number;
   netContents: string;
   producerName: string;
+  governmentWarning: string;
   colaNumber?: string;
   approvalDate?: Date;
   createdAt?: Date;
@@ -28,6 +29,7 @@ export interface ApplicationCreateRequest {
   alcoholByVolume: number;
   netContents: string;
   producerName: string;
+  governmentWarning: string;
   colaNumber?: string;
   approvalDate?: string;
 }
@@ -37,6 +39,7 @@ export interface ApplicationUpdateRequest {
   alcoholByVolume?: number;
   netContents?: string;
   producerName?: string;
+  governmentWarning?: string;
   colaNumber?: string;
   approvalDate?: string;
 }

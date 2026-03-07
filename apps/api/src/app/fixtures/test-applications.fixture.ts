@@ -5,6 +5,9 @@ import { ApplicationData } from '@ttb/shared-types';
  * Organized test data for positive and negative validation scenarios
  */
 
+const GOVERNMENT_WARNING_TEXT =
+  'GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.';
+
 export interface TestScenario {
   name: string;
   description: string;
@@ -25,6 +28,7 @@ export const POSITIVE_TEST_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 6.5,
       netContents: '12 fl oz (355 mL)',
       producerName: 'Mountain View Brewery',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-2024-001',
       approvalDate: new Date('2024-01-15'),
     },
@@ -39,6 +43,7 @@ export const POSITIVE_TEST_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 13.5,
       netContents: '750 mL',
       producerName: 'Valley Vineyards',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-2024-002',
       approvalDate: new Date('2024-02-01'),
     },
@@ -53,6 +58,7 @@ export const POSITIVE_TEST_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 42.0,
       netContents: '750 mL',
       producerName: 'Heritage Distillery Co.',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-2024-003',
       approvalDate: new Date('2024-01-20'),
     },
@@ -67,6 +73,7 @@ export const POSITIVE_TEST_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 4.2,
       netContents: '12 fl oz (355 mL)',
       producerName: 'Sunrise Brewing Company',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-2024-004',
       approvalDate: new Date('2024-03-01'),
     },
@@ -80,6 +87,7 @@ export const POSITIVE_TEST_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 5.8,
       netContents: '12 fl oz (355 mL)',
       producerName: 'Apple Valley Cidery',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-2024-005',
       approvalDate: new Date('2024-02-15'),
     },
@@ -99,6 +107,7 @@ export const NEGATIVE_TEST_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 0.5,
       netContents: '12 fl oz',
       producerName: 'Test Brewery',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-INVALID-001',
       approvalDate: new Date(),
     },
@@ -113,6 +122,7 @@ export const NEGATIVE_TEST_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 95.0,
       netContents: '750 mL',
       producerName: 'Test Distillery',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-INVALID-002',
       approvalDate: new Date(),
     },
@@ -127,6 +137,7 @@ export const NEGATIVE_TEST_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 5.5,
       netContents: '355 mL',
       producerName: 'Confused Producer Inc.',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-INVALID-003',
       approvalDate: new Date(),
     },
@@ -141,6 +152,7 @@ export const NEGATIVE_TEST_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 6.0,
       netContents: '12 fl oz',
       producerName: 'Test Producer',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       approvalDate: new Date(),
     },
     expectedValidation: 'warning',
@@ -154,6 +166,7 @@ export const NEGATIVE_TEST_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 5.5,
       netContents: '12 fl oz',
       producerName: 'Old Brewery',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-2010-999',
       approvalDate: new Date('2010-01-01'),
     },
@@ -174,6 +187,7 @@ export const EDGE_CASE_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 3.0,
       netContents: '12 fl oz',
       producerName: 'Modern Brewing',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-2024-100',
       approvalDate: new Date(),
     },
@@ -187,6 +201,7 @@ export const EDGE_CASE_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 12.0,
       netContents: '12 fl oz',
       producerName: 'Craft Masters',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-2024-101',
       approvalDate: new Date(),
     },
@@ -200,6 +215,7 @@ export const EDGE_CASE_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 7.5,
       netContents: '500 mL',
       producerName: 'Boutique Brewery',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-2024-102',
       approvalDate: new Date(),
     },
@@ -213,6 +229,7 @@ export const EDGE_CASE_APPLICATIONS: TestScenario[] = [
       alcoholByVolume: 6.8,
       netContents: '16 fl oz',
       producerName: 'Fresh Hops Brewing',
+      governmentWarning: GOVERNMENT_WARNING_TEXT,
       colaNumber: 'COLA-2024-103',
       approvalDate: new Date(),
     },

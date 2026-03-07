@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <rect width="900" height="1200" fill="#faf5ff" />
+  <rect x="60" y="60" width="780" height="1080" rx="24" fill="#ffffff" stroke="#6b21a8"
+    stroke-width="4" />
+  <text x="90" y="130" font-family="Arial, sans-serif" font-size="30" font-weight="700"
+    fill="#6b21a8">Old Timer Ale</text>
+  <text x="90" y="210" font-family="Arial, sans-serif" font-size="52" font-weight="700"
+    fill="#111827">Old Timer Ale</text>
+  <text x="90" y="280" font-family="Arial, sans-serif" font-size="34" fill="#1f2937">ALC/VOL 5.5%</text>
+  <text x="90" y="335" font-family="Arial, sans-serif" font-size="30" fill="#1f2937">NET CONTENTS 12
+    fl oz (355 mL)</text>
+  <text x="90" y="390" font-family="Arial, sans-serif" font-size="30" fill="#1f2937">OLD BREWERY</text>
+  <text x="90" y="460" font-family="Arial, sans-serif" font-size="28" font-weight="700"
+    fill="#7e22ce">APPROVAL DATE: 2010-01-01</text>
+
+</svg>

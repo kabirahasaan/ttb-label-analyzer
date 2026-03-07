@@ -15,6 +15,9 @@ export class CreateApplicationDto {
   @IsString()
   producerName: string;
 
+  @IsString()
+  governmentWarning: string;
+
   @IsOptional()
   @IsString()
   colaNumber?: string;
@@ -42,6 +45,10 @@ export class UpdateApplicationDto {
   @IsOptional()
   @IsString()
   producerName?: string;
+
+  @IsOptional()
+  @IsString()
+  governmentWarning?: string;
 
   @IsOptional()
   @IsString()

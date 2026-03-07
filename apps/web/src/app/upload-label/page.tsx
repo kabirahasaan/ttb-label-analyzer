@@ -219,21 +219,13 @@ export default function UploadLabelPage() {
   };
 
   const createLabelPayload = () => {
-    const fileStem = file?.name
-      ? file.name
-          .replace(/\.[^/.]+$/, '')
-          .replace(/[_-]+/g, ' ')
-          .trim()
-      : 'Uploaded Label';
-
     return {
-      brandName: fileStem || 'Uploaded Label',
-      alcoholByVolume: 5.0,
-      netContents: '12 fl oz (355 mL)',
-      governmentWarning:
-        'GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.',
+      brandName: '',
+      alcoholByVolume: 0,
+      netContents: '',
+      governmentWarning: '',
       classType: 'beer',
-      producerName: 'Uploaded Label Producer',
+      producerName: '',
       imageUrl: file ? `/uploads/${file.name}` : undefined,
     };
   };
@@ -266,6 +258,8 @@ export default function UploadLabelPage() {
         alcoholByVolume: abv,
         netContents: manualData.netContents,
         producerName: manualData.producerName,
+        governmentWarning:
+          'GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.',
         colaNumber: manualData.colaNumber || undefined,
         approvalDate: manualData.approvalDate || undefined,
       }),
@@ -1082,6 +1076,31 @@ export default function UploadLabelPage() {
                       .replace(/^./, (str) => str.toUpperCase())
                       .trim();
 
+                    const normalizeLabelValue = (value: string) => {
+                      const trimmed = value.trim();
+                      if (!trimmed) {
+                        return '(Missing on label)';
+                      }
+
+                      const normalized = trimmed.toLowerCase();
+                      if (
+                        normalized === 'uploaded label' ||
+                        normalized === 'uploaded label producer' ||
+                        normalized === 'unknown producer' ||
+                        normalized === 'missing' ||
+                        /^cola[-\s]?\d{4}/i.test(trimmed)
+                      ) {
+                        return '(Missing on label)';
+                      }
+
+                      return trimmed;
+                    };
+
+                    const normalizeApplicationValue = (value: string) => {
+                      const trimmed = value.trim();
+                      return trimmed || '(Not specified in application)';
+                    };
+
                     return (
                       <div
                         key={`${discrepancy.field}-${index}`}
@@ -1110,7 +1129,7 @@ export default function UploadLabelPage() {
                               </span>
                             </div>
                             <p className="break-words text-sm font-medium text-green-900">
-                              {discrepancy.applicationValue || '(Not specified)'}
+                              {normalizeApplicationValue(discrepancy.applicationValue)}
                             </p>
                           </div>
 
@@ -1123,7 +1142,7 @@ export default function UploadLabelPage() {
                               </span>
                             </div>
                             <p className="break-words text-sm font-medium text-red-900">
-                              {discrepancy.labelValue || '(Not found)'}
+                              {normalizeLabelValue(discrepancy.labelValue)}
                             </p>
                           </div>
                         </div>

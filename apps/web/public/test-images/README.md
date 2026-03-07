@@ -171,52 +171,49 @@ These should **FAIL** or produce **WARNINGS**:
 
 ---
 
-## 📂 Image Placeholders
+## 📂 Correlated Test Images
 
-The application references these test images (currently SVG placeholders exist):
+The test image files now follow this naming convention:
 
-### Available Placeholder Images
+`<COLA-ID>-<scenario-short-description>.svg`
 
-- ✅ `hoppy-trails-ipa.svg` - IPA label placeholder
-- ✅ `reserve-cabernet-sauvignon.svg` - Wine label placeholder
-- ✅ `kentucky-oak-bourbon.svg` - Bourbon label placeholder
+Examples:
 
-### Needed for Full Coverage
+- `COLA-2024-001-positive-perfect-match.svg`
+- `COLA-2024-001-negative-missing-govt-warning.svg`
+- `NO-COLA-negative-missing-cola-id.svg`
 
-- `different-brand.jpg` - Brand mismatch scenario
-- `wrong-abv.jpg` - ABV discrepancy
-- `wrong-size.jpg` - Container size mismatch
-- `wrong-producer.jpg` - Producer mismatch
-- `missing-warning.jpg` - Missing government warning
-- `session-ipa.jpg` - Minimum ABV beer
-- `imperial-stout.jpg` - Maximum ABV beer
-- `lite-golden-lager.jpg` - Light beer
-- `hard-cider.jpg` - Cider category
+### Available Correlated Scenario Images
 
----
+#### Positive scenarios
 
-## 🎨 Using Test Images
+- `COLA-2024-001-positive-perfect-match.svg`
+- `COLA-2024-002-positive-perfect-match.svg`
+- `COLA-2024-003-positive-perfect-match.svg`
+- `COLA-2024-004-positive-perfect-match.svg`
+- `COLA-2024-005-positive-perfect-match.svg`
 
-### Option 1: Use Existing Placeholders
+#### Edge scenario
 
-Upload one of the existing SVG files for basic testing. The validation system currently focuses on **data comparison**, not OCR.
+- `COLA-2024-100-edge-min-abv-boundary.svg`
 
-### Option 2: Upload Any Image
+#### Negative scenarios
 
-Since manual data entry is supported:
+- `COLA-2024-001-negative-missing-govt-warning.svg`
+- `COLA-2024-001-negative-incomplete-information.svg`
+- `COLA-INVALID-001-negative-abv-too-low.svg`
+- `COLA-INVALID-002-negative-abv-too-high.svg`
+- `COLA-2010-999-negative-expired-approval.svg`
+- `NO-COLA-negative-missing-cola-id.svg`
 
-1. Upload **any image file** (screenshot, photo, etc.)
-2. Manually enter test data from scenarios above
-3. Validation compares entered data vs. application data
+### How to use these images
 
-### Option 3: Create Custom Test Labels (Future)
+1. Go to Validate Label page
+2. Upload one of the files above
+3. Select the matching seeded application (same COLA ID)
+4. Run validation and verify expected positive/negative behavior
 
-When OCR is implemented:
-
-- Create realistic label images matching test data
-- Format: JPG/PNG, 800x1200px recommended
-- Include all required fields clearly visible
-- Match text exactly to fixture data
+These files are intentionally crafted to simulate real-world scenarios like missing government warning and incomplete required information.
 
 ---
 

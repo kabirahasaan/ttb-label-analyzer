@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+    <rect width="900" height="1200" fill="#fef2f2" />
+    <rect x="60" y="60" width="780" height="1080" rx="24" fill="#ffffff" stroke="#b91c1c"
+        stroke-width="4" />
+    <text x="90" y="130" font-family="Arial, sans-serif" font-size="30" font-weight="700"
+        fill="#b91c1c">Hoppy Trails IPA</text>
+    <text x="90" y="210" font-family="Arial, sans-serif" font-size="52" font-weight="700"
+        fill="#111827">Hoppy Trails IPA</text>
+    <text x="90" y="280" font-family="Arial, sans-serif" font-size="34" fill="#1f2937">ALC/VOL 6.5%</text>
+    <text x="90" y="335" font-family="Arial, sans-serif" font-size="30" fill="#1f2937">NET CONTENTS
+        12 fl oz (355 mL)</text>
+    <text x="90" y="390" font-family="Arial, sans-serif" font-size="30" fill="#1f2937">MOUNTAIN VIEW
+        BREWERY</text>
+    <rect x="90" y="450" width="720" height="90" rx="12" fill="#fee2e2" stroke="#ef4444" />
+    <text x="115" y="505" font-family="Arial, sans-serif" font-size="26" font-weight="700"
+        fill="#991b1b">⚠ GOVERNMENT WARNING SECTION MISSING</text>
+
+</svg>

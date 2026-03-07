@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+    <rect width="900" height="1200" fill="#fef2f2" />
+    <rect x="60" y="60" width="780" height="1080" rx="24" fill="#ffffff" stroke="#991b1b"
+        stroke-width="4" />
+    <text x="90" y="130" font-family="Arial, sans-serif" font-size="30" font-weight="700"
+        fill="#991b1b">COLA-INVALID-002 · NEGATIVE ABV TOO HIGH</text>
+    <text x="90" y="210" font-family="Arial, sans-serif" font-size="52" font-weight="700"
+        fill="#111827">Extreme Spirit</text>
+    <text x="90" y="280" font-family="Arial, sans-serif" font-size="38" font-weight="700"
+        fill="#dc2626">ALC/VOL 95.0%</text>
+    <text x="90" y="335" font-family="Arial, sans-serif" font-size="30" fill="#1f2937">NET CONTENTS
+        750 mL</text>
+    <text x="90" y="390" font-family="Arial, sans-serif" font-size="30" fill="#1f2937">MAXIMUM
+        SPIRITS INC.</text>
+    <text x="90" y="470" font-family="Arial, sans-serif" font-size="24" fill="#334155">GOVERNMENT
+        WARNING PRESENT</text>
+    <text x="90" y="545" font-family="Arial, sans-serif" font-size="24" fill="#991b1b">SCENARIO:
+        Expected WARNING/ERROR (unrealistic ABV)</text>
+</svg>

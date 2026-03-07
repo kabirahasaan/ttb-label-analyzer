@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { LabelService } from '../modules/label/label.service';
+import { LabelService } from '../src/app/modules/label/label.service';
 import { LoggerService } from '@ttb/logger';
 
 describe('LabelService', () => {

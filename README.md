@@ -434,6 +434,191 @@ docker push myregistry.azurecr.io/ttb-api:latest
 
 ## Testing
 
+The project implements a comprehensive testing strategy with unit tests, integration tests, and end-to-end tests.
+
+### Quick Start
+
+```bash
+# Run all tests (unit + integration + E2E)
+npm test
+
+# Run only unit tests
+npm run test:unit
+
+# Run only integration tests
+npm run test:integration
+
+# Run only E2E tests
+npm run test:e2e
+
+# Generate coverage reports
+npm run test:coverage
+
+# Watch mode for development
+npm run test:watch
+```
+
+### Test Types
+
+#### Unit Tests (Jest + React Testing Library / NestJS Testing)
+
+Tests individual components, functions, and utilities in isolation.
+
+**Web App**:
+- Location: `apps/web/src/**/__tests__/**/*.test.{ts,tsx}`
+- Components: FieldComparisonCard, validation utilities, file utilities
+- Coverage threshold: 70% (branches, functions, lines, statements)
+
+**API**:
+- Location: `apps/api/src/**/*.spec.ts`
+- Controllers, services, and business logic
+- Coverage threshold: 70%
+
+```bash
+# Run unit tests with coverage
+npm run test:coverage:unit
+
+# Watch mode
+npm run test:unit:watch
+```
+
+#### Integration Tests (Supertest)
+
+Tests API endpoints and service integrations.
+
+- Location: `apps/api/test/**/*.e2e-spec.ts`
+- Tests: Application API, Validation API, Batch processing
+- Database: Uses test database or in-memory storage
+
+```bash
+# Run integration tests
+npm run test:integration
+
+# With coverage
+npm run test:coverage:integration
+```
+
+#### E2E Tests (Playwright)
+
+Tests complete user workflows across multiple browsers.
+
+- Location: `e2e/**/*.spec.ts`
+- Browsers: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
+- Tests: Homepage, upload label, batch validation, validation results
+
+```bash
+# Run all E2E tests
+npm run test:e2e
+
+# Interactive UI mode
+npm run test:e2e:ui
+
+# With visible browser
+npm run test:e2e:headed
+
+# Specific browser
+npm run test:e2e:chromium
+
+# Show test report
+npx playwright show-report
+```
+
+### Coverage Reports
+
+Coverage reports are generated in the `coverage/` directory:
+
+```
+coverage/
+├── unit/              # Unit test coverage
+│   ├── lcov-report/   # HTML report
+│   └── lcov.info      # LCOV format
+├── integration/       # Integration test coverage
+│   ├── lcov-report/
+│   └── lcov.info
+└── README.md
+```
+
+View coverage reports:
+
+```bash
+# Generate and view coverage summary
+npm run test:coverage
+npm run test:coverage:report
+
+# Open HTML reports
+open coverage/unit/lcov-report/index.html
+open coverage/integration/lcov-report/index.html
+```
+
+### Test Scripts Summary
+
+| Command | Description |
+|---------|-------------|
+| `npm test` | Run all tests (unit + integration + E2E) |
+| `npm run test:unit` | Run unit tests only |
+| `npm run test:integration` | Run API integration tests |
+| `npm run test:e2e` | Run Playwright E2E tests |
+| `npm run test:watch` | Run unit tests in watch mode |
+| `npm run test:coverage` | Generate coverage reports |
+| `npm run test:coverage:report` | View coverage summary |
+| `npm run test:e2e:ui` | Run E2E in interactive mode |
+| `npm run test:e2e:headed` | Run E2E with visible browser |
+
+For detailed testing guidelines, see [TESTING.md](./TESTING.md).
+
+### Coverage Goals
+
+| Metric     | Target |
+| ---------- | ------ |
+| Statements | 70%+   |
+| Branches   | 70%+   |
+| Functions  | 70%+   |
+| Lines      | 70%+   |
+
+### Test Data Generation
+
+```bash
+# Generate synthetic test data
+npm run generate:test-data
+
+# Creates: test-data/
+#   ├── labels.json
+#   ├── applications.json
+#   ├── matching-pairs.json
+#   └── mismatched-pairs.json
+```
+
+### Sample Test Cases
+
+**Web Components**:
+
+- ✅ FieldComparisonCard component rendering
+- ✅ File download utilities (JSON, CSV, text)
+- ✅ Validation field name formatting
+- ✅ Route constants and navigation links
+
+**API Unit Tests**:
+
+- ✅ Health controller status check
+- ✅ Label service processing
+- ✅ Validation logic
+- ✅ Error handling
+
+**Integration Tests**:
+
+- ✅ Application creation and retrieval
+- ✅ Batch validation processing
+- ✅ Validation results history
+- ✅ Error responses
+
+**E2E Tests**:
+
+- ✅ Homepage navigation
+- ✅ Label upload workflow
+- ✅ Batch validation flow
+- ✅ Results viewing and export
+- ✅ Responsive design
+
 ### Unit Tests
 
 ```bash

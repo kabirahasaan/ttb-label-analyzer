@@ -33,6 +33,13 @@
         "command": "npm run test"
       }
     },
+    "test:e2e": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/api",
+        "command": "npm run test:e2e"
+      }
+    },
     "db:migrate": {
       "executor": "nx:run-commands",
       "options": {

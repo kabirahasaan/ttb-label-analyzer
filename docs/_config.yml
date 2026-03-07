@@ -1,0 +1,27 @@
+title: TTB Label Analyzer Docs
+description: Reviewer-focused documentation for the TTB Label Compliance take-home project.
+url: https://kabirahasaan.github.io
+baseurl: /ttb-label-analyzer
+
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+
+color_scheme: light
+search_enabled: true
+heading_anchors: true
+back_to_top: true
+back_to_top_text: Back to top
+
+aux_links:
+  Repository:
+    - https://github.com/kabirahasaan/ttb-label-analyzer
+
+footer_content: "TTB Label Analyzer documentation. Last updated: March 7, 2026."
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"

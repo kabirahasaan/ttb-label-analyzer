@@ -1,0 +1,29 @@
+- title: Home
+  url: /
+
+- title: Reviewer Guide
+  url: /reviewer-guide
+
+- title: Requirement Traceability
+  url: /requirements-traceability
+
+- title: Implemented Features
+  url: /implemented-features
+
+- title: Extra Features
+  url: /extra-features
+
+- title: Product & UX Decisions
+  url: /product-ux
+
+- title: Future Enhancements
+  url: /future-enhancements
+
+- title: Site Map
+  url: /site-map
+
+- title: Deployment (GitHub Pages)
+  url: /github-pages
+
+- title: Legacy Reference
+  url: /legacy-reference

@@ -1,12 +1,146 @@
 'use client';
 
+import { FormEvent, useEffect, useState } from 'react';
 import { FileText } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { toast } from '@/hooks/use-toast';
+
+interface ApplicationRecord {
+  id: string;
+  brandName: string;
+  alcoholByVolume: number;
+  netContents: string;
+  producerName: string;
+  colaNumber?: string;
+  approvalDate?: string;
+}
 
 export default function ApplicationFormPage() {
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  const [applications, setApplications] = useState<ApplicationRecord[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    brandName: '',
+    colaNumber: '',
+    alcoholByVolume: '',
+    netContents: '',
+    producerName: '',
+    approvalDate: '',
+  });
+
+  useEffect(() => {
+    const loadApplications = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/applications`);
+        if (!response.ok) {
+          console.warn('Failed to load applications, API returned:', response.status);
+          return;
+        }
+
+        const data = (await response.json()) as ApplicationRecord[];
+        setApplications(data);
+      } catch (error) {
+        console.error('Failed to connect to API server:', error);
+        toast({
+          title: 'API Connection Error',
+          description: `Cannot reach API server at ${API_BASE_URL}. Please ensure the API is running.`,
+          variant: 'destructive',
+        });
+        setApplications([]);
+      }
+    };
+
+    void loadApplications();
+  }, [API_BASE_URL]);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (
+      !formData.brandName.trim() ||
+      !formData.alcoholByVolume.trim() ||
+      !formData.netContents.trim() ||
+      !formData.producerName.trim()
+    ) {
+      toast({
+        title: 'Missing required fields',
+        description: 'Please complete all required application fields.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    const abv = Number(formData.alcoholByVolume);
+    if (isNaN(abv) || abv < 0 || abv > 100) {
+      toast({
+        title: 'Invalid ABV',
+        description: 'ABV must be a number between 0 and 100.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      console.log('Submitting application to:', `${API_BASE_URL}/applications`);
+      const response = await fetch(`${API_BASE_URL}/applications`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          brandName: formData.brandName,
+          colaNumber: formData.colaNumber || undefined,
+          alcoholByVolume: abv,
+          netContents: formData.netContents,
+          producerName: formData.producerName,
+          approvalDate: formData.approvalDate || undefined,
+        }),
+      });
+
+      console.log('Response status:', response.status);
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        console.error('API error:', errorData);
+        const errorMessage =
+          errorData?.message || `Failed to create application (Status: ${response.status})`;
+        throw new Error(errorMessage);
+      }
+
+      const createdApplication = (await response.json()) as ApplicationRecord;
+      console.log('Application created successfully:', createdApplication);
+      setApplications((prev) => [...prev, createdApplication]);
+
+      setFormData({
+        brandName: '',
+        colaNumber: '',
+        alcoholByVolume: '',
+        netContents: '',
+        producerName: '',
+        approvalDate: '',
+      });
+
+      toast({
+        title: 'Application submitted',
+        description: 'Application stored in the in-memory dataset.',
+        variant: 'success',
+      });
+    } catch (error) {
+      console.error('Application submission error:', error);
+      const message =
+        error instanceof Error ? error.message : 'Unable to store application data right now.';
+      toast({
+        title: 'Submission failed',
+        description: message,
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-white py-16">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
@@ -34,7 +168,7 @@ export default function ApplicationFormPage() {
             </div>
           </CardHeader>
           <CardContent>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="app-brand" className="text-sm font-medium text-slate-700">
@@ -43,6 +177,10 @@ export default function ApplicationFormPage() {
                   <Input
                     id="app-brand"
                     placeholder="Premium Craft Beer"
+                    value={formData.brandName}
+                    onChange={(e) =>
+                      setFormData((prev) => ({ ...prev, brandName: e.target.value }))
+                    }
                     className="rounded-lg border-slate-300 focus-visible:ring-2 focus-visible:ring-slate-500"
                     aria-label="Brand name from COLA application"
                   />
@@ -54,6 +192,10 @@ export default function ApplicationFormPage() {
                   <Input
                     id="cola-number"
                     placeholder="COLA-123456"
+                    value={formData.colaNumber}
+                    onChange={(e) =>
+                      setFormData((prev) => ({ ...prev, colaNumber: e.target.value }))
+                    }
                     className="rounded-lg border-slate-300 focus-visible:ring-2 focus-visible:ring-slate-500"
                     aria-label="COLA identification number"
                   />
@@ -72,6 +214,10 @@ export default function ApplicationFormPage() {
                     max="100"
                     step="0.1"
                     placeholder="5.5"
+                    value={formData.alcoholByVolume}
+                    onChange={(e) =>
+                      setFormData((prev) => ({ ...prev, alcoholByVolume: e.target.value }))
+                    }
                     className="rounded-lg border-slate-300 focus-visible:ring-2 focus-visible:ring-slate-500"
                     aria-label="Alcohol by volume percentage"
                   />
@@ -83,6 +229,10 @@ export default function ApplicationFormPage() {
                   <Input
                     id="app-contents"
                     placeholder="12 fl oz"
+                    value={formData.netContents}
+                    onChange={(e) =>
+                      setFormData((prev) => ({ ...prev, netContents: e.target.value }))
+                    }
                     className="rounded-lg border-slate-300 focus-visible:ring-2 focus-visible:ring-slate-500"
                     aria-label="Net contents volume"
                   />
@@ -96,6 +246,10 @@ export default function ApplicationFormPage() {
                 <Input
                   id="app-producer"
                   placeholder="ABC Brewery"
+                  value={formData.producerName}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, producerName: e.target.value }))
+                  }
                   className="rounded-lg border-slate-300 focus-visible:ring-2 focus-visible:ring-slate-500"
                   aria-label="Producer or importer name"
                 />
@@ -108,6 +262,10 @@ export default function ApplicationFormPage() {
                 <Input
                   id="approval-date"
                   type="date"
+                  value={formData.approvalDate}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, approvalDate: e.target.value }))
+                  }
                   className="rounded-lg border-slate-300 focus-visible:ring-2 focus-visible:ring-slate-500"
                   aria-label="COLA approval date"
                 />
@@ -117,12 +275,35 @@ export default function ApplicationFormPage() {
                 <Button
                   className="w-full rounded-lg bg-slate-900 hover:bg-slate-800 focus-visible:ring-2 focus-visible:ring-slate-500"
                   type="submit"
+                  disabled={loading}
                   aria-label="Submit COLA application"
                 >
-                  Create Application
+                  {loading ? 'Submitting...' : 'Create Application'}
                 </Button>
               </div>
             </form>
+
+            <div className="mt-8">
+              <h2 className="mb-3 text-base font-semibold text-slate-900">
+                In-memory Application List
+              </h2>
+              {applications.length === 0 ? (
+                <p className="text-sm text-slate-500">No applications submitted yet.</p>
+              ) : (
+                <ul className="space-y-2 text-sm text-slate-700">
+                  {applications.map((application) => (
+                    <li
+                      key={application.id}
+                      className="rounded-lg border border-slate-200 px-3 py-2"
+                    >
+                      {application.colaNumber || 'No COLA #'} · {application.brandName} ·{' '}
+                      {application.alcoholByVolume}% ABV · {application.netContents} ·{' '}
+                      {application.producerName}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </CardContent>
         </Card>
       </div>

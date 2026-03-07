@@ -6,6 +6,8 @@ import {
   CrossCheckDto,
   StartValidationJobDto,
   ValidationJobStatusResponse,
+  SaveValidationResultDto,
+  StoredValidationResult,
 } from './validation.dto';
 import { ValidationResult, CrossCheckResult } from '@ttb/shared-types';
 
@@ -43,5 +45,26 @@ export class ValidationController {
       crossCheckDto.labelId,
       crossCheckDto.applicationId
     );
+  }
+
+  @Post('results')
+  @ApiOperation({ summary: 'Save validation result' })
+  @ApiResponse({ status: 201, description: 'Validation result saved' })
+  saveResult(@Body() payload: SaveValidationResultDto): StoredValidationResult {
+    return this.validateService.saveValidationResult(payload);
+  }
+
+  @Get('results')
+  @ApiOperation({ summary: 'Get all validation results' })
+  @ApiResponse({ status: 200, description: 'List of validation results' })
+  getAllResults(): StoredValidationResult[] {
+    return this.validateService.getAllValidationResults();
+  }
+
+  @Get('results/:id')
+  @ApiOperation({ summary: 'Get validation result by ID' })
+  @ApiResponse({ status: 200, description: 'Validation result details' })
+  getResult(@Param('id') id: string): StoredValidationResult | null {
+    return this.validateService.getValidationResult(id);
   }
 }

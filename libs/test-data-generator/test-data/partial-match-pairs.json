@@ -1,0 +1,52 @@
+[
+  {
+    "label": {
+      "id": "5857f410-402d-4ae4-813f-b4fb77864382",
+      "brandName": "Barrel Oak Merlot",
+      "alcoholByVolume": 12.5,
+      "netContents": "750 mL",
+      "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+      "classType": "wine",
+      "producerName": "Hillside Vineyard",
+      "imageUrl": "/test-images/rose-garden-pinot-noir.jpg",
+      "createdAt": "2026-03-07T15:55:06.208Z",
+      "updatedAt": "2026-03-07T15:55:06.208Z"
+    },
+    "application": {
+      "id": "9f58b3a3-d418-438d-9388-18ec31d9a113",
+      "brandName": "Barrel Oak Merlot",
+      "alcoholByVolume": 12.3,
+      "netContents": "750 mL",
+      "producerName": "Hillside Vineyard",
+      "colaNumber": "COLA-2026-1011",
+      "approvalDate": "2024-07-11T00:10:57.111Z",
+      "createdAt": "2026-03-07T15:55:06.208Z",
+      "updatedAt": "2026-03-07T15:55:06.208Z"
+    }
+  },
+  {
+    "label": {
+      "id": "5f0ab931-6a93-4033-9077-ff74d191da35",
+      "brandName": "Reserve Cabernet Sauvignon",
+      "alcoholByVolume": 14.899999999999999,
+      "netContents": "375 mL",
+      "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+      "classType": "wine",
+      "producerName": "Estate Winery",
+      "imageUrl": "/test-images/reserve-cabernet-sauvignon.jpg",
+      "createdAt": "2026-03-07T15:55:06.208Z",
+      "updatedAt": "2026-03-07T15:55:06.208Z"
+    },
+    "application": {
+      "id": "40b18a7e-c8ed-4fa5-9d01-c6a12d558c94",
+      "brandName": "Reserve Cabernet Sauvignon",
+      "alcoholByVolume": 14.7,
+      "netContents": "375 mL",
+      "producerName": "Estate Winery",
+      "colaNumber": "COLA-2026-1012",
+      "approvalDate": "2025-08-12T01:48:57.320Z",
+      "createdAt": "2026-03-07T15:55:06.208Z",
+      "updatedAt": "2026-03-07T15:55:06.208Z"
+    }
+  }
+]

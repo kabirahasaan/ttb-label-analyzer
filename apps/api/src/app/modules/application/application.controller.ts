@@ -23,6 +23,13 @@ export class ApplicationController {
     return this.applicationService.findAll();
   }
 
+  @Get('cola/:colaNumber')
+  @ApiOperation({ summary: 'Get application by COLA number' })
+  @ApiResponse({ status: 200, description: 'Application found by COLA number' })
+  findByColaNumber(@Param('colaNumber') colaNumber: string): ApplicationData {
+    return this.applicationService.findByColaNumberOrThrow(colaNumber);
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Get application by ID' })
   @ApiResponse({ status: 200, description: 'Application found' })

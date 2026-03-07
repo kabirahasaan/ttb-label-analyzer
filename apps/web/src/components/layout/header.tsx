@@ -8,7 +8,7 @@ export function Header(): JSX.Element {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'Upload Label', href: '/upload-label' },
+    { name: 'Validate Label', href: '/upload-label' },
     { name: 'Application Form', href: '/application-form' },
     { name: 'Batch Validation', href: '/batch-validation' },
     { name: 'Results', href: '/validation-results' },

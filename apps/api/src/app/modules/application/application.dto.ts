@@ -1,4 +1,4 @@
-import { IsString, IsNumber, Min, Max, IsOptional } from 'class-validator';
+import { IsString, IsNumber, Min, Max, IsOptional, IsDateString } from 'class-validator';
 
 export class CreateApplicationDto {
   @IsString()
@@ -18,6 +18,10 @@ export class CreateApplicationDto {
   @IsOptional()
   @IsString()
   colaNumber?: string;
+
+  @IsOptional()
+  @IsDateString()
+  approvalDate?: string;
 }
 
 export class UpdateApplicationDto {
@@ -42,4 +46,8 @@ export class UpdateApplicationDto {
   @IsOptional()
   @IsString()
   colaNumber?: string;
+
+  @IsOptional()
+  @IsDateString()
+  approvalDate?: string;
 }

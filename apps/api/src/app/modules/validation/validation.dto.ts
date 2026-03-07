@@ -65,3 +65,49 @@ export interface ValidationJobStatusResponse {
   status: 'running' | 'success' | 'warning' | 'error';
   steps: ValidationPipelineStep[];
 }
+
+export interface StoredValidationResult {
+  id: string;
+  labelId: string;
+  applicationId: string;
+  brandName: string;
+  status: 'COMPLIANT' | 'WARNING' | 'NON_COMPLIANT';
+  errors: string[];
+  warnings: string[];
+  discrepancies: Array<{
+    field: string;
+    labelValue: string;
+    applicationValue: string;
+  }>;
+  createdAt: Date;
+}
+
+export class SaveValidationResultDto {
+  @IsString()
+  labelId: string;
+
+  @IsString()
+  applicationId: string;
+
+  @IsString()
+  brandName: string;
+
+  @IsString()
+  status: 'COMPLIANT' | 'WARNING' | 'NON_COMPLIANT';
+
+  @IsArray()
+  @IsString({ each: true })
+  errors: string[];
+
+  @IsArray()
+  @IsString({ each: true })
+  warnings: string[];
+
+  @IsOptional()
+  @IsArray()
+  discrepancies?: Array<{
+    field: string;
+    labelValue: string;
+    applicationValue: string;
+  }>;
+}

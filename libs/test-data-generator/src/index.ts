@@ -5,3 +5,4 @@
 
 export * from './test-data.generator';
 export * from './test-data.cli';
+export * from './test-image.generator';

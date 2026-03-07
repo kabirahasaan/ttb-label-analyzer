@@ -1,0 +1,77 @@
+[
+  {
+    "label": {
+      "id": "7e3bdae7-b09a-404c-ae1d-460586ac3cd0",
+      "brandName": "Craft Lager Supreme",
+      "alcoholByVolume": 6.3,
+      "netContents": "12 fl oz (355 mL)",
+      "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+      "classType": "beer",
+      "producerName": "Boutique Brewery",
+      "imageUrl": "/test-images/golden-ale-premium.jpg",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    },
+    "application": {
+      "id": "9276277e-b2a1-4fbd-b168-b8f6fa91bc76",
+      "brandName": "Craft Lager Supreme",
+      "alcoholByVolume": 6.3,
+      "netContents": "12 fl oz (355 mL)",
+      "producerName": "Boutique Brewery",
+      "colaNumber": "COLA-2026-1005",
+      "approvalDate": "2026-01-02T15:34:29.895Z",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    }
+  },
+  {
+    "label": {
+      "id": "d351c798-af8d-4bfe-a0d4-731571eb9051",
+      "brandName": "Imperial Stout",
+      "alcoholByVolume": 6.9,
+      "netContents": "12 fl oz",
+      "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+      "classType": "beer",
+      "producerName": "Sunrise Brewing Company",
+      "imageUrl": "/test-images/imperial-stout.jpg",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    },
+    "application": {
+      "id": "28511db7-26e5-42c5-a948-3ddc032df214",
+      "brandName": "Imperial Stout",
+      "alcoholByVolume": 6.9,
+      "netContents": "12 fl oz",
+      "producerName": "Sunrise Brewing Company",
+      "colaNumber": "COLA-2026-1006",
+      "approvalDate": "2025-01-18T06:41:16.778Z",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    }
+  },
+  {
+    "label": {
+      "id": "9b41772e-68cb-4d53-9de5-f96d5b364578",
+      "brandName": "Silver Tequila",
+      "alcoholByVolume": 35.1,
+      "netContents": "1.75 L",
+      "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+      "classType": "wine",
+      "producerName": "Premium Spirits Inc.",
+      "imageUrl": "/test-images/white-elegance-chardonnay.jpg",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    },
+    "application": {
+      "id": "c3efe53e-8b40-4bd9-a0ab-6b5440a2250c",
+      "brandName": "Silver Tequila",
+      "alcoholByVolume": 35.1,
+      "netContents": "1.75 L",
+      "producerName": "Premium Spirits Inc.",
+      "colaNumber": "COLA-2026-1007",
+      "approvalDate": "2024-10-26T12:03:15.388Z",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    }
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "labelId": "9f9ccf56-412a-439b-8a0b-f0c88d3fb6c6",
+    "brandName": "Amber Wheat Beer",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/amber-wheat-beer.svg"
+  },
+  {
+    "labelId": "5e4b3801-5665-417f-b7ce-93c9192e5db2",
+    "brandName": "Rose Garden Pinot Noir",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/rose-garden-pinot-noir.svg"
+  },
+  {
+    "labelId": "9151ee3e-0790-4ee0-afae-8f3fab9ca07c",
+    "brandName": "Dark Porter Reserve",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/dark-porter-reserve.svg"
+  },
+  {
+    "labelId": "7a5a408d-7d3b-4d2c-af24-9c6e063eb314",
+    "brandName": "Aged Rum Reserve",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/aged-rum-reserve.svg"
+  },
+  {
+    "labelId": "87f85f73-259a-460d-abd3-bbc863f3cd4a",
+    "brandName": "Silver Tequila",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/silver-tequila.svg"
+  },
+  {
+    "labelId": "7e3bdae7-b09a-404c-ae1d-460586ac3cd0",
+    "brandName": "Craft Lager Supreme",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/craft-lager-supreme.svg"
+  },
+  {
+    "labelId": "d351c798-af8d-4bfe-a0d4-731571eb9051",
+    "brandName": "Imperial Stout",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/imperial-stout.svg"
+  },
+  {
+    "labelId": "9b41772e-68cb-4d53-9de5-f96d5b364578",
+    "brandName": "Silver Tequila",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/silver-tequila.svg"
+  },
+  {
+    "labelId": "8bc55a53-3d56-4b9c-a35c-9d775a83763d",
+    "brandName": "Pear Harvest Cider - Different Brand",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/pear-harvest-cider-different-brand.svg"
+  },
+  {
+    "labelId": "4899d8c7-908e-442b-b55b-373e0f8a3d5b",
+    "brandName": "Amber Wheat Beer - Different Brand",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/amber-wheat-beer-different-brand.svg"
+  },
+  {
+    "labelId": "c2e362fc-fa28-419c-9014-acd3fb48b0c3",
+    "brandName": "Aged Rum Reserve - Different Brand",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/aged-rum-reserve-different-brand.svg"
+  },
+  {
+    "labelId": "5857f410-402d-4ae4-813f-b4fb77864382",
+    "brandName": "Barrel Oak Merlot",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/barrel-oak-merlot.svg"
+  },
+  {
+    "labelId": "5f0ab931-6a93-4033-9077-ff74d191da35",
+    "brandName": "Reserve Cabernet Sauvignon",
+    "imagePath": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data/images/reserve-cabernet-sauvignon.svg"
+  }
+]

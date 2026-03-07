@@ -1,0 +1,62 @@
+[
+  {
+    "id": "9f9ccf56-412a-439b-8a0b-f0c88d3fb6c6",
+    "brandName": "Amber Wheat Beer",
+    "alcoholByVolume": 11.7,
+    "netContents": "16 fl oz (473 mL)",
+    "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+    "classType": "beer",
+    "producerName": "Modern Brewing",
+    "imageUrl": "/test-images/amber-wheat-beer.jpg",
+    "createdAt": "2026-03-07T15:55:06.207Z",
+    "updatedAt": "2026-03-07T15:55:06.207Z"
+  },
+  {
+    "id": "5e4b3801-5665-417f-b7ce-93c9192e5db2",
+    "brandName": "Rose Garden Pinot Noir",
+    "alcoholByVolume": 14.1,
+    "netContents": "1.5 L",
+    "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+    "classType": "wine",
+    "producerName": "Hillside Vineyard",
+    "imageUrl": "/test-images/rose-garden-pinot-noir.jpg",
+    "createdAt": "2026-03-07T15:55:06.207Z",
+    "updatedAt": "2026-03-07T15:55:06.207Z"
+  },
+  {
+    "id": "9151ee3e-0790-4ee0-afae-8f3fab9ca07c",
+    "brandName": "Dark Porter Reserve",
+    "alcoholByVolume": 3.5,
+    "netContents": "12 fl oz",
+    "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+    "classType": "beer",
+    "producerName": "Mountain View Brewery",
+    "imageUrl": "/test-images/dark-porter-reserve.jpg",
+    "createdAt": "2026-03-07T15:55:06.207Z",
+    "updatedAt": "2026-03-07T15:55:06.207Z"
+  },
+  {
+    "id": "7a5a408d-7d3b-4d2c-af24-9c6e063eb314",
+    "brandName": "Aged Rum Reserve",
+    "alcoholByVolume": 45.4,
+    "netContents": "1 L",
+    "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+    "classType": "distilled spirit",
+    "producerName": "Artisan Distillers",
+    "imageUrl": "/test-images/aged-rum-reserve.jpg",
+    "createdAt": "2026-03-07T15:55:06.207Z",
+    "updatedAt": "2026-03-07T15:55:06.207Z"
+  },
+  {
+    "id": "87f85f73-259a-460d-abd3-bbc863f3cd4a",
+    "brandName": "Silver Tequila",
+    "alcoholByVolume": 43.6,
+    "netContents": "1.75 L",
+    "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+    "classType": "distilled spirit",
+    "producerName": "Premium Spirits Inc.",
+    "imageUrl": "/test-images/silver-tequila.jpg",
+    "createdAt": "2026-03-07T15:55:06.207Z",
+    "updatedAt": "2026-03-07T15:55:06.207Z"
+  }
+]

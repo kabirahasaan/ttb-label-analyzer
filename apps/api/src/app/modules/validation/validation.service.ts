@@ -10,6 +10,8 @@ import {
   ValidationPipelineStep,
   ValidationStepState,
   StartValidationJobDto,
+  SaveValidationResultDto,
+  StoredValidationResult,
 } from './validation.dto';
 
 /**
@@ -29,6 +31,7 @@ export class ValidateService {
     'Compliance Report Generation',
   ] as const;
   private readonly progressJobs = new Map<string, ValidationJobStatusResponse>();
+  private readonly validationResults = new Map<string, StoredValidationResult>();
 
   constructor(
     private labelService: LabelService,
@@ -193,5 +196,41 @@ export class ValidateService {
 
   private async delay(milliseconds: number): Promise<void> {
     await new Promise((resolve) => setTimeout(resolve, milliseconds));
+  }
+
+  saveValidationResult(payload: SaveValidationResultDto): StoredValidationResult {
+    const resultId = `result_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+
+    const storedResult: StoredValidationResult = {
+      id: resultId,
+      labelId: payload.labelId,
+      applicationId: payload.applicationId,
+      brandName: payload.brandName,
+      status: payload.status,
+      errors: payload.errors || [],
+      warnings: payload.warnings || [],
+      discrepancies: payload.discrepancies || [],
+      createdAt: new Date(),
+    };
+
+    this.validationResults.set(resultId, storedResult);
+
+    this.logger.info(`Validation result saved: ${resultId}`, {
+      resultId,
+      status: storedResult.status,
+      brandName: storedResult.brandName,
+    });
+
+    return storedResult;
+  }
+
+  getAllValidationResults(): StoredValidationResult[] {
+    return Array.from(this.validationResults.values()).sort(
+      (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
+    );
+  }
+
+  getValidationResult(id: string): StoredValidationResult | null {
+    return this.validationResults.get(id) || null;
   }
 }

@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 
 export type ValidationStepStatus = 'pending' | 'active' | 'completed' | 'error';
 export type ValidationJobStatus = 'running' | 'success' | 'warning' | 'error';
+export type ValidationStepStatusMap = Record<string, ValidationStepStatus>;
 
 export interface ValidationStep {
   id: string;
@@ -14,7 +15,8 @@ export interface ValidationStep {
 
 interface ValidationProgressProps {
   title?: string;
-  steps: ValidationStep[];
+  steps?: ValidationStep[];
+  progress?: ValidationStepStatusMap;
   status?: ValidationJobStatus;
   className?: string;
 }
@@ -28,6 +30,18 @@ export const VALIDATION_PIPELINE_STEP_LABELS = [
   'TTB Rule Validation',
   'Compliance Report Generation',
 ] as const;
+
+const VALIDATION_PIPELINE_STEP_DEFS: Array<{ key: string; label: string }> = [
+  { key: 'uploadReceived', label: 'Upload Received' },
+  { key: 'imagePreprocessing', label: 'Image Preprocessing' },
+  { key: 'ocrTextExtraction', label: 'OCR Text Extraction' },
+  { key: 'fieldExtraction', label: 'Field Extraction' },
+  { key: 'applicationCrossCheck', label: 'Application Data Cross Check' },
+  { key: 'ttbRuleValidation', label: 'TTB Rule Validation' },
+  { key: 'complianceReportGeneration', label: 'Compliance Report Generation' },
+];
+
+export const VALIDATION_PIPELINE_STEP_KEYS = VALIDATION_PIPELINE_STEP_DEFS.map((item) => item.key);
 
 function StepIcon({ status }: { status: ValidationStepStatus }): JSX.Element {
   if (status === 'completed') {
@@ -66,10 +80,21 @@ export function createValidationSteps(activeIndex: number, hasError = false): Va
 export function ValidationProgress({
   title = 'Validation Progress',
   steps,
+  progress,
   status = 'running',
   className,
 }: ValidationProgressProps): JSX.Element {
-  const activeStep = steps.find((step) => step.status === 'active' || step.status === 'error');
+  const resolvedSteps: ValidationStep[] = steps
+    ? steps
+    : VALIDATION_PIPELINE_STEP_DEFS.map((stepDef, index) => ({
+        id: `step-${index + 1}`,
+        label: stepDef.label,
+        status: progress?.[stepDef.key] || 'pending',
+      }));
+
+  const activeStep = resolvedSteps.find(
+    (step) => step.status === 'active' || step.status === 'error'
+  );
 
   return (
     <section
@@ -95,14 +120,14 @@ export function ValidationProgress({
       </p>
 
       <ol className="mt-4 space-y-3" aria-label="Validation pipeline steps">
-        {steps.map((step, index) => {
+        {resolvedSteps.map((step, index) => {
           const isCompleted = step.status === 'completed';
           const isActive = step.status === 'active';
           const isError = step.status === 'error';
 
           return (
             <li key={step.id} className="relative flex items-start gap-3">
-              {index < steps.length - 1 ? (
+              {index < resolvedSteps.length - 1 ? (
                 <span
                   className={cn(
                     'absolute left-2.5 top-6 h-7 w-px transition-colors',

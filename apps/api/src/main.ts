@@ -3,10 +3,15 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app/app.module';
 import { getConfig } from '@ttb/config';
+import { ApplicationService } from './app/modules/application/application.service';
 
 async function bootstrap() {
   const config = getConfig();
   const app = await NestFactory.create(AppModule);
+
+  // Seed test data in development
+  const applicationService = app.get(ApplicationService);
+  applicationService.seedTestData();
 
   app.enableCors({
     origin: config.getConfig().api.corsOrigin,

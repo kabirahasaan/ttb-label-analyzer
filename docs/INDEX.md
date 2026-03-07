@@ -30,6 +30,13 @@ Complete documentation for the TTB Label Compliance Validation Platform. All doc
   - Coverage goals
   - Test data generation
 
+- **[TEST_DATA.md](./TEST_DATA.md)** - Test data and fixtures guide
+  - Pre-seeded test applications
+  - Label validation scenarios
+  - Manual testing workflows
+  - Quick reference test values
+  - API test endpoints
+
 ### Security
 
 - **[SECURITY.md](./SECURITY.md)** - Security considerations and best practices
@@ -95,6 +102,7 @@ Complete documentation for the TTB Label Compliance Validation Platform. All doc
 2. Follow **TTB_RULES_INTEGRATION.md** for implementation details
 3. Review **TTB_RULES_EXAMPLES.ts** for code patterns
 4. Check **TESTING.md** for testing strategies
+5. Use **TEST_DATA.md** for testing with pre-loaded fixtures
 
 ### For DevOps/Deployment
 

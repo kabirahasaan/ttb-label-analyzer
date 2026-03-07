@@ -1,0 +1,57 @@
+[
+  {
+    "id": "a4483485-0d03-4b5c-a17a-cd39b3d24497",
+    "brandName": "Amber Wheat Beer",
+    "alcoholByVolume": 10.6,
+    "netContents": "16 fl oz (473 mL)",
+    "producerName": "Mountain View Brewery",
+    "colaNumber": "COLA-2026-1000",
+    "approvalDate": "2025-08-04T07:28:31.265Z",
+    "createdAt": "2026-03-07T15:55:06.206Z",
+    "updatedAt": "2026-03-07T15:55:06.206Z"
+  },
+  {
+    "id": "d5413110-4bf4-4f34-a9fa-aa0064471cde",
+    "brandName": "Rose Garden Pinot Noir",
+    "alcoholByVolume": 13.1,
+    "netContents": "750 mL",
+    "producerName": "Hillside Vineyard",
+    "colaNumber": "COLA-2026-1001",
+    "approvalDate": "2025-09-20T17:37:32.279Z",
+    "createdAt": "2026-03-07T15:55:06.206Z",
+    "updatedAt": "2026-03-07T15:55:06.206Z"
+  },
+  {
+    "id": "4967c403-9d33-4d83-b9bd-b6fe1410a871",
+    "brandName": "Premium Vodka",
+    "alcoholByVolume": 48.1,
+    "netContents": "1 L",
+    "producerName": "Premium Spirits Inc.",
+    "colaNumber": "COLA-2026-1002",
+    "approvalDate": "2025-01-24T17:00:02.471Z",
+    "createdAt": "2026-03-07T15:55:06.206Z",
+    "updatedAt": "2026-03-07T15:55:06.206Z"
+  },
+  {
+    "id": "906414d8-6c08-487b-bc3c-2021a8724ca1",
+    "brandName": "Apple Valley Cider",
+    "alcoholByVolume": 4.5,
+    "netContents": "16 fl oz (473 mL)",
+    "producerName": "Apple Valley Cidery",
+    "colaNumber": "COLA-2026-1003",
+    "approvalDate": "2025-08-27T23:39:36.950Z",
+    "createdAt": "2026-03-07T15:55:06.206Z",
+    "updatedAt": "2026-03-07T15:55:06.206Z"
+  },
+  {
+    "id": "018906bb-0fe5-4a67-90f3-ca417ba9bd77",
+    "brandName": "IPA Masters",
+    "alcoholByVolume": 12,
+    "netContents": "16 fl oz (473 mL)",
+    "producerName": "Craft Masters Brewery",
+    "colaNumber": "COLA-2026-1004",
+    "approvalDate": "2024-07-01T02:45:15.745Z",
+    "createdAt": "2026-03-07T15:55:06.206Z",
+    "updatedAt": "2026-03-07T15:55:06.206Z"
+  }
+]

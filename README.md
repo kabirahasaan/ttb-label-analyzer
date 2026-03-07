@@ -1069,6 +1069,7 @@ All comprehensive documentation is organized in the [docs](./docs) directory:
 - **[Getting Started](./docs/GETTING_STARTED.md)** - Setup and installation
 - **[Architecture](./docs/ARCHITECTURE.md)** - System design
 - **[Testing](./docs/TESTING.md)** - Testing strategies
+- **[Test Data](./docs/TEST_DATA.md)** - Pre-seeded fixtures and manual testing
 - **[Security](./docs/SECURITY.md)** - Security practices
 - **[TTB Rules](./docs/TTB_RULES_QUICK_START.md)** - Rules system guide
 

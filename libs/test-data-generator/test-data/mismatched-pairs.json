@@ -1,0 +1,77 @@
+[
+  {
+    "label": {
+      "id": "8bc55a53-3d56-4b9c-a35c-9d775a83763d",
+      "brandName": "Pear Harvest Cider - Different Brand",
+      "alcoholByVolume": 9.9,
+      "netContents": "1.5 L",
+      "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+      "classType": "wine",
+      "producerName": "Hillside Vineyard",
+      "imageUrl": "/test-images/estate-sauvignon-blanc.jpg",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    },
+    "application": {
+      "id": "705c5c5b-7b75-48b1-b4cc-ca6dd23ccfae",
+      "brandName": "Pear Harvest Cider",
+      "alcoholByVolume": 7.9,
+      "netContents": "16 fl oz (473 mL)",
+      "producerName": "Orchard Cider Works",
+      "colaNumber": "COLA-2026-1008",
+      "approvalDate": "2025-09-12T16:31:31.463Z",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    }
+  },
+  {
+    "label": {
+      "id": "4899d8c7-908e-442b-b55b-373e0f8a3d5b",
+      "brandName": "Amber Wheat Beer - Different Brand",
+      "alcoholByVolume": 13.3,
+      "netContents": "12 fl oz",
+      "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+      "classType": "cider",
+      "producerName": "Orchard Cider Works",
+      "imageUrl": "/test-images/orchard-select-hard-cider.jpg",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    },
+    "application": {
+      "id": "74e43272-137b-46f4-b52c-2265ce3a5e0b",
+      "brandName": "Amber Wheat Beer",
+      "alcoholByVolume": 11.3,
+      "netContents": "12 fl oz",
+      "producerName": "Fresh Hops Brewing",
+      "colaNumber": "COLA-2026-1009",
+      "approvalDate": "2025-11-03T17:41:07.551Z",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    }
+  },
+  {
+    "label": {
+      "id": "c2e362fc-fa28-419c-9014-acd3fb48b0c3",
+      "brandName": "Aged Rum Reserve - Different Brand",
+      "alcoholByVolume": 43.8,
+      "netContents": "750 mL",
+      "governmentWarning": "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.",
+      "classType": "distilled spirit",
+      "producerName": "Heritage Distillery Co.",
+      "imageUrl": "/test-images/premium-vodka.jpg",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    },
+    "application": {
+      "id": "1e93eaf0-39fc-4c19-ba66-015adb8e92a3",
+      "brandName": "Aged Rum Reserve",
+      "alcoholByVolume": 41.8,
+      "netContents": "1.75 L",
+      "producerName": "Heritage Distillery Co.",
+      "colaNumber": "COLA-2026-1010",
+      "approvalDate": "2025-08-20T00:33:01.008Z",
+      "createdAt": "2026-03-07T15:55:06.207Z",
+      "updatedAt": "2026-03-07T15:55:06.207Z"
+    }
+  }
+]

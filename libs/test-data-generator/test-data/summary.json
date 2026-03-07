@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-03-07T15:55:06.211Z",
+  "counts": {
+    "applications": 5,
+    "labels": 5,
+    "matchingPairs": 3,
+    "mismatchedPairs": 3,
+    "partialMatchPairs": 2,
+    "totalLabels": 13
+  },
+  "options": {
+    "count": 5,
+    "withImages": true,
+    "imageFormat": "svg"
+  },
+  "outputDirectory": "/Users/kabirahasaan/codebase/kabirahasaan/ttb-label-analyzer/libs/test-data-generator/test-data"
+}

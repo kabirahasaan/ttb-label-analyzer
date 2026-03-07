@@ -1339,7 +1339,55 @@ npm run test:coverage -- --checkCoverageThresholds
 
 ## Test Data
 
-### Generation
+💡 **See [TEST_DATA.md](./TEST_DATA.md) for comprehensive test data documentation, pre-seeded fixtures, and manual testing workflows.**
+
+The application includes automatically seeded test data for development and testing:
+
+- **9 pre-configured applications** (5 valid, 4 edge cases, negative scenarios)
+- **10 label validation scenarios** (matching, mismatching, partial match)
+- **Quick reference test values** for manual testing
+- **API test endpoints** for automated testing
+
+### Pre-Seeded Test Applications
+
+Test applications are automatically loaded on API startup:
+
+```bash
+# List all test applications (by COLA number)
+curl http://localhost:3001/applications | jq '.[] | "\(.colaNumber || "No COLA") - \(.brandName)"'
+
+# List just COLA numbers
+curl http://localhost:3001/applications | jq '.[].colaNumber'
+
+# Get specific application by COLA number
+curl http://localhost:3001/applications/cola/COLA-2024-001
+```
+
+Available test COLA numbers:
+
+- `COLA-2024-001` - Hoppy Trails IPA (6.5% ABV)
+- `COLA-2024-002` - Reserve Cabernet Sauvignon (13.5% ABV)
+- `COLA-2024-003` - Kentucky Oak Bourbon (42% ABV)
+- Plus 6 additional test applications
+
+### Using Test Fixtures in Code
+
+```typescript
+// Import test fixtures
+import { getValidTestApplications } from '@ttb/api/fixtures/test-applications.fixture';
+import { getLabelScenariosByValidation } from '@ttb/api/fixtures/test-labels.fixture';
+
+// Get valid test applications
+const validApps = getValidTestApplications();
+
+// Get label scenarios by validation type
+const matchingLabels = getLabelScenariosByValidation('match');
+const mismatchingLabels = getLabelScenariosByValidation('mismatch');
+```
+
+### Synthetic Data Generation
+
+For generating additional test data:
 
 ```bash
 # Generate all test data

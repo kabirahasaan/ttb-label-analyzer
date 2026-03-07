@@ -29,6 +29,7 @@ export interface ApplicationCreateRequest {
   netContents: string;
   producerName: string;
   colaNumber?: string;
+  approvalDate?: string;
 }
 
 export interface ApplicationUpdateRequest {
@@ -37,6 +38,7 @@ export interface ApplicationUpdateRequest {
   netContents?: string;
   producerName?: string;
   colaNumber?: string;
+  approvalDate?: string;
 }
 
 export interface BatchApplicationUploadRequest {

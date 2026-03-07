@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Param } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Delete } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { ValidateService } from './validation.service';
 import {
@@ -66,5 +66,12 @@ export class ValidationController {
   @ApiResponse({ status: 200, description: 'Validation result details' })
   getResult(@Param('id') id: string): StoredValidationResult | null {
     return this.validateService.getValidationResult(id);
+  }
+
+  @Delete('results')
+  @ApiOperation({ summary: 'Clear all validation results' })
+  @ApiResponse({ status: 200, description: 'All validation results cleared' })
+  clearAllResults(): { cleared: number } {
+    return this.validateService.clearAllValidationResults();
   }
 }

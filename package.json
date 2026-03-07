@@ -11,6 +11,7 @@
     "pnpm": ">=8.0.0"
   },
   "scripts": {
+    "predev": "node -e \"const major = Number(process.versions.node.split('.')[0]); if (major < 20) { console.error('Node.js 20+ is required. Run: nvm use'); process.exit(1); }\"",
     "dev": "nx run-many --targets=serve --projects=api,web --parallel=2",
     "build": "nx run-many --targets=build --projects=api,web",
     "test": "nx run-many --targets=test --all",

@@ -71,6 +71,7 @@ export interface StoredValidationResult {
   labelId: string;
   applicationId: string;
   brandName: string;
+  colaNumber?: string;
   status: 'COMPLIANT' | 'WARNING' | 'NON_COMPLIANT';
   errors: string[];
   warnings: string[];
@@ -92,6 +93,10 @@ export class SaveValidationResultDto {
 
   @IsString()
   brandName: string;
+
+  @IsOptional()
+  @IsString()
+  colaNumber?: string;
 
   @IsString()
   status: 'COMPLIANT' | 'WARNING' | 'NON_COMPLIANT';

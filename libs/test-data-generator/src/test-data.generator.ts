@@ -304,7 +304,7 @@ export class TestDataGenerator {
   }
 
   /**
-   * Generate COLA number in format COLA-YYYY-NNN
+   * Generate TTB COLA ID in format COLA-YYYY-NNN
    */
   private static generateColaNumber(): string {
     const year = new Date().getFullYear();

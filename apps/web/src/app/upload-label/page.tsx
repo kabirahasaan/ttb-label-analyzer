@@ -419,14 +419,26 @@ export default function UploadLabelPage() {
 
       setResult({ ...finalResult, validationTime, confidenceScore });
 
+      // Field name mapping for human-readable warnings
+      const fieldNameMap: Record<string, string> = {
+        brandName: 'Brand Name',
+        alcoholByVolume: 'Alcohol by Volume (ABV)',
+        netContents: 'Net Contents',
+        producerName: 'Producer Name',
+        governmentWarning: 'Government Warning',
+        colaNumber: 'TTB COLA ID',
+        classType: 'Product Type',
+      };
+
       // Save validation result for later retrieval on Results page
-      await fetch(`${API_BASE_URL}/validate/results`, {
+      const saveResultResponse = await fetch(`${API_BASE_URL}/validate/results`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           labelId: labelData.id,
           applicationId: application.id,
           brandName: application.brandName,
+          colaNumber: application.colaNumber,
           status:
             finalResult.status === 'valid'
               ? 'COMPLIANT'
@@ -436,14 +448,29 @@ export default function UploadLabelPage() {
           errors: finalResult.status === 'error' ? ['Validation process encountered an error'] : [],
           warnings:
             finalResult.discrepancies && finalResult.discrepancies.length > 0
-              ? finalResult.discrepancies.map(
-                  (d) => `${d.field}: ${d.labelValue} vs ${d.applicationValue}`
-                )
+              ? finalResult.discrepancies.map((d) => {
+                  const friendlyFieldName = fieldNameMap[d.field] || d.field;
+                  return `${friendlyFieldName}: Label shows "${d.labelValue}" but approved application has "${d.applicationValue}"`;
+                })
               : [],
           discrepancies: finalResult.discrepancies || [],
           validationTime: validationTime,
         }),
       });
+
+      if (!saveResultResponse.ok) {
+        const errorBody = await saveResultResponse.text();
+        console.error('Failed to persist validation result:', {
+          status: saveResultResponse.status,
+          body: errorBody,
+        });
+
+        toast({
+          title: 'Validation completed, but result was not saved',
+          description: 'Please refresh Validation Results and try again.',
+          variant: 'warning',
+        });
+      }
 
       if (finalStatus === 'success') {
         toast({
@@ -769,8 +796,8 @@ export default function UploadLabelPage() {
                 <option value="">Select application...</option>
                 {applications.map((app) => (
                   <option key={app.id} value={app.id}>
-                    {app.colaNumber || 'No COLA'} · {app.brandName} · {app.alcoholByVolume}% ABV ·{' '}
-                    {app.netContents} · {app.producerName}
+                    {app.colaNumber || 'No COLA ID'} · {app.brandName} · {app.alcoholByVolume}% ABV
+                    · {app.netContents} · {app.producerName}
                   </option>
                 ))}
               </select>
@@ -796,18 +823,18 @@ export default function UploadLabelPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="cola-number" className="text-sm font-medium text-slate-700">
-                    COLA Number
+                    COLA ID
                   </Label>
                   <Input
                     id="cola-number"
-                    placeholder="COLA-123456"
+                    placeholder="COLA-2024-001"
                     value={manualData.colaNumber}
                     onChange={(e) => {
                       setManualData((prev) => ({ ...prev, colaNumber: e.target.value }));
                       setResult(null);
                     }}
                     className="rounded-lg border-slate-300 focus-visible:ring-2 focus-visible:ring-slate-500"
-                    aria-label="COLA identification number"
+                    aria-label="TTB COLA identification number"
                   />
                 </div>
               </div>

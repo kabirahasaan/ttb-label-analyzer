@@ -187,17 +187,17 @@ export default function ApplicationFormPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="cola-number" className="text-sm font-medium text-slate-700">
-                    COLA Number
+                    COLA ID
                   </Label>
                   <Input
                     id="cola-number"
-                    placeholder="COLA-123456"
+                    placeholder="COLA-2024-001"
                     value={formData.colaNumber}
                     onChange={(e) =>
                       setFormData((prev) => ({ ...prev, colaNumber: e.target.value }))
                     }
                     className="rounded-lg border-slate-300 focus-visible:ring-2 focus-visible:ring-slate-500"
-                    aria-label="COLA identification number"
+                    aria-label="TTB COLA identification number"
                   />
                 </div>
               </div>
@@ -296,7 +296,7 @@ export default function ApplicationFormPage() {
                       key={application.id}
                       className="rounded-lg border border-slate-200 px-3 py-2"
                     >
-                      {application.colaNumber || 'No COLA #'} · {application.brandName} ·{' '}
+                      {application.colaNumber || 'No COLA ID'} · {application.brandName} ·{' '}
                       {application.alcoholByVolume}% ABV · {application.netContents} ·{' '}
                       {application.producerName}
                     </li>

@@ -206,6 +206,7 @@ export class ValidateService {
       labelId: payload.labelId,
       applicationId: payload.applicationId,
       brandName: payload.brandName,
+      colaNumber: payload.colaNumber,
       status: payload.status,
       errors: payload.errors || [],
       warnings: payload.warnings || [],
@@ -234,5 +235,12 @@ export class ValidateService {
 
   getValidationResult(id: string): StoredValidationResult | null {
     return this.validationResults.get(id) || null;
+  }
+
+  clearAllValidationResults(): { cleared: number } {
+    const count = this.validationResults.size;
+    this.validationResults.clear();
+    this.logger.info(`Cleared all validation results`, { count });
+    return { cleared: count };
   }
 }

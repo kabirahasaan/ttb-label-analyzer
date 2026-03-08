@@ -6,22 +6,19 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@8.15.0 --activate
-
 # Copy dependency files
-COPY package.json pnpm-lock.yaml ./
+COPY package.json package-lock.json ./
 COPY apps/api/package.json ./apps/api/
 COPY libs/*/package.json ./libs/*/
 
 # Install all dependencies (needed for build)
-RUN pnpm install --frozen-lockfile
+RUN npm ci
 
 # Copy source code and config files
 COPY . .
 
 # Build the API application
-RUN pnpm run build
+RUN npm run build
 
 # Verify build output
 RUN ls -la apps/api/dist && cat apps/api/dist/main.js | head -5
@@ -31,16 +28,13 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@8.15.0 --activate
-
 # Copy dependency files
-COPY package.json pnpm-lock.yaml ./
+COPY package.json package-lock.json ./
 COPY apps/api/package.json ./apps/api/
 COPY libs/*/package.json ./libs/*/
 
 # Install production dependencies only
-RUN pnpm install --frozen-lockfile --prod
+RUN npm ci --omit=dev
 
 # Copy built application from build stage
 COPY --from=builder /app/apps/api/dist ./apps/api/dist

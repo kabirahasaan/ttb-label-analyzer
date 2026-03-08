@@ -1,6 +1,21 @@
 - title: Home
   url: /
 
+- title: Getting Started (Quick Start)
+  url: /quick-start/
+
+- title: Testing
+  url: /testing/
+
+- title: Test Data
+  url: /test-data/
+
+- title: Application Data
+  url: /application-data/
+
+- title: Label Images
+  url: /label-images/
+
 - title: Reviewer Guide
   url: /reviewer-guide
 

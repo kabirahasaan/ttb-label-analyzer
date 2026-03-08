@@ -5,10 +5,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   output: 'standalone',
-  experimental: {
-    // Ensure output file tracing uses the monorepo root on Vercel.
-    outputFileTracingRoot: path.join(__dirname, '../../'),
-  },
   eslint: {
     // Don't fail builds on ESLint errors during deployment
     ignoreDuringBuilds: true,

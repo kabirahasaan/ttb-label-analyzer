@@ -13,8 +13,31 @@ async function bootstrap() {
   const applicationService = app.get(ApplicationService);
   applicationService.seedTestData();
 
+  const configuredOrigins = config
+    .getConfig()
+    .api.corsOrigin.split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+  const allowAnyOrigin = configuredOrigins.includes('*');
+  const allowVercelPreview = process.env.ALLOW_VERCEL_PREVIEW_ORIGINS === 'true';
+
   app.enableCors({
-    origin: config.getConfig().api.corsOrigin,
+    origin: (origin, callback) => {
+      // Allow non-browser or same-origin requests without an Origin header.
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowAnyOrigin || configuredOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      if (allowVercelPreview && /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`CORS blocked for origin: ${origin}`), false);
+    },
     credentials: true,
   });
 

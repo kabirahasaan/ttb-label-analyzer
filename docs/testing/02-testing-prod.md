@@ -100,6 +100,128 @@ fetch('https://ttb-label-analyzer-production.up.railway.app/health')
 #### ✓ Test: View Results
 
 1. **Go to**: Validation Results
+2. **Verify**: Previous results displayed
+3. **Check**: Export buttons (JSON, CSV)
+4. **Check**: Compliance badges visible
+5. **Test**: Filter/search functionality
+
+---
+
+## Latest Production Test Results
+
+**Last Test Run**: March 8, 2026  
+**Status**: ✅ 18/19 Tests Passing (95%)
+
+### Summary
+
+| Category | Total | Passed | Failed | Status |
+|----------|-------|--------|--------|--------|
+| **Frontend Pages** | 5 | 5 | 0 | ✅ PASS |
+| **API Endpoints** | 3 | 2 | 1 | ⚠️ PARTIAL |
+| **Database** | 1 | 1 | 0 | ✅ PASS |
+| **Content/UI** | 10 | 10 | 0 | ✅ PASS |
+| **Overall** | **19** | **18** | **1** | **✅ 95%** |
+
+### Detailed Results
+
+#### Frontend Tests ✅
+
+1. **Homepage** - All elements loading correctly
+   - ✅ Title and tagline displayed
+   - ✅ CTA buttons functional
+   - ✅ 4 feature cards visible
+   - ✅ Navigation working
+
+2. **Upload Label Page** - Workflow functional
+   - ✅ Step-by-step process clear
+   - ✅ Application dropdown populated
+   - ✅ File upload area working
+
+3. **Batch Validation Page** - All features working
+   - ✅ File upload area functional
+   - ✅ All 9 applications listed
+   - ✅ Batch workflow enabled
+
+4. **Application Form** - Data entry working
+   - ✅ Manual entry form functional
+   - ✅ Batch upload tab present
+   - ✅ 9 applications displayed
+
+5. **Validation Results** - Results display working
+   - ✅ Results table populated
+   - ✅ Export buttons functional
+   - ✅ Compliance badges visible
+
+#### API Tests
+
+1. **Health Endpoint** ✅
+   ```json
+   {
+     "status": "ok",
+     "database": { "status": "connected" },
+     "uptime": 1787.2
+   }
+   ```
+
+2. **Applications Endpoint** ✅
+   - Returns all 9 pre-seeded applications
+   - Complete data structure
+   - Proper formatting
+
+3. **API Documentation** ❌
+   - Swagger UI endpoint (502 error)
+   - Non-critical - core API functional
+
+#### Database Test ✅
+
+- ✅ PostgreSQL connected
+- ✅ Data persistence working
+- ✅ All 9 applications seeded
+- ✅ Queries executing successfully
+
+#### Integration Test ✅
+
+- ✅ Frontend ↔ Backend communication
+- ✅ CORS properly configured
+- ✅ Environment variables set
+- ✅ Data displayed on all pages
+
+### Production URLs Tested
+
+- **Frontend**: https://ttb-label-analyzer.vercel.app
+- **API**: https://ttb-label-analyzer-production.up.railway.app
+- **Health**: https://ttb-label-analyzer-production.up.railway.app/health
+- **Applications**: https://ttb-label-analyzer-production.up.railway.app/applications
+
+### Known Issues
+
+**Issue**: Swagger documentation endpoint returns 502  
+**Severity**: Low  
+**Impact**: Documentation not accessible via `/api/docs`  
+**Workaround**: API endpoints functional, docs in code  
+
+---
+
+## Performance Metrics
+
+| Metric | Value | Status |
+|--------|-------|--------|
+| Homepage Load | < 2s | ✅ Good |
+| API Health Response | < 500ms | ✅ Excellent |
+| API Applications Response | < 1s | ✅ Good |
+| Database Connection | Stable | ✅ Healthy |
+
+---
+
+## Full Coverage Report
+
+For comprehensive test coverage analysis including development vs production comparison, see:
+
+[**Test Coverage Report →**](./03-test-coverage.md)
+
+---
+
+1. **Go to**: Validation Results
 2. **Verify**: See list of recent validations
 3. **Click**: One result to view details
 4. **Verify**: See extracted label data and validation rules

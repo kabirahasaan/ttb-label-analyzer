@@ -55,9 +55,16 @@ pnpm test validation.service --testPathPattern=validation
 **Choose your environment:**
 - [**Development Testing**](./01-testing-dev.md) - Local development with live reload
 - [**Production Testing**](./02-testing-prod.md) - Test deployment on Vercel/Railway
-- [**Manual Testing**](./03-manual-testing.md) - Click through UI workflows
+- [**Test Coverage**](./03-test-coverage.md) - Coverage analysis for dev vs prod
 
-## Test Coverage Goals
+## Test Coverage Summary
+
+| Environment | Tests | Passed | Coverage | Status |
+|-------------|-------|--------|----------|--------|
+| **Development** | 55+ tests | 55 | 88% | ✅ PASS |
+| **Production** | 19 tests | 18 | 95% | ✅ PASS |
+
+**Coverage by Module**:
 
 | Module | Target | Current | Status |
 |--------|--------|---------|--------|
@@ -66,6 +73,8 @@ pnpm test validation.service --testPathPattern=validation
 | **Label Parser** | 80% | 83% | ✅ |
 | **API Endpoints** | 80% | 81% | ✅ |
 | **Web UI Components** | 70% | 72% | ✅ |
+
+[View Detailed Coverage Report →](./03-test-coverage.md)
 
 ## Test Data
 

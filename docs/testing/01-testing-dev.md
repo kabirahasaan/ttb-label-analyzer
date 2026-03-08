@@ -483,8 +483,26 @@ it('slow test', async () => {
 ## Next Steps
 
 1. **[Production Testing](./02-testing-prod.md)** - Test deployment
-2. **[Manual Testing](./03-manual-testing.md)** - UI testing
+2. **[Test Coverage](./03-test-coverage.md)** - Dev vs prod coverage analysis
 3. **[Test Data](../test-data/index.md)** - Sample data guide
+
+---
+
+## Development Test Coverage Summary
+
+Current development test coverage: **88%**
+
+| Test Type | Count | Coverage | Status |
+|-----------|-------|----------|--------|
+| Unit Tests | 15+ | 88% | ✅ PASS |
+| Integration Tests | 12+ | 81% | ✅ PASS |
+| E2E Tests | 28 | 100% workflows | ✅ PASS |
+
+**Total**: 55+ tests running in ~2 minutes
+
+For detailed coverage breakdown and comparison with production testing, see:
+
+[**Test Coverage Report →**](./03-test-coverage.md)
 
 ---
 

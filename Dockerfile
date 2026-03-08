@@ -46,6 +46,13 @@ RUN pnpm install --frozen-lockfile --prod --ignore-scripts
 COPY --from=builder /app/apps/api/dist ./apps/api/dist
 COPY --from=builder /app/libs ./libs
 
+# Debug: Verify files are in the right place
+RUN ls -la /app && \
+    ls -la /app/apps/api && \
+    ls -la /app/apps/api/dist && \
+    echo "Checking if main.js exists:" && \
+    test -f /app/apps/api/dist/main.js && echo "main.js found!" || echo "main.js NOT FOUND!"
+
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=3001

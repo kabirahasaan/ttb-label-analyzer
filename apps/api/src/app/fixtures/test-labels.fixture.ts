@@ -25,7 +25,6 @@ export const MATCHING_LABEL_SCENARIOS: TestLabelScenario[] = [
     description: 'Label data that exactly matches COLA-2024-001 application',
     label: {
       imageUrl: '/test-images/hoppy-trails-ipa.jpg',
-      processingStatus: 'completed',
     },
     extractedData: {
       brandName: 'Hoppy Trails IPA',
@@ -47,7 +46,6 @@ export const MATCHING_LABEL_SCENARIOS: TestLabelScenario[] = [
     label: {
       imageUrl: '/test-images/reserve-cabernet.jpg',
       processingStatus: 'completed',
-    },
     extractedData: {
       brandName: 'Reserve Cabernet Sauvignon',
       alcoholByVolume: 13.5,
@@ -68,7 +66,6 @@ export const MATCHING_LABEL_SCENARIOS: TestLabelScenario[] = [
     label: {
       imageUrl: '/test-images/kentucky-oak-bourbon.jpg',
       processingStatus: 'completed',
-    },
     extractedData: {
       brandName: 'Kentucky Oak Bourbon',
       alcoholByVolume: 42.0,
@@ -95,7 +92,6 @@ export const MISMATCHING_LABEL_SCENARIOS: TestLabelScenario[] = [
     label: {
       imageUrl: '/test-images/different-brand.jpg',
       processingStatus: 'completed',
-    },
     extractedData: {
       brandName: 'Different IPA Name',
       alcoholByVolume: 6.5,
@@ -115,7 +111,6 @@ export const MISMATCHING_LABEL_SCENARIOS: TestLabelScenario[] = [
     label: {
       imageUrl: '/test-images/wrong-abv.jpg',
       processingStatus: 'completed',
-    },
     extractedData: {
       brandName: 'Hoppy Trails IPA',
       alcoholByVolume: 7.2,
@@ -135,7 +130,6 @@ export const MISMATCHING_LABEL_SCENARIOS: TestLabelScenario[] = [
     label: {
       imageUrl: '/test-images/wrong-size.jpg',
       processingStatus: 'completed',
-    },
     extractedData: {
       brandName: 'Reserve Cabernet Sauvignon',
       alcoholByVolume: 13.5,
@@ -155,7 +149,6 @@ export const MISMATCHING_LABEL_SCENARIOS: TestLabelScenario[] = [
     label: {
       imageUrl: '/test-images/wrong-producer.jpg',
       processingStatus: 'completed',
-    },
     extractedData: {
       brandName: 'Kentucky Oak Bourbon',
       alcoholByVolume: 42.0,
@@ -175,7 +168,6 @@ export const MISMATCHING_LABEL_SCENARIOS: TestLabelScenario[] = [
     label: {
       imageUrl: '/test-images/missing-warning.jpg',
       processingStatus: 'completed',
-    },
     extractedData: {
       brandName: 'Hoppy Trails IPA',
       alcoholByVolume: 6.5,
@@ -202,7 +194,6 @@ export const PARTIAL_MATCH_SCENARIOS: TestLabelScenario[] = [
     label: {
       imageUrl: '/test-images/minor-abv-diff.jpg',
       processingStatus: 'completed',
-    },
     extractedData: {
       brandName: 'Hoppy Trails IPA',
       alcoholByVolume: 6.3,
@@ -222,7 +213,6 @@ export const PARTIAL_MATCH_SCENARIOS: TestLabelScenario[] = [
     label: {
       imageUrl: '/test-images/alt-brand-format.jpg',
       processingStatus: 'completed',
-    },
     extractedData: {
       brandName: 'Reserve Cabernet',
       alcoholByVolume: 13.5,

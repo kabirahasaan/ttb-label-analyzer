@@ -561,21 +561,21 @@
   },"80": {
     "doc": "Home",
     "title": "What reviewers can do quickly",
-    "content": ". | Start with Reviewer Guide for a 10-minute review path. | Validate scope coverage in Requirement Traceability. | Inspect business and technical delivery in Implemented Features. | Review product polish in Product &amp; UX Decisions. | Evaluate forward-thinking in Future Enhancements. | . ",
+    "content": ". | Start with Reviewer Guide for a 10-minute review path. | Understand design choices in Design Decisions &amp; Assumptions. | Validate scope coverage in Requirement Traceability. | Inspect business and technical delivery in Implemented Features. | Review product polish in Product &amp; UX Decisions. | Evaluate forward-thinking in Future Enhancements. | . ",
     "url": "/ttb-label-analyzer/INDEX.html#what-reviewers-can-do-quickly",
     
     "relUrl": "/INDEX.html#what-reviewers-can-do-quickly"
   },"81": {
     "doc": "Home",
     "title": "Project snapshot",
-    "content": ". | Stack: Next.js 14 + NestJS 10 + TypeScript + Nx monorepo | Core scope: label OCR/parsing, TTB rule validation, COLA application cross-check, batch validation, results reporting | Quality scope: unit + integration + E2E tests runnable from a single root command | Current status: npm test passes (unit + integration + E2E) | . ",
+    "content": ". | Stack: Next.js 14 + NestJS 10 + TypeScript + Nx monorepo | Core scope: label OCR/parsing, TTB rule validation, COLA application cross-check, batch validation, results reporting | Quality scope: unit + integration + E2E tests runnable from a single root command | Current status: npm test passes (unit + integration + E2E) | Test Coverage: 88% dev, 95% production (55+ tests) - View Coverage Report | . ",
     "url": "/ttb-label-analyzer/INDEX.html#project-snapshot",
     
     "relUrl": "/INDEX.html#project-snapshot"
   },"82": {
     "doc": "Home",
     "title": "Primary documentation map",
-    "content": ". | Reviewer Guide | Requirement Traceability | Implemented Features | Extra Features | Product &amp; UX Decisions | Future Enhancements | Deployment (GitHub Pages) | Site Map | Legacy Reference | . ",
+    "content": ". | Reviewer Guide | Design Decisions &amp; Assumptions | Requirement Traceability | Implemented Features | Extra Features | Product &amp; UX Decisions | Future Enhancements | Deployment (GitHub Pages) | Site Map | Legacy Reference | . ",
     "url": "/ttb-label-analyzer/INDEX.html#primary-documentation-map",
     
     "relUrl": "/INDEX.html#primary-documentation-map"

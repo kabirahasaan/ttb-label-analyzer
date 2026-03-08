@@ -55,15 +55,16 @@ RUN pnpm install --frozen-lockfile --prod --ignore-scripts
 COPY --from=builder /app/apps/api/dist ./apps/api/dist
 COPY --from=builder /app/libs ./libs
 
-# Normalize compiled internal lib imports to runtime JS files.
-# Nx/tsc can emit requires like libs/*/src/index.ts, but the container runs JS only.
+# Normalize compiled imports to runtime JS files.
+# Nx/tsc can emit require paths ending in .ts (for libs or relative paths),
+# but the container executes JS output only.
 RUN node <<'NODE'
 const fs = require('fs');
 const path = require('path');
 
 const root = 'apps/api/dist';
 let updated = 0;
-const rx = /(require\(['"][^'"]*libs\/[^'"]*\/src\/[^'"]*)\.ts(['"]\))/g;
+const rx = /(require\(['"][^'"]+)\.ts(['"]\))/g;
 
 function walk(dir) {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -89,9 +90,9 @@ walk(root);
 console.log('Rewrote .ts require paths in', updated, 'files');
 NODE
 
-# Fail fast if any problematic TypeScript require path remains in runtime JS.
+# Fail fast if any TypeScript require path remains in runtime JS.
 RUN set -eux; \
-        if grep -R -nE "require\\(['\"][^'\"]*libs/.*/src/.*\\.ts['\"]\\)" apps/api/dist; then \
+    if grep -R -nE "require\\(['\"][^'\"]+\\.ts['\"]\\)" apps/api/dist; then \
             echo "Found unresolved .ts require paths in dist output" >&2; \
             exit 1; \
         else \

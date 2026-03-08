@@ -2,6 +2,8 @@
 
 This document describes the system architecture for the TTB Label Compliance Validation Platform, including stakeholder requirements, design decisions, and technology rationale.
 
+> **Note**: For comprehensive design decisions and assumptions about UX workflows, data sources, and system integration, see [Design Decisions & Assumptions](./design-decisions.md).
+
 ## Stakeholder Requirements & Acceptance Criteria
 
 ### Business Requirements

@@ -23,8 +23,17 @@ COPY . .
 # Build the API application
 RUN pnpm run build
 
-# Verify build output
-RUN ls -la apps/api/dist && cat apps/api/dist/main.js | head -5
+# Verify build output and fail fast if no known entrypoint exists
+RUN set -eux; \
+        ls -la apps/api/dist; \
+        if [ -f apps/api/dist/main.js ]; then \
+            echo "Found flat entrypoint: apps/api/dist/main.js"; \
+        elif [ -f apps/api/dist/apps/api/src/main.js ]; then \
+            echo "Found nested entrypoint: apps/api/dist/apps/api/src/main.js"; \
+        else \
+            echo "No API entrypoint found in build output" >&2; \
+            exit 1; \
+        fi
 
 # Stage 2: Production
 FROM node:20-alpine
@@ -46,12 +55,16 @@ RUN pnpm install --frozen-lockfile --prod --ignore-scripts
 COPY --from=builder /app/apps/api/dist ./apps/api/dist
 COPY --from=builder /app/libs ./libs
 
-# Debug: Verify files are in the right place
-RUN ls -la /app && \
-    ls -la /app/apps/api && \
-    ls -la /app/apps/api/dist && \
-    echo "Checking if main.js exists:" && \
-    test -f /app/apps/api/dist/main.js && echo "main.js found!" || echo "main.js NOT FOUND!"
+# Verify runtime image has a valid API entrypoint
+RUN set -eux; \
+        if [ -f /app/apps/api/dist/main.js ]; then \
+            echo "Runtime entrypoint: /app/apps/api/dist/main.js"; \
+        elif [ -f /app/apps/api/dist/apps/api/src/main.js ]; then \
+            echo "Runtime entrypoint: /app/apps/api/dist/apps/api/src/main.js"; \
+        else \
+            echo "Runtime entrypoint missing" >&2; \
+            exit 1; \
+        fi
 
 # Set environment variables
 ENV NODE_ENV=production
@@ -60,5 +73,5 @@ ENV PORT=3001
 # Expose port
 EXPOSE 3001
 
-# Start the application
-CMD ["node", "apps/api/dist/main.js"]
+# Start the application (supports both flat and nested Nest build layouts)
+CMD ["sh", "-c", "if [ -f apps/api/dist/main.js ]; then exec node apps/api/dist/main.js; else exec node apps/api/dist/apps/api/src/main.js; fi"]

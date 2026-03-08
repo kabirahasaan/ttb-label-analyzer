@@ -68,7 +68,7 @@ const statusConfig = {
 };
 
 export default function ValidationResultsPage() {
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
   const [results, setResults] = useState<ValidationResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

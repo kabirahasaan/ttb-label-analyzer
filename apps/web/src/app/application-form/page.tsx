@@ -386,7 +386,7 @@ function validateImportedCandidate(candidate: ImportCandidate): string | null {
 }
 
 export default function ApplicationFormPage(): JSX.Element {
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
 
   const [mode, setMode] = useState<EntryMode>('manual');
   const [applications, setApplications] = useState<ApplicationRecord[]>([]);

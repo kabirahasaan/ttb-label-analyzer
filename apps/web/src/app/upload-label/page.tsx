@@ -49,7 +49,7 @@ interface ValidationDisplayResult {
 }
 
 export default function UploadLabelPage() {
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
   const initialProgress = useMemo<ValidationStepStatusMap>(() => {
     return VALIDATION_PIPELINE_STEP_KEYS.reduce<ValidationStepStatusMap>((acc, key) => {
       acc[key] = 'pending';

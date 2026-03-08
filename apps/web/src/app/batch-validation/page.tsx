@@ -59,7 +59,7 @@ interface BatchValidationResult {
 type ApplicationMode = 'existing' | 'upload';
 
 export default function BatchValidationPage() {
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
 
   // Step 1: Image Upload
   const [selectedImages, setSelectedImages] = useState<File[]>([]);

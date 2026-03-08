@@ -15,7 +15,7 @@
     "dev": "nx run-many --targets=serve --projects=api,web --parallel=2",
     "build": "nx run-many --targets=build --projects=api,web",
     "build:web": "nx run web:build",
-    "vercel-build": "npm run build:web && rm -rf .next && cp -R apps/web/.next .next && node scripts/fix-vercel-traces.js .next",
+    "vercel-build": "npm run build:web && rm -rf .next && cp -R apps/web/.next .next",
     "test": "npm run test:unit && npm run test:integration && npm run test:e2e",
     "test:unit": "nx run-many --targets=test --all",
     "test:unit:watch": "nx run-many --targets=test --all --watch",

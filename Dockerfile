@@ -39,8 +39,8 @@ COPY package.json pnpm-lock.yaml ./
 COPY apps/api/package.json ./apps/api/
 COPY libs/*/package.json ./libs/*/
 
-# Install production dependencies only
-RUN pnpm install --frozen-lockfile --prod
+# Install production dependencies only (skip prepare/husky scripts)
+RUN pnpm install --frozen-lockfile --prod --ignore-scripts
 
 # Copy built application from build stage
 COPY --from=builder /app/apps/api/dist ./apps/api/dist

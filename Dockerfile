@@ -57,7 +57,37 @@ COPY --from=builder /app/libs ./libs
 
 # Normalize compiled internal lib imports to runtime JS files.
 # Nx/tsc can emit requires like libs/*/src/index.ts, but the container runs JS only.
-RUN node -e "const fs=require('fs');const path=require('path');const root='apps/api/dist';let updated=0;const rx=/(require\\(['\"][^'\"]*libs\\/[^'\"]*\\/src\\/[^'\"]*)\\.ts(['\"]\\))/g;function walk(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){const p=path.join(d,e.name);if(e.isDirectory())walk(p);else if(e.isFile()&&p.endsWith('.js')){const src=fs.readFileSync(p,'utf8');const out=src.replace(rx,'$1.js$2');if(out!==src){fs.writeFileSync(p,out);updated++;}}}}walk(root);console.log('Rewrote .ts require paths in',updated,'files');"
+RUN node <<'NODE'
+const fs = require('fs');
+const path = require('path');
+
+const root = 'apps/api/dist';
+let updated = 0;
+const rx = /(require\(['"][^'"]*libs\/[^'"]*\/src\/[^'"]*)\.ts(['"]\))/g;
+
+function walk(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const filePath = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+            walk(filePath);
+            continue;
+        }
+        if (!entry.isFile() || !filePath.endsWith('.js')) {
+            continue;
+        }
+
+        const src = fs.readFileSync(filePath, 'utf8');
+        const out = src.replace(rx, (_match, prefix, suffix) => `${prefix}.js${suffix}`);
+        if (out !== src) {
+            fs.writeFileSync(filePath, out);
+            updated += 1;
+        }
+    }
+}
+
+walk(root);
+console.log('Rewrote .ts require paths in', updated, 'files');
+NODE
 
 # Fail fast if any problematic TypeScript require path remains in runtime JS.
 RUN set -eux; \

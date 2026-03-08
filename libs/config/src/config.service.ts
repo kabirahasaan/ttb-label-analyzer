@@ -118,7 +118,10 @@ export class ConfigService {
   }
 
   private validateConfig(): void {
-    const requiredVars = ['DATABASE_URL'];
+    // Database is optional for the current deployment mode.
+    // Enforce DATABASE_URL only when explicitly requested.
+    const requireDatabase = this.getEnvBoolean('REQUIRE_DATABASE', false);
+    const requiredVars = requireDatabase ? ['DATABASE_URL'] : [];
 
     const missing = requiredVars.filter((v) => !process.env[v]);
     if (missing.length > 0) {

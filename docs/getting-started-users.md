@@ -8,6 +8,8 @@ nav_order: 2
 
 A complete guide for developers, QA engineers, and operations teams to get the TTB Label Analyzer running.
 
+> **Note**: For context on design decisions, UX choices, and system assumptions, see [Design Decisions & Assumptions](./design-decisions.md).
+
 ## Choose Your Path
 
 ### 👨‍💻 I'm a Developer - I Want to Customize & Extend

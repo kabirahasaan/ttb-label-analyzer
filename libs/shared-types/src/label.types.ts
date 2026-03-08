@@ -17,6 +17,18 @@ export interface LabelData {
   updatedAt?: Date;
 }
 
+export interface ExtractedLabelData {
+  brandName: string;
+  alcoholByVolume: number;
+  netContents: string;
+  producerName: string;
+  warnings: string[];
+  governmentWarning: boolean;
+  surgeonGeneralWarning: boolean;
+  allergenStatement?: string;
+  sulfiteStatement?: string;
+}
+
 export interface ParsedLabel extends LabelData {
   confidence?: number;
   ocrEngine?: string;

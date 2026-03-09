@@ -1,5 +1,5 @@
-title: TTB Label Analyzer Docs
-description: Reviewer-focused documentation for the TTB Label Compliance take-home project.
+title: TTB Label Analyzer Documentation
+description: Enterprise-grade documentation for the TTB Label Compliance Validation Platform - Government-compliant system for validating alcohol beverage labels against TTB regulations.
 url: https://kabirahasaan.github.io
 baseurl: /ttb-label-analyzer
 
@@ -13,11 +13,24 @@ heading_anchors: true
 back_to_top: true
 back_to_top_text: Back to top
 
-aux_links:
-  Repository:
-    - https://github.com/kabirahasaan/ttb-label-analyzer
+# Enable accessibility features
+enable_copy_code_button: true
+nav_external_links:
+  - title: Live Application
+    url: https://ttb-label-analyzer.vercel.app
+    hide_icon: false
 
-footer_content: 'TTB Label Analyzer documentation. Last updated: March 7, 2026.'
+aux_links:
+  "Repository":
+    - "https://github.com/kabirahasaan/ttb-label-analyzer"
+  "Live App":
+    - "https://ttb-label-analyzer.vercel.app"
+
+footer_content: 'TTB Label Analyzer Documentation | Enterprise-grade compliance validation system | Last updated: March 2026 | <a href="https://github.com/kabirahasaan/ttb-label-analyzer/blob/main/docs/SECURITY.md">Security Policy</a>'
+
+# Compliance and accessibility
+ga_tracking: # Add Google Analytics ID if needed
+ga_tracking_anonymize_ip: true
 
 defaults:
   - scope:

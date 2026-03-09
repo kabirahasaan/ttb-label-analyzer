@@ -566,7 +566,7 @@ open coverage/integration/lcov-report/index.html
 | `npm run test:e2e:ui`          | Run E2E in interactive mode              |
 | `npm run test:e2e:headed`      | Run E2E with visible browser             |
 
-For detailed testing guidelines, see [TESTING.md](./TESTING.md).
+For detailed testing guidelines, see the [Testing Hub](https://kabirahasaan.github.io/ttb-label-analyzer/docs/testing/) on GitHub Pages.
 
 ### Coverage Goals
 
@@ -1171,10 +1171,11 @@ Beyond the core requirements, the following production-grade features have been 
 ### 14. **Comprehensive Documentation** 📚
 
 - README.md (this file)
-- GETTING_STARTED.md
-- ARCHITECTURE.md
-- SECURITY.md
-- TESTING.md
+- [Getting Started Guide](https://kabirahasaan.github.io/ttb-label-analyzer/docs/GETTING_STARTED.html)
+- [Architecture Documentation](https://kabirahasaan.github.io/ttb-label-analyzer/docs/ARCHITECTURE.html)
+- [Security Policy](https://kabirahasaan.github.io/ttb-label-analyzer/docs/SECURITY.html)
+- [Testing Hub](https://kabirahasaan.github.io/ttb-label-analyzer/docs/testing/)
+- [Full Documentation Site](https://kabirahasaan.github.io/ttb-label-analyzer/docs/index.html)
 - Architecture diagrams
 - API examples
 

@@ -1,4 +1,10 @@
-# Documentation Organization ✅
+---
+title: Docs Migration (Meta)
+layout: default
+permalink: /meta/docs-migration
+---
+
+# Documentation Organization
 
 ## Status: Complete
 
@@ -10,7 +16,7 @@ All project documentation is now organized in the `/docs` directory with a compr
 /
 ├── README.md                     # Main project overview
 ├── docs/                         # 📚 All documentation here
-│   ├── INDEX.md                  # 🏠 START HERE - Documentation index
+│   ├── index.md                  # 🏠 START HERE - Documentation index
 │   ├── GETTING_STARTED.md        # Setup and installation
 │   ├── ARCHITECTURE.md           # System design
 │   ├── TESTING.md                # Testing strategies
@@ -51,7 +57,7 @@ All project documentation is now organized in the `/docs` directory with a compr
 
 ### Updated
 
-- 📝 **INDEX.md** - Added TEST_DATA.md to documentation index
+- 📝 **index.md** - Added TEST_DATA.md to documentation index
 - 📝 **TESTING.md** - Added reference to TEST_DATA.md with pre-seeded fixtures overview
 
 ### Removed
@@ -63,19 +69,19 @@ All project documentation is now organized in the `/docs` directory with a compr
 
 ### Start Here
 
-👉 **[docs/INDEX.md](./docs/INDEX.md)** - Complete documentation index
+👉 **[docs/index.md](../index.md)** - Complete documentation index
 
 ### Most Common Docs
 
-- **Setup**: [docs/GETTING_STARTED.md](./docs/GETTING_STARTED.md)
-- **Testing**: [docs/TEST_DATA.md](./docs/TEST_DATA.md)
-- **Development**: [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)
-- **TTB Rules**: [docs/TTB_RULES_QUICK_START.md](./docs/TTB_RULES_QUICK_START.md)
+- **Setup**: [docs/GETTING_STARTED.md](../GETTING_STARTED.md)
+- **Testing**: [docs/TEST_DATA.md](../TEST_DATA.md)
+- **Development**: [docs/ARCHITECTURE.md](../ARCHITECTURE.md)
+- **TTB Rules**: [docs/TTB_RULES_QUICK_START.md](../TTB_RULES_QUICK_START.md)
 
 ## Documentation Principles
 
 1. **Single Source of Truth**: All documentation in `/docs`
-2. **Clear Index**: INDEX.md provides complete navigation
+2. **Clear Index**: index.md provides complete navigation
 3. **Keep It Updated**: Documentation updates alongside code changes
 4. **Practical Examples**: Real code examples where possible
 5. **Directory-Specific READMEs**: Keep only when needed for that specific directory
@@ -95,7 +101,7 @@ All project documentation is now organized in the `/docs` directory with a compr
 
 ### New Documentation Index
 
-- ✅ Created `/docs/INDEX.md` as navigation hub
+- ✅ Created `/docs/index.md` as navigation hub
 - ✅ Organized docs by use case (Getting Started, Developers, DevOps, Compliance)
 - ✅ Added quick links section
 - ✅ Included statistics table
@@ -106,35 +112,35 @@ All project documentation is now organized in the `/docs` directory with a compr
 
 Read the docs in this order:
 
-1. **[docs/INDEX.md](./docs/INDEX.md)** - Complete navigation guide
-2. **[docs/GETTING_STARTED.md](./docs/GETTING_STARTED.md)** - Setup instructions
-3. **[docs/TTB_RULES_QUICK_START.md](./docs/TTB_RULES_QUICK_START.md)** - Rule system guide
+1. **[docs/index.md](../index.md)** - Complete navigation guide
+2. **[docs/GETTING_STARTED.md](../GETTING_STARTED.md)** - Setup instructions
+3. **[docs/TTB_RULES_QUICK_START.md](../TTB_RULES_QUICK_START.md)** - Rule system guide
 
 ### By Role
 
 **Developers**:
 
-- Start: [INDEX.md](./docs/INDEX.md)
-- Then: [ARCHITECTURE.md](./docs/ARCHITECTURE.md) → [TTB_RULES_INTEGRATION.md](./docs/TTB_RULES_INTEGRATION.md) → [TTB_RULES_EXAMPLES.ts](./docs/TTB_RULES_EXAMPLES.ts)
+- Start: [index.md](../index.md)
+- Then: [ARCHITECTURE.md](../ARCHITECTURE.md) → [TTB_RULES_INTEGRATION.md](../TTB_RULES_INTEGRATION.md) → [TTB_RULES_EXAMPLES.ts](../TTB_RULES_EXAMPLES.ts)
 
 **DevOps/Infrastructure**:
 
-- Start: [GETTING_STARTED.md](./docs/GETTING_STARTED.md)
-- Then: [SECURITY.md](./docs/SECURITY.md) → [TTB_RULES_INTEGRATION.md](./docs/TTB_RULES_INTEGRATION.md)
+- Start: [GETTING_STARTED.md](../GETTING_STARTED.md)
+- Then: [SECURITY.md](../SECURITY.md) → [TTB_RULES_INTEGRATION.md](../TTB_RULES_INTEGRATION.md)
 
 **QA/Testing**:
 
-- Start: [TESTING.md](./docs/TESTING.md)
-- Then: [TTB_RULES_INTEGRATION.md](./docs/TTB_RULES_INTEGRATION.md) (for integration tests)
+- Start: [TESTING.md](../TESTING.md)
+- Then: [TTB_RULES_INTEGRATION.md](../TTB_RULES_INTEGRATION.md) (for integration tests)
 
 **Compliance/Audit**:
 
-- Start: [IMPLEMENTATION_COMPLETE.md](./docs/IMPLEMENTATION_COMPLETE.md)
-- Then: [TTB_SYSTEM_OVERVIEW.md](./docs/TTB_SYSTEM_OVERVIEW.md) → [SECURITY.md](./docs/SECURITY.md)
+- Start: [IMPLEMENTATION_COMPLETE.md](../IMPLEMENTATION_COMPLETE.md)
+- Then: [TTB_SYSTEM_OVERVIEW.md](../TTB_SYSTEM_OVERVIEW.md) → [SECURITY.md](../SECURITY.md)
 
 ## Navigation Tips
 
-1. **Start with INDEX.md** - Provides overview of all documentation
+1. **Start with index.md** - Provides overview of all documentation
 2. **Use breadcrumb links** - Each doc links to related documents
 3. **Check table of contents** - Each guide has detailed TOC
 4. **Follow step-by-step** - Guides are numbered for easy progression
@@ -166,8 +172,8 @@ Read the docs in this order:
 
 ## Next Steps
 
-1. Review [docs/INDEX.md](./docs/INDEX.md) for navigation
-2. Follow [docs/GETTING_STARTED.md](./docs/GETTING_STARTED.md) for setup
+1. Review [docs/index.md](../index.md) for navigation
+2. Follow [docs/GETTING_STARTED.md](../GETTING_STARTED.md) for setup
 3. Check project [README.md](./README.md) for quick overview
 4. Refer to specific guides as needed
 
@@ -184,4 +190,4 @@ All documentation is now self-contained in the `/docs` directory with:
 
 **Migration completed on**: March 6, 2026  
 **All documentation organized in**: `/docs` directory  
-**Navigation hub**: `/docs/INDEX.md`
+**Navigation hub**: `/docs/index.md`

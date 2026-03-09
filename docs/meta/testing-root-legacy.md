@@ -1,3 +1,9 @@
+---
+title: Testing Guide (Legacy Root)
+layout: default
+permalink: /meta/testing-root-legacy
+---
+
 # TTB Label Analyzer - Testing Guide
 
 This document provides comprehensive information about testing in the TTB Label Analyzer project.

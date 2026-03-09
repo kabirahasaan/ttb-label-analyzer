@@ -1250,21 +1250,29 @@ UNLICENSED - Internal use only
 
 ## Documentation
 
-All comprehensive documentation is organized in the [docs](./docs) directory:
+All comprehensive documentation is organized in the `docs/` directory.
 
-- **[Documentation Index](./docs/INDEX.md)** - Navigation and guide to all docs
-- **[Getting Started](./docs/GETTING_STARTED.md)** - Setup and installation
-- **[Architecture](./docs/ARCHITECTURE.md)** - System design
-- **[Testing](./docs/TESTING.md)** - Testing strategies
-- **[Test Data](./docs/TEST_DATA.md)** - Pre-seeded fixtures and manual testing
-- **[Security](./docs/SECURITY.md)** - Security practices
-- **[TTB Rules](./docs/TTB_RULES_QUICK_START.md)** - Rules system guide
+Live docs entry points:
+
+- **[Documentation Hub](https://kabirahasaan.github.io/ttb-label-analyzer/docs/index.html)** - Single-page navigation for all docs
+- **[Reviewer Guide](https://kabirahasaan.github.io/ttb-label-analyzer/docs/reviewer-guide.html)** - Fast 10-minute review path
+- **[Site Map](https://kabirahasaan.github.io/ttb-label-analyzer/docs/site-map.html)** - Full map of all documentation pages
+- **[Getting Started for Users](https://kabirahasaan.github.io/ttb-label-analyzer/docs/getting-started-users.html)** - Role-based onboarding
+- **[Legacy Reference](https://kabirahasaan.github.io/ttb-label-analyzer/docs/legacy-reference.html)** - Technical deep-dive references
+
+Local source files:
+
+- **[Docs Home Source](./docs/index.md)**
+- **[Reviewer Guide Source](./docs/reviewer-guide.md)**
+- **[Site Map Source](./docs/site-map.md)**
+- **[Design Decisions Source](./docs/design-decisions.md)**
+- **[Hidden Requirements Source](./docs/hidden-requirements.md)**
 
 ---
 
 ## Support
 
-- **Documentation**: See [docs](./docs) directory or [INDEX.md](./docs/INDEX.md)
+- **Documentation**: Start at [Documentation Hub](https://kabirahasaan.github.io/ttb-label-analyzer/docs/index.html)
 - **API Docs**: http://localhost:3001/api/docs (when running)
 - **Issues**: Check GitHub issues or create new one
 - **Email**: (Add contact email if applicable)

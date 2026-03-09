@@ -1,6 +1,12 @@
-# 📚 Documentation Guide
+---
+title: Documentation Guide (Meta)
+layout: default
+permalink: /meta/documentation-guide
+---
 
-> **Quick Navigation**: All documentation is in the `/docs` directory. Start with [docs/INDEX.md](./docs/INDEX.md).
+# Documentation Guide
+
+> **Quick Navigation**: All documentation is in the `/docs` directory. Start with [docs/index.md](../index.md).
 
 ## Documentation Structure
 
@@ -10,7 +16,7 @@ ttb-label-analyzer/
 ├── DOCS_MIGRATION.md           # Documentation organization status
 │
 └── docs/                       # 📚 ALL DOCUMENTATION HERE
-    ├── INDEX.md                # 🏠 START HERE - Complete navigation guide
+    ├── index.md                # 🏠 START HERE - Complete navigation guide
     │
     ├── Getting Started
     │   └── GETTING_STARTED.md  # Setup, installation, prerequisites
@@ -43,27 +49,27 @@ ttb-label-analyzer/
 
 ### For New Users
 
-1. 🏠 **[Documentation Index](./docs/INDEX.md)** - Start here!
-2. 🚀 **[Getting Started](./docs/GETTING_STARTED.md)** - Setup guide
-3. 🧪 **[Test Data](./docs/TEST_DATA.md)** - Pre-loaded test fixtures
+1. 🏠 **[Documentation Index](../index.md)** - Start here!
+2. 🚀 **[Getting Started](../GETTING_STARTED.md)** - Setup guide
+3. 🧪 **[Test Data](../TEST_DATA.md)** - Pre-loaded test fixtures
 
 ### For Developers
 
-1. 🏗️ **[Architecture](./docs/ARCHITECTURE.md)** - System design
-2. ✅ **[Testing](./docs/TESTING.md)** - Testing strategies
-3. 📊 **[TTB Rules Quick Start](./docs/TTB_RULES_QUICK_START.md)** - Rules system
+1. 🏗️ **[Architecture](../ARCHITECTURE.md)** - System design
+2. ✅ **[Testing](../TESTING.md)** - Testing strategies
+3. 📊 **[TTB Rules Quick Start](../TTB_RULES_QUICK_START.md)** - Rules system
 
 ### For DevOps
 
-1. 🚀 **[Getting Started](./docs/GETTING_STARTED.md)** - Docker & deployment
-2. 🔒 **[Security](./docs/SECURITY.md)** - Security guidelines
-3. 🏗️ **[Architecture](./docs/ARCHITECTURE.md)** - Infrastructure
+1. 🚀 **[Getting Started](../GETTING_STARTED.md)** - Docker & deployment
+2. 🔒 **[Security](../SECURITY.md)** - Security guidelines
+3. 🏗️ **[Architecture](../ARCHITECTURE.md)** - Infrastructure
 
 ## Recent Updates (March 7, 2026)
 
 ### ✨ New Documentation
 
-- **[TEST_DATA.md](./docs/TEST_DATA.md)** - Comprehensive test data guide
+- **[TEST_DATA.md](../TEST_DATA.md)** - Comprehensive test data guide
   - 9 pre-seeded test applications
   - 10 label validation scenarios
   - Manual testing workflows
@@ -72,8 +78,8 @@ ttb-label-analyzer/
 
 ### 📝 Updated Documentation
 
-- **[INDEX.md](./docs/INDEX.md)** - Added TEST_DATA.md reference
-- **[TESTING.md](./docs/TESTING.md)** - Added test fixtures overview
+- **[index.md](../index.md)** - Added TEST_DATA.md reference
+- **[TESTING.md](../TESTING.md)** - Added test fixtures overview
 - **[README.md](./README.md)** - Updated documentation links
 
 ### 🗑️ Cleaned Up
@@ -85,30 +91,30 @@ ttb-label-analyzer/
 ## Documentation Principles
 
 1. **Single Source of Truth**: All docs in `/docs` directory
-2. **Clear Navigation**: INDEX.md provides complete guide
+2. **Clear Navigation**: index.md provides complete guide
 3. **Practical Examples**: Real code examples wherever possible
 4. **Keep Updated**: Update docs with code changes
 5. **Directory READMEs**: Only for directory-specific context
 
 ## How to Find What You Need
 
-| I want to...                | See this document                                               |
-| --------------------------- | --------------------------------------------------------------- |
-| Set up the project          | [GETTING_STARTED.md](./docs/GETTING_STARTED.md)                 |
-| Understand the architecture | [ARCHITECTURE.md](./docs/ARCHITECTURE.md)                       |
-| Write or run tests          | [TESTING.md](./docs/TESTING.md)                                 |
-| Use test data for testing   | [TEST_DATA.md](./docs/TEST_DATA.md)                             |
-| Integrate TTB rules         | [TTB_RULES_QUICK_START.md](./docs/TTB_RULES_QUICK_START.md)     |
-| Learn security practices    | [SECURITY.md](./docs/SECURITY.md)                               |
-| Check implementation status | [IMPLEMENTATION_COMPLETE.md](./docs/IMPLEMENTATION_COMPLETE.md) |
-| See all documentation       | [INDEX.md](./docs/INDEX.md)                                     |
+| I want to...                | See this document                                           |
+| --------------------------- | ----------------------------------------------------------- |
+| Set up the project          | [GETTING_STARTED.md](../GETTING_STARTED.md)                 |
+| Understand the architecture | [ARCHITECTURE.md](../ARCHITECTURE.md)                       |
+| Write or run tests          | [TESTING.md](../TESTING.md)                                 |
+| Use test data for testing   | [TEST_DATA.md](../TEST_DATA.md)                             |
+| Integrate TTB rules         | [TTB_RULES_QUICK_START.md](../TTB_RULES_QUICK_START.md)     |
+| Learn security practices    | [SECURITY.md](../SECURITY.md)                               |
+| Check implementation status | [IMPLEMENTATION_COMPLETE.md](../IMPLEMENTATION_COMPLETE.md) |
+| See all documentation       | [index.md](../index.md)                                     |
 
 ## Contributing to Documentation
 
 When adding or updating documentation:
 
 1. **Location**: Place in `/docs` directory
-2. **Index**: Update `docs/INDEX.md` with new links
+2. **Index**: Update `docs/index.md` with new links
 3. **Format**: Use clear Markdown with examples
 4. **Links**: Use relative paths from docs directory
 5. **Code Examples**: Include working code snippets
@@ -130,16 +136,16 @@ curl http://localhost:3001/applications | jq '.[] | "\(.colaNumber || "No COLA")
 # Producer: Mountain View Brewery
 ```
 
-**See [docs/TEST_DATA.md](./docs/TEST_DATA.md) for complete testing guide.**
+**See [docs/TEST_DATA.md](../TEST_DATA.md) for complete testing guide.**
 
 ---
 
 ## Support
 
-- 📚 **Documentation**: [docs/INDEX.md](./docs/INDEX.md)
+- 📚 **Documentation**: [docs/index.md](../index.md)
 - 🔧 **API Docs**: http://localhost:3001/api/docs (when running)
-- 🚀 **Quick Start**: [docs/GETTING_STARTED.md](./docs/GETTING_STARTED.md)
-- 🧪 **Testing**: [docs/TEST_DATA.md](./docs/TEST_DATA.md)
+- 🚀 **Quick Start**: [docs/GETTING_STARTED.md](../GETTING_STARTED.md)
+- 🧪 **Testing**: [docs/TEST_DATA.md](../TEST_DATA.md)
 
 ---
 

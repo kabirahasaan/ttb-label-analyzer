@@ -325,7 +325,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 
 **Evidence**:
 
-- `TEST_IMPLEMENTATION_SUMMARY.md`
+- `docs/testing/test-implementation-summary.md`
 - Coverage reports in `coverage/` directory
 - All test suites passing
 - Documentation: `docs/testing/03-test-coverage.md`

@@ -1,3 +1,11 @@
+---
+title: Test Implementation Summary
+layout: default
+parent: Testing Guide
+nav_order: 4
+permalink: /testing/test-implementation-summary
+---
+
 # Testing Implementation Summary
 
 ## Overview

@@ -149,6 +149,7 @@ Push a PR and CI pipeline validates everything.
 - [**Development Testing**](./01-testing-dev.md) - Run tests locally
 - [**Production Testing**](./02-testing-prod.md) - Test live deployment
 - [**Test Coverage**](./03-test-coverage.md) - Dev vs prod validation evidence
+- [**Test Implementation Summary**](./test-implementation-summary.md) - Detailed testing implementation inventory
 - [**Test Data**](../test-data/index.md) - Use sample data
 
 ---

@@ -9,11 +9,12 @@ This page gives a fast, structured path to evaluate delivery quality and require
 
 ## Recommended 10-minute review path
 
-1. Read [Design Decisions & Assumptions](./design-decisions.md) to understand key UX and architecture choices.
-2. Read [Requirement Traceability](./requirements-traceability.md).
-3. Check [Implemented Features](./implemented-features.md) and [Extra Features](./extra-features.md).
-4. Review [Product & UX Decisions](./product-ux.md).
-5. Review [Future Enhancements](./future-enhancements.md).
+1. **[Hidden Requirements Analysis](./hidden-requirements.md)** - See how we identified 15+ implicit features from stakeholder interviews ⭐
+2. Read [Design Decisions & Assumptions](./design-decisions.md) to understand key UX and architecture choices.
+3. Read [Requirement Traceability](./requirements-traceability.md).
+4. Check [Implemented Features](./implemented-features.md) and [Extra Features](./extra-features.md).
+5. Review [Product & UX Decisions](./product-ux.md).
+6. Review [Future Enhancements](./future-enhancements.md).
 
 ## Functional scope delivered
 
@@ -47,6 +48,7 @@ Then verify:
 
 ## Where each review concern is covered
 
+- **Implicit requirements**: [Hidden Requirements Analysis](./hidden-requirements.md) ⭐
 - Design rationale: [Design Decisions & Assumptions](./design-decisions.md)
 - Requirement compliance: [Requirement Traceability](./requirements-traceability.md)
 - Feature depth: [Implemented Features](./implemented-features.md)

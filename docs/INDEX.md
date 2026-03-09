@@ -10,11 +10,12 @@ This documentation is optimized for take-home project reviewers and provides a c
 ## What reviewers can do quickly
 
 1. Start with [Reviewer Guide](./reviewer-guide.md) for a 10-minute review path.
-2. Understand design choices in [Design Decisions & Assumptions](./design-decisions.md).
-3. Validate scope coverage in [Requirement Traceability](./requirements-traceability.md).
-4. Inspect business and technical delivery in [Implemented Features](./implemented-features.md).
-5. Review product polish in [Product & UX Decisions](./product-ux.md).
-6. Evaluate forward-thinking in [Future Enhancements](./future-enhancements.md).
+2. See how we detected [Hidden Requirements](./hidden-requirements.md) from stakeholder interviews.
+3. Understand design choices in [Design Decisions & Assumptions](./design-decisions.md).
+4. Validate scope coverage in [Requirement Traceability](./requirements-traceability.md).
+5. Inspect business and technical delivery in [Implemented Features](./implemented-features.md).
+6. Review product polish in [Product & UX Decisions](./product-ux.md).
+7. Evaluate forward-thinking in [Future Enhancements](./future-enhancements.md).
 
 ## Project snapshot
 
@@ -27,6 +28,7 @@ This documentation is optimized for take-home project reviewers and provides a c
 ## Primary documentation map
 
 - [Reviewer Guide](./reviewer-guide.md)
+- [Hidden Requirements Analysis](./hidden-requirements.md) ⭐ **New**
 - [Design Decisions & Assumptions](./design-decisions.md)
 - [Requirement Traceability](./requirements-traceability.md)
 - [Implemented Features](./implemented-features.md)

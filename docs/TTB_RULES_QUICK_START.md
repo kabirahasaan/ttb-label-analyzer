@@ -1,3 +1,9 @@
+---
+title: TTB Rules Quick Start
+layout: default
+permalink: /ttb-rules-quick-start
+---
+
 # TTB Rules - Quick Start Guide
 
 Get TTB labeling rules from official sources and use them in validation.

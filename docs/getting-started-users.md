@@ -22,6 +22,7 @@ A complete guide for developers, QA engineers, and operations teams to get the T
 4. [Test Data Guide](./test-data/index.md) - Understand sample data
 
 Then you can:
+
 - Modify the code
 - Run tests in watch mode
 - Deploy your changes
@@ -32,10 +33,11 @@ Then you can:
 
 1. [Quick Demo](./quick-start/02-quick-demo.md) - Try the app yourself
 2. [Production Testing](./testing/02-testing-prod.md) - Test live deployment
-3. [Manual Testing](./testing/03-manual-testing.md) - Test UI workflows
+3. [Test Coverage](./testing/03-test-coverage.md) - Review complete dev vs prod test evidence
 4. [Label Images Guide](./label-images/index.md) - Work with images
 
 Then you can:
+
 - Create test scenarios
 - Upload label images
 - Validate results
@@ -51,6 +53,7 @@ Then you can:
 4. [Application Data Management](./application-data/index.md) - Manage applications
 
 Then you can:
+
 - Monitor deployments
 - Manage data
 - Scale infrastructure
@@ -108,18 +111,18 @@ Following the Quick Start above, now:
 
 ## What Each Guide Covers
 
-| Guide | For | Time | What You'll Learn |
-|-------|-----|------|------------------|
-| **[Quick Start](./quick-start/index.md)** | Everyone | 5 min | Get running in minutes |
-| **[Dev Setup](./quick-start/01-dev-setup.md)** | Developers | 10 min | Full local environment |
-| **[Quick Demo](./quick-start/02-quick-demo.md)** | Everyone | 15 min | Run first validation |
-| **[Deployment](./quick-start/03-production.md)** | DevOps | 20 min | Deploy to production |
-| **[Dev Testing](./testing/01-testing-dev.md)** | Developers | Varies | Write tests locally |
-| **[Prod Testing](./testing/02-testing-prod.md)** | QA/DevOps | 30 min | Test live deployment |
-| **[Manual Testing](./testing/03-manual-testing.md)** | QA | 1-2 hrs | Comprehensive UI testing |
-| **[Test Data](./test-data/index.md)** | Everyone | Reference | Sample data details |
-| **[App Data](./application-data/index.md)** | QA/DevOps | Reference | Manage applications |
-| **[Label Images](./label-images/index.md)** | QA/Dev | Reference | Work with images |
+| Guide                                              | For        | Time      | What You'll Learn               |
+| -------------------------------------------------- | ---------- | --------- | ------------------------------- |
+| **[Quick Start](./quick-start/index.md)**          | Everyone   | 5 min     | Get running in minutes          |
+| **[Dev Setup](./quick-start/01-dev-setup.md)**     | Developers | 10 min    | Full local environment          |
+| **[Quick Demo](./quick-start/02-quick-demo.md)**   | Everyone   | 15 min    | Run first validation            |
+| **[Deployment](./quick-start/03-production.md)**   | DevOps     | 20 min    | Deploy to production            |
+| **[Dev Testing](./testing/01-testing-dev.md)**     | Developers | Varies    | Write tests locally             |
+| **[Prod Testing](./testing/02-testing-prod.md)**   | QA/DevOps  | 30 min    | Test live deployment            |
+| **[Test Coverage](./testing/03-test-coverage.md)** | QA         | 20-30 min | Dev vs prod validation evidence |
+| **[Test Data](./test-data/index.md)**              | Everyone   | Reference | Sample data details             |
+| **[App Data](./application-data/index.md)**        | QA/DevOps  | Reference | Manage applications             |
+| **[Label Images](./label-images/index.md)**        | QA/Dev     | Reference | Work with images                |
 
 ## System Requirements
 
@@ -144,6 +147,7 @@ docker --version  # Should be 20+
 ## Key Features You Can Try
 
 ### 1. Upload Individual Labels
+
 - Drag-and-drop image upload
 - Automatic OCR extraction
 - Real-time validation
@@ -151,18 +155,21 @@ docker --version  # Should be 20+
 - Download results
 
 ### 2. Create Applications
+
 - Manual entry via form
 - Batch upload via CSV
 - Search by COLA number
 - Export data
 
 ### 3. Batch Validation
+
 - Upload CSV with multiple applications
 - Validate all at once
 - Get aggregated results
 - Download JSON report
 
 ### 4. View Results
+
 - List all validations
 - Click for details
 - See extracted data
@@ -170,6 +177,7 @@ docker --version  # Should be 20+
 - Export history
 
 ### 5. API Access
+
 - Interactive Swagger UI
 - REST endpoints
 - Real-time validation
@@ -184,7 +192,7 @@ You don't need to set anything up - it's pre-configured:
 ✅ Test CSV examples provided  
 ✅ Database auto-seeded  
 ✅ API documentation available  
-✅ All tests pass  
+✅ All tests pass
 
 [Learn about test data →](./test-data/index.md)
 
@@ -224,34 +232,40 @@ Setup: Vercel + Railway
 ## Common Tasks
 
 ### Task: Create Test Data
+
 → [Application Data Management](./application-data/index.md)
 
 ### Task: Find Test Images
+
 → [Label Images Guide](./label-images/index.md)
 
 ### Task: Run Tests Locally
+
 → [Development Testing](./testing/01-testing-dev.md)
 
 ### Task: Test Live Deployment
+
 → [Production Testing](./testing/02-testing-prod.md)
 
 ### Task: Deploy to Production
+
 → [Production Deployment](./quick-start/03-production.md)
 
 ### Task: Understand Test Data
+
 → [Test Data Guide](./test-data/index.md)
 
 ## Troubleshooting
 
-| Problem | Solution |
-|---------|----------|
+| Problem                    | Solution                                     |
+| -------------------------- | -------------------------------------------- |
 | Dependencies won't install | `pnpm install --no-strict-peer-dependencies` |
-| Port already in use | `lsof -ti:3001 \| xargs kill -9` |
-| API won't start | Check `DATABASE_URL` in `.env` |
-| Web app shows 404 | Make sure API is running on `:3001` |
-| Image won't upload | Check file size <10MB and format is JPG/PNG |
-| Tests failing | Delete `node_modules` and reinstall |
-| CORS error in prod | Update `CORS_ORIGIN` in Railway |
+| Port already in use        | `lsof -ti:3001 \| xargs kill -9`             |
+| API won't start            | Check `DATABASE_URL` in `.env`               |
+| Web app shows 404          | Make sure API is running on `:3001`          |
+| Image won't upload         | Check file size <10MB and format is JPG/PNG  |
+| Tests failing              | Delete `node_modules` and reinstall          |
+| CORS error in prod         | Update `CORS_ORIGIN` in Railway              |
 
 ## Next Steps
 

@@ -60,6 +60,7 @@ CORS_ORIGIN=https://you-app.vercel.app # Your Vercel frontend URL
 ### Step 4: Deploy
 
 1. **Push to GitHub:**
+
 ```bash
 git add .
 git commit -m "Deploy to production"
@@ -73,6 +74,7 @@ git push origin main
    - Copy the provided URL (e.g., `https://ttb-label-analyzer-production.up.railway.app`)
 
 4. **Test API health:**
+
 ```bash
 curl https://ttb-label-analyzer-production.up.railway.app/health
 # Expected: {"status":"ok",...}
@@ -122,6 +124,7 @@ Now that you have your Vercel URL, go back to Railway:
 
 1. API service → **Variables**
 2. Update `CORS_ORIGIN`:
+
 ```
 CORS_ORIGIN=https://ttb-label-analyzer.vercel.app
 ```
@@ -174,26 +177,19 @@ By default, Railway PostgreSQL is used. To use your own:
 2. Update `DATABASE_URL` to your database URL
 3. Redeploy
 
-### Scaling
-
-| Component | Free Tier | Paid |
-|-----------|-----------|------|
-| **Vercel** | 100GB bandwidth/month | Unlimited |
-| **Railway** | $5 credit, includes 1 PostgreSQL | $5/month minimum + usage |
-
-For production traffic, [upgrade Railway to Pro](https://railway.app/pricing).
-
 ## Monitoring & Logs
 
 ### View API Logs
 
 In Railway dashboard:
+
 1. Click API service
 2. Go to **Deployments** tab
 3. Click latest deployment
 4. View **Logs** in real-time
 
 **Common issues:**
+
 - `CORS error` → Check `CORS_ORIGIN` matches your Vercel URL
 - `Database connection failed` → Check `DATABASE_URL` is valid
 - `Port error` → Make sure `API_PORT=$PORT` is set
@@ -201,12 +197,14 @@ In Railway dashboard:
 ### View Web App Logs
 
 In Vercel dashboard:
+
 1. Click your project
 2. Go to **Deployments** tab
 3. Click latest deployment
 4. View **Logs**
 
 **Common issues:**
+
 - `API request failed` → Check `NEXT_PUBLIC_API_URL` is set correctly
 - `Build failed` → View error in logs, usually TypeScript or dependency issue
 
@@ -226,11 +224,13 @@ git push origin main
 ### Rollback a Deployment
 
 **In Vercel:**
+
 1. Deployments tab
 2. Click the previous working deployment
 3. Click **"Promote to Production"**
 
 **In Railway:**
+
 1. Deployments tab
 2. Click the previous working deployment
 3. Click **"Redeploy"**
@@ -253,6 +253,7 @@ git push origin main
 ### "Cannot reach API" Error
 
 **Check 1: Is API running?**
+
 ```bash
 curl https://ttb-label-analyzer-production.up.railway.app/health
 ```
@@ -260,15 +261,17 @@ curl https://ttb-label-analyzer-production.up.railway.app/health
 If fails → Railway service crashed. Check Railway logs.
 
 **Check 2: Is `NEXT_PUBLIC_API_URL` set correctly?**
+
 ```javascript
 // In browser console:
-console.log(process.env.NEXT_PUBLIC_API_URL)
+console.log(process.env.NEXT_PUBLIC_API_URL);
 ```
 
 Should show your Railway URL without port.
 
 **Check 3: CORS blocking?**
 In browser console, look for:
+
 ```
 Access to XMLHttpRequest blocked by CORS policy
 ```
@@ -280,6 +283,7 @@ Fix: Update `CORS_ORIGIN` in Railway to match Vercel domain exactly.
 Railway is blocking your Vercel domain.
 
 Fix:
+
 1. Go to Railway → API service → Variables
 2. Check `CORS_ORIGIN=https://YOUR-VERCEL-URL.vercel.app`
 3. Redeploy Railway service
@@ -287,6 +291,7 @@ Fix:
 ### "Build failed" on Vercel
 
 Check the error in Vercel Deployments logs:
+
 1. Usually TypeScript compilation error
 2. Fix locally: `npm run build:web`
 3. Push and retry
@@ -294,23 +299,16 @@ Check the error in Vercel Deployments logs:
 ### "Build failed" on Railway
 
 Check the error in Railway Deployments logs:
+
 1. Usually missing environment variables
 2. Or database connection issues
 3. Fix and redeploy
 
-## Cost Estimate
-
-| Service | Monthly Cost | Notes |
-|---------|-------------|-------|
-| **Vercel** | Free *(pay as you grow)* | 100GB bandwidth included |
-| **Railway** | $5/month | + database usage (~$1-2/month) |
-| **Total** | ~$6-7/month | Production-grade hosting |
-
 ## Next Steps
 
-1. **[Monitor Performance](../deployment/monitoring.md)** - Set up alerts
-2. **[Scaling Guide](../deployment/scaling.md)** - Prepare for growth
-3. **[Database Backups](../deployment/backups.md)** - Automatic backups
+1. **[Production Testing](../testing/02-testing-prod.md)** - Validate live environment
+2. **[Test Coverage](../testing/03-test-coverage.md)** - Review dev vs prod quality evidence
+3. **[Architecture](../ARCHITECTURE.md)** - Plan scale and operational evolution
 
 ---
 

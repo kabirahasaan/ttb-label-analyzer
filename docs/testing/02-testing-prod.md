@@ -21,6 +21,7 @@ Test the application after deployment to Vercel/Railway production environment.
 ### Test 1: API Health (30 seconds)
 
 **Via Terminal:**
+
 ```bash
 # Test API is accessible
 curl https://ttb-label-analyzer-production.up.railway.app/health
@@ -30,13 +31,15 @@ curl https://ttb-label-analyzer-production.up.railway.app/health
 ```
 
 **Via Browser:**
+
 1. Open DevTools (F12)
 2. Go to Console tab
 3. Paste:
+
 ```javascript
 fetch('https://ttb-label-analyzer-production.up.railway.app/health')
-  .then(r => r.json())
-  .then(d => console.log('✅ API is healthy:', d));
+  .then((r) => r.json())
+  .then((d) => console.log('✅ API is healthy:', d));
 ```
 
 ### Test 2: Web App Load (1 minute)
@@ -47,6 +50,7 @@ fetch('https://ttb-label-analyzer-production.up.railway.app/health')
 4. Check footer links work
 
 **Open Browser Console (F12):**
+
 - Should see **no red errors** only info/warn messages
 - Should see `Loaded X applications` message
 
@@ -57,6 +61,7 @@ fetch('https://ttb-label-analyzer-production.up.railway.app/health')
 3. Should see list of applications populate (not error message)
 
 **If you see error:**
+
 - Check Network tab (F12)
 - Look for failed requests to API
 - Verify API URL matches your Railway domain
@@ -79,7 +84,7 @@ fetch('https://ttb-label-analyzer-production.up.railway.app/health')
 #### ✓ Test: Create Application
 
 1. **Go to**: Application Form
-2. **Fill**: 
+2. **Fill**:
    - Brand Name: "Test Brand ABC"
    - ABV: 5.5
    - Net Contents: "12 oz"
@@ -95,7 +100,7 @@ fetch('https://ttb-label-analyzer-production.up.railway.app/health')
 3. **Upload**: CSV file with multiple rows
 4. **Watch**: Progress as rows are validated
 5. **Verify**: Download results button appears
-6.  **Download**: JSON report
+6. **Download**: JSON report
 
 #### ✓ Test: View Results
 
@@ -114,13 +119,13 @@ fetch('https://ttb-label-analyzer-production.up.railway.app/health')
 
 ### Summary
 
-| Category | Total | Passed | Failed | Status |
-|----------|-------|--------|--------|--------|
-| **Frontend Pages** | 5 | 5 | 0 | ✅ PASS |
-| **API Endpoints** | 3 | 2 | 1 | ⚠️ PARTIAL |
-| **Database** | 1 | 1 | 0 | ✅ PASS |
-| **Content/UI** | 10 | 10 | 0 | ✅ PASS |
-| **Overall** | **19** | **18** | **1** | **✅ 95%** |
+| Category           | Total  | Passed | Failed | Status     |
+| ------------------ | ------ | ------ | ------ | ---------- |
+| **Frontend Pages** | 5      | 5      | 0      | ✅ PASS    |
+| **API Endpoints**  | 3      | 2      | 1      | ⚠️ PARTIAL |
+| **Database**       | 1      | 1      | 0      | ✅ PASS    |
+| **Content/UI**     | 10     | 10     | 0      | ✅ PASS    |
+| **Overall**        | **19** | **18** | **1**  | **✅ 95%** |
 
 ### Detailed Results
 
@@ -155,6 +160,7 @@ fetch('https://ttb-label-analyzer-production.up.railway.app/health')
 #### API Tests
 
 1. **Health Endpoint** ✅
+
    ```json
    {
      "status": "ok",
@@ -198,18 +204,18 @@ fetch('https://ttb-label-analyzer-production.up.railway.app/health')
 **Issue**: Swagger documentation endpoint returns 502  
 **Severity**: Low  
 **Impact**: Documentation not accessible via `/api/docs`  
-**Workaround**: API endpoints functional, docs in code  
+**Workaround**: API endpoints functional, docs in code
 
 ---
 
 ## Performance Metrics
 
-| Metric | Value | Status |
-|--------|-------|--------|
-| Homepage Load | < 2s | ✅ Good |
-| API Health Response | < 500ms | ✅ Excellent |
-| API Applications Response | < 1s | ✅ Good |
-| Database Connection | Stable | ✅ Healthy |
+| Metric                    | Value   | Status       |
+| ------------------------- | ------- | ------------ |
+| Homepage Load             | < 2s    | ✅ Good      |
+| API Health Response       | < 500ms | ✅ Excellent |
+| API Applications Response | < 1s    | ✅ Good      |
+| Database Connection       | Stable  | ✅ Healthy   |
 
 ---
 
@@ -291,9 +297,9 @@ curl -I http://ttb-label-analyzer.vercel.app
 ```javascript
 // In browser console, from different origin:
 fetch('https://ttb-label-analyzer-production.up.railway.app/applications')
-  .then(r => r.json())
-  .then(d => console.log('CORS works:', d))
-  .catch(e => console.error('CORS blocked:', e));
+  .then((r) => r.json())
+  .then((d) => console.log('CORS works:', d))
+  .catch((e) => console.error('CORS blocked:', e));
 ```
 
 #### ✓ No Sensitive Data Exposed
@@ -353,6 +359,7 @@ curl https://ttb-label-analyzer-production.up.railway.app/applications/cola/COLA
 ### Using Pre-Seeded Data
 
 The API comes with test data pre-loaded:
+
 - 9 test applications
 - Known validation scenarios
 - Use these for consistent testing
@@ -365,6 +372,7 @@ The API comes with test data pre-loaded:
    - Save
 
 2. **Or via API:**
+
 ```bash
 curl -X POST https://ttb-label-analyzer-production.up.railway.app/applications \
   -H "Content-Type: application/json" \
@@ -402,21 +410,24 @@ curl -X POST https://ttb-label-analyzer-production.up.railway.app/applications \
 ### View Errors in Production
 
 **In browser console:**
+
 ```javascript
 // Errors appear here when they happen
 // Look for red messages
 
 // Check network failures
-fetch('https://api-endpoint').catch(e => console.error('Failed:', e));
+fetch('https://api-endpoint').catch((e) => console.error('Failed:', e));
 ```
 
 **In Vercel logs:**
+
 1. Dashboard → Project → Deployments
 2. Click latest deployment
 3. View Logs section
 4. Search for "Error" or specific error type
 
 **In Railway logs:**
+
 1. Dashboard → API service
 2. Click Deployments tab
 3. Select latest deployment
@@ -425,13 +436,13 @@ fetch('https://api-endpoint').catch(e => console.error('Failed:', e));
 
 ### Common Production Errors
 
-| Error | Cause | Fix |
-|-------|-------|-----|
-| "Cannot reach API" | API URL wrong or service down | Check `NEXT_PUBLIC_API_URL` in Vercel |
-| "CORS error" | Frontend origin not allowed | Update `CORS_ORIGIN` in Railway |
-| "Cannot upload image" | File too large or format wrong | Use JPG < 10MB |
-| "Validation timeout" | OCR taking too long | Check API logs for bottlenecks |
-| "Database connection failed" | Connection string invalid | Verify `DATABASE_URL` in Railway |
+| Error                        | Cause                          | Fix                                   |
+| ---------------------------- | ------------------------------ | ------------------------------------- |
+| "Cannot reach API"           | API URL wrong or service down  | Check `NEXT_PUBLIC_API_URL` in Vercel |
+| "CORS error"                 | Frontend origin not allowed    | Update `CORS_ORIGIN` in Railway       |
+| "Cannot upload image"        | File too large or format wrong | Use JPG < 10MB                        |
+| "Validation timeout"         | OCR taking too long            | Check API logs for bottlenecks        |
+| "Database connection failed" | Connection string invalid      | Verify `DATABASE_URL` in Railway      |
 
 ## Load Testing
 
@@ -454,12 +465,12 @@ ab -n 100 -c 10 https://ttb-label-analyzer.vercel.app/
 
 ### Expected Performance
 
-| Metric | Target | Typical |
-|--------|--------|---------|
-| Requests/sec | >5 | 10-20 |
-| Response time | <500ms | 100-300ms |
-| Failed requests | 0 | Occasional timeout |
-| Throughput | >500KB/s | 1-5MB/s |
+| Metric          | Target   | Typical            |
+| --------------- | -------- | ------------------ |
+| Requests/sec    | >5       | 10-20              |
+| Response time   | <500ms   | 100-300ms          |
+| Failed requests | 0        | Occasional timeout |
+| Throughput      | >500KB/s | 1-5MB/s            |
 
 ## Deployment Validation Checklist
 
@@ -484,11 +495,13 @@ Before considering deployment successful:
 If production is broken, rollback quickly:
 
 **In Vercel:**
+
 ```
 Dashboard → Deployments → Select previous working deployment → Promote to Production
 ```
 
 **In Railway:**
+
 ```
 Dashboard → API → Deployments → Select previous working → Click Redeploy
 ```
@@ -509,9 +522,9 @@ Test that documentation is accessible:
 
 ## Next Steps
 
-1. **[Manual Testing](./03-manual-testing.md)** - Detailed UI testing workflows
-2. **[Monitoring & Alerts](../deployment/monitoring.md)** - Set up production monitoring
-3. **[Scaling Guide](../deployment/scaling.md)** - Handle growth
+1. **[Test Coverage](./03-test-coverage.md)** - Dev vs prod verification matrix
+2. **[Design Decisions](../design-decisions.md)** - Architecture and workflow rationale
+3. **[Application Data Guide](../application-data/index.md)** - Production data management
 
 ---
 

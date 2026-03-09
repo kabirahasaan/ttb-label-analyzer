@@ -1,3 +1,9 @@
+---
+title: Getting Started (Legacy)
+layout: default
+permalink: /getting-started-legacy
+---
+
 # Getting Started Guide
 
 Welcome to the TTB Label Compliance Validation Platform! This guide walks you through everything needed to get the system running, from initial setup through uploading and validating labels.

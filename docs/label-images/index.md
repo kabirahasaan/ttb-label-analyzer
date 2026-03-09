@@ -65,9 +65,10 @@ find docs/test-images -name "*.jpg" -o -name "*.png"
 ### Option 3: Use Real Label Photos
 
 **Requirements:**
+
 - Format: JPG, PNG, or WebP
 - Size: 300x400 pixels minimum (max 10 MB)
-- Quality: 
+- Quality:
   - Clear text (readable)
   - Good lighting
   - Straight angle (not rotated)
@@ -75,6 +76,7 @@ find docs/test-images -name "*.jpg" -o -name "*.png"
   - High contrast
 
 **How to prepare:**
+
 ```bash
 # Resize image to standard size
 identify input.jpg  # Check dimensions
@@ -149,6 +151,7 @@ open http://localhost:3000/upload-label
 ### Quick Test Scenarios
 
 **Test 1: Clear Valid Label**
+
 ```
 Image: beer-label-1.jpg
 Application: Samuel Adams
@@ -157,6 +160,7 @@ Time: 2-5 seconds
 ```
 
 **Test 2: Minor Issues**
+
 ```
 Image: edge-case-rotated.jpg
 Application: Samuel Adams
@@ -165,6 +169,7 @@ Issues: Rotated, harder to read
 ```
 
 **Test 3: Major Problems**
+
 ```
 Image: invalid-no-warning.jpg
 Application: Samuel Adams
@@ -179,6 +184,7 @@ Issues: Missing government warning
 **Note**: Pre-packaged test images not deployed to production.
 
 **Instead, use:**
+
 1. Download test images from GitHub repo
 2. Use any real label photo
 3. Use professional product images
@@ -197,12 +203,12 @@ Same workflow:
 
 ### Expected Performance
 
-| Metric | Target | Typical |
-|--------|--------|---------|
-| Upload | <5 sec | 1-3 sec |
-| OCR | <10 sec | 2-5 sec |
-| Validation | <5 sec | 1-2 sec |
-| **Total** | <15 sec | 5-10 sec |
+| Metric     | Target  | Typical  |
+| ---------- | ------- | -------- |
+| Upload     | <5 sec  | 1-3 sec  |
+| OCR        | <10 sec | 2-5 sec  |
+| Validation | <5 sec  | 1-2 sec  |
+| **Total**  | <15 sec | 5-10 sec |
 
 ## Batch Label Validation
 
@@ -210,6 +216,7 @@ Same workflow:
 
 1. **Go to "Batch Validation"**
 2. **Prepare CSV:**
+
 ```csv
 brandName,alcoholByVolume,netContents,producerName,labelImageUrl
 "Brand A",5.5,"12 oz","Brewery A","https://example.com/label-a.jpg"
@@ -234,8 +241,9 @@ brandName,alcoholByVolume,netContents,producerName
 ```
 
 Required columns:
+
 - `brandName`: Product name
-- `alcoholByVolume`: ABV percentage  
+- `alcoholByVolume`: ABV percentage
 - `netContents`: With unit (oz, ml, etc.)
 - `producerName`: Manufacturer
 
@@ -246,6 +254,7 @@ Required columns:
 #### 1. Navigation Testing
 
 **Test all menu items:**
+
 ```
 Home Page
 └─ Upload Label ✓
@@ -260,6 +269,7 @@ Home Page
 ```
 
 **Check:**
+
 - All links work (no 404s)
 - Pages load quickly (<2 sec)
 - Navigation works on mobile
@@ -267,6 +277,7 @@ Home Page
 #### 2. Upload Label Testing
 
 **Positive Case:**
+
 ```
 ✓ Upload valid image
 ✓ System shows progress
@@ -276,6 +287,7 @@ Home Page
 ```
 
 **Negative Cases:**
+
 ```
 ✓ Upload invalid file (non-image) → error message
 ✓ Upload giant file (>10MB) → error message
@@ -283,6 +295,7 @@ Home Page
 ```
 
 **Edge Cases:**
+
 ```
 ✓ Upload blurry image → low confidence warning
 ✓ Upload rotated image → still processes
@@ -292,6 +305,7 @@ Home Page
 #### 3. Application Form Testing
 
 **Create Application:**
+
 ```
 ✓ Fill all required fields
 ✓ Save application
@@ -301,6 +315,7 @@ Home Page
 ```
 
 **Validation:**
+
 ```
 ✓ Brand name required
 ✓ ABV must be 0-100
@@ -309,6 +324,7 @@ Home Page
 ```
 
 **Batch Upload CSV:**
+
 ```
 ✓ Download sample CSV
 ✓ Fill sample CSV
@@ -320,6 +336,7 @@ Home Page
 #### 4. Validation Results Testing
 
 **List Results:**
+
 ```
 ✓ Results load on page open
 ✓ Shows all past validations
@@ -329,6 +346,7 @@ Home Page
 ```
 
 **Result Details:**
+
 ```
 ✓ Click result to expand
 ✓ Shows extracted data
@@ -340,6 +358,7 @@ Home Page
 #### 5. Performance Testing
 
 **Page Load:**
+
 ```
 ✓ Home page loads <2 seconds
 ✓ Upload page loads <2 seconds
@@ -349,6 +368,7 @@ Home Page
 ```
 
 **Image Upload:**
+
 ```
 ✓ Can upload 1 MB image
 ✓ Can upload 10 MB image
@@ -357,6 +377,7 @@ Home Page
 ```
 
 **Validation Speed:**
+
 ```
 ✓ Simple validation <5 sec
 ✓ Complex validation <10 sec
@@ -385,6 +406,7 @@ pnpm test:e2e --debug
 **Test locations:** `e2e/*.spec.ts`
 
 Key test files:
+
 - `upload-label.spec.ts` - Image upload workflow
 - `batch-validation.spec.ts` - Batch processing
 - `validation-results.spec.ts` - Results viewing
@@ -393,15 +415,17 @@ Key test files:
 ### Browser DevTools Testing
 
 **Check Console (F12):**
+
 ```javascript
 // Should see no red errors
 // Check for warnings about API connectivity
 
 // Verify API URL is correct
-console.log(process.env.NEXT_PUBLIC_API_URL)
+console.log(process.env.NEXT_PUBLIC_API_URL);
 ```
 
 **Check Network Tab:**
+
 ```
 1. Open DevTools (F12) → Network
 2. Reload page
@@ -413,6 +437,7 @@ console.log(process.env.NEXT_PUBLIC_API_URL)
 ```
 
 **Check Performance:**
+
 ```
 1. DevTools → Lighthouse
 2. Run audit
@@ -426,6 +451,7 @@ console.log(process.env.NEXT_PUBLIC_API_URL)
 ### Mobile Testing
 
 **Responsive Design:**
+
 ```
 ✓ Test on mobile (375px width)
 ✓ Test on tablet (768px width)
@@ -435,6 +461,7 @@ console.log(process.env.NEXT_PUBLIC_API_URL)
 ```
 
 **Mobile DevTools:**
+
 ```
 DevTools → Device Emulation
 ✓ iPhone 14 Pro
@@ -465,25 +492,27 @@ DevTools → Device Emulation
 
 ### Test Data Used
 
-| Test | Image | Application | Expected |
-|------|-------|-------------|----------|
-| Valid | beer-label-1.jpg | Samuel Adams | ✅ Valid |
-| Warning | edge-case-blurry | Bud Light | ⚠️ Warning |
-| Error | invalid-no-warning | Heineken | ❌ Error |
-| Missing App | any image | None/new | ⚠️ Warning |
-| Batch | CSV | Multiple | Mixed results |
+| Test        | Image              | Application  | Expected      |
+| ----------- | ------------------ | ------------ | ------------- |
+| Valid       | beer-label-1.jpg   | Samuel Adams | ✅ Valid      |
+| Warning     | edge-case-blurry   | Bud Light    | ⚠️ Warning    |
+| Error       | invalid-no-warning | Heineken     | ❌ Error      |
+| Missing App | any image          | None/new     | ⚠️ Warning    |
+| Batch       | CSV                | Multiple     | Mixed results |
 
 ## Troubleshooting UI Issues
 
 ### Image Won't Upload
 
 **Check:**
+
 1. File size < 10 MB
 2. Format is JPG/PNG/WebP
 3. File exists and readable
 4. Browser console for errors
 
 **Fix:**
+
 ```bash
 # Resize if too large
 convert large.jpg -resize 800x600 small.jpg
@@ -495,11 +524,13 @@ convert image.webp image.jpg
 ### Validation Takes Too Long
 
 **Check:**
+
 1. API logs for OCR processing
 2. Image quality (blurry = slower)
 3. Network latency
 
 **Fix:**
+
 - Use clearer image
 - Check API performance
 - Restart if stuck
@@ -507,11 +538,13 @@ convert image.webp image.jpg
 ### Results Don't Load
 
 **Check:**
+
 1. API returning results
 2. Database has data
 3. Network requests successful
 
 **Fix:**
+
 ```bash
 curl http://localhost:3001/validate/results | jq '.'
 ```
@@ -519,11 +552,13 @@ curl http://localhost:3001/validate/results | jq '.'
 ### Navigation Broken
 
 **Check:**
+
 1. All route files exist
 2. Next.js links use correct paths
 3. No typos in URLs
 
 **Fix:**
+
 ```bash
 pnpm build:web  # Verify build succeeds
 ```
@@ -532,7 +567,7 @@ pnpm build:web  # Verify build succeeds
 
 - [**Testing Guide**](../testing/index.md) - Full testing procedures
 - [**Test Data**](../test-data/index.md) - Sample data details
-- [**API Reference**](../api/index.md) - API endpoint documentation
+- [**API Docs (Production)**](https://ttb-label-analyzer-production.up.railway.app/api/docs) - API endpoint documentation
 
 ---
 

@@ -1,3 +1,9 @@
+---
+title: Testing (Legacy)
+layout: default
+permalink: /testing-legacy
+---
+
 # Testing Guide
 
 Comprehensive testing strategy for the TTB Label Compliance Validation Platform. This guide covers unit tests, integration tests, E2E tests, and best practices.

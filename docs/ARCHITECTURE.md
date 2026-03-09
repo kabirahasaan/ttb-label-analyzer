@@ -1,3 +1,9 @@
+---
+title: Architecture
+layout: default
+permalink: /architecture
+---
+
 # Architecture
 
 This document describes the system architecture for the TTB Label Compliance Validation Platform, including stakeholder requirements, design decisions, and technology rationale.

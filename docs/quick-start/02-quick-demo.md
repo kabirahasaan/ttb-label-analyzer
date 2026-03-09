@@ -12,6 +12,7 @@ Get hands-on with the platform in 15 minutes. You'll upload a label, create an a
 ## Prerequisites
 
 Make sure you have [Development Setup](./01-dev-setup.md) complete:
+
 - API running on http://localhost:3001
 - Web app running on http://localhost:3000
 - Test data loaded
@@ -23,6 +24,7 @@ Make sure you have [Development Setup](./01-dev-setup.md) complete:
 Open your browser: **http://localhost:3000**
 
 You should see:
+
 - Navigation bar with menu items
 - "Upload Label" section
 - "Batch Validation" option
@@ -37,6 +39,7 @@ The web app automatically loads test applications from the API. You should see i
 ```
 
 **To verify via API:**
+
 ```bash
 curl http://localhost:3001/applications | jq '.[0]'
 
@@ -66,6 +69,7 @@ Go to **Application Form** page:
 2. **Click "Save Application"**
 
 3. **Verify in API:**
+
 ```bash
 curl http://localhost:3001/applications | jq '.[] | select(.brandName == "Test Beer Co")'
 ```
@@ -104,6 +108,7 @@ Go to **Upload Label** page:
 Go to **Validation Results** page:
 
 You should see:
+
 - List of all validations
 - Status badge (Valid/Warning/Error)
 - Timestamp
@@ -115,6 +120,7 @@ You should see:
 Go to **Batch Validation** page:
 
 1. **Create test CSV:**
+
 ```csv
 brandName,alcoholByVolume,netContents,producerName
 "Beer Brand A",5.0,"12 oz","Brewery A"
@@ -139,6 +145,7 @@ brandName,alcoholByVolume,netContents,producerName
 ### Using cURL
 
 **1. Create an application:**
+
 ```bash
 curl -X POST http://localhost:3001/applications \
   -H "Content-Type: application/json" \
@@ -151,6 +158,7 @@ curl -X POST http://localhost:3001/applications \
 ```
 
 **2. Upload a label image:**
+
 ```bash
 # First, create label record
 curl -X POST http://localhost:3001/labels \
@@ -163,6 +171,7 @@ curl -X POST http://localhost:3001/labels/{labelId}/upload \
 ```
 
 **3. Run validation:**
+
 ```bash
 curl -X POST http://localhost:3001/validate/label \
   -H "Content-Type: application/json" \
@@ -173,6 +182,7 @@ curl -X POST http://localhost:3001/validate/label \
 ```
 
 **4. Get validation results:**
+
 ```bash
 curl http://localhost:3001/validate/results | jq '.'
 ```
@@ -221,22 +231,24 @@ Access interactive API docs: **http://localhost:3001/api/docs**
 
 ### Status Meanings
 
-| Status | Meaning | Action |
-|--------|---------|--------|
-| **valid** | ✅ Passes all TTB rules | Ready to ship |
-| **warning** | ⚠️ Minor issues detected | Review and decide |
-| **error** | ❌ Critical violations | Must fix before shipping |
+| Status      | Meaning                  | Action                   |
+| ----------- | ------------------------ | ------------------------ |
+| **valid**   | ✅ Passes all TTB rules  | Ready to ship            |
+| **warning** | ⚠️ Minor issues detected | Review and decide        |
+| **error**   | ❌ Critical violations   | Must fix before shipping |
 
 ## Common Demo Issues
 
 ### "Cannot reach API"
 
 **Check API is running:**
+
 ```bash
 curl http://localhost:3001/health
 ```
 
 **If it fails:**
+
 ```bash
 # Restart API
 Ctrl+C in API terminal
@@ -246,11 +258,13 @@ pnpm nx run api:serve
 ### "No applications loaded"
 
 **Verify test data:**
+
 ```bash
 curl http://localhost:3001/applications
 ```
 
 **If empty, reseed database:**
+
 ```bash
 # Restart API (forces reseed)
 Ctrl+C
@@ -260,22 +274,26 @@ pnpm nx run api:serve
 ### Image not uploading
 
 **Check file size:**
+
 - Max 10MB per image
 - JPEG, PNG, or WebP format
 
 **Check browser console:**
+
 - Press F12 → Console tab
 - Look for error messages
 
 ### Validation takes too long
 
 **Check API logs:**
+
 ```bash
 # Look for OCR processing messages
 curl http://localhost:3001/health
 ```
 
 **If stuck, restart:**
+
 ```bash
 # Kill API and web app, restart
 lsof -ti:3001 | xargs kill -9
@@ -287,7 +305,7 @@ pnpm dev
 
 1. **[Learn about Test Data](../test-data/index.md)** - Understand the sample data
 2. **[Testing Guide](../testing/index.md)** - Write and run tests
-3. **[API Reference](../api/index.md)** - Detailed endpoint documentation
+3. **[API Docs (Production)](https://ttb-label-analyzer-production.up.railway.app/api/docs)** - Detailed endpoint documentation
 4. **[Deploy to Production](./03-production.md)** - Take it live
 
 ## Tips for Best Results

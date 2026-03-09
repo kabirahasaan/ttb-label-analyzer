@@ -13,17 +13,18 @@ Comprehensive testing for the TTB Label Validation Platform across development a
 
 The platform includes multiple testing layers:
 
-| Type | Purpose | Commands | Speed |
-|------|---------|----------|-------|
-| **Unit Tests** | Test individual functions | `pnpm test` | ~10s |
-| **Integration Tests** | Test module interactions | `pnpm test --integration` | ~30s |
-| **E2E Tests** | Test full user workflows | `pnpm test:e2e` | ~2m |
-| **Manual Testing** | Test UI by clicking | Browser | Flexible |
-| **Production Testing** | Validate live deployment | Browser | Real-world |
+| Type                   | Purpose                   | Commands                  | Speed      |
+| ---------------------- | ------------------------- | ------------------------- | ---------- |
+| **Unit Tests**         | Test individual functions | `pnpm test`               | ~10s       |
+| **Integration Tests**  | Test module interactions  | `pnpm test --integration` | ~30s       |
+| **E2E Tests**          | Test full user workflows  | `pnpm test:e2e`           | ~2m        |
+| **Manual Testing**     | Test UI by clicking       | Browser                   | Flexible   |
+| **Production Testing** | Validate live deployment  | Browser                   | Real-world |
 
 ## Quick Start Testing
 
 ### Run All Tests Locally
+
 ```bash
 # Install dependencies first
 pnpm install
@@ -39,6 +40,7 @@ pnpm test:coverage
 ```
 
 ### Run Specific Tests
+
 ```bash
 # Test validation engine only
 pnpm test --scope=@ttb/validation-engine
@@ -53,32 +55,34 @@ pnpm test validation.service --testPathPattern=validation
 ## Testing in Different Environments
 
 **Choose your environment:**
+
 - [**Development Testing**](./01-testing-dev.md) - Local development with live reload
 - [**Production Testing**](./02-testing-prod.md) - Test deployment on Vercel/Railway
 - [**Test Coverage**](./03-test-coverage.md) - Coverage analysis for dev vs prod
 
 ## Test Coverage Summary
 
-| Environment | Tests | Passed | Coverage | Status |
-|-------------|-------|--------|----------|--------|
-| **Development** | 55+ tests | 55 | 88% | ✅ PASS |
-| **Production** | 19 tests | 18 | 95% | ✅ PASS |
+| Environment     | Tests     | Passed | Coverage | Status  |
+| --------------- | --------- | ------ | -------- | ------- |
+| **Development** | 55+ tests | 55     | 88%      | ✅ PASS |
+| **Production**  | 19 tests  | 18     | 95%      | ✅ PASS |
 
 **Coverage by Module**:
 
-| Module | Target | Current | Status |
-|--------|--------|---------|--------|
-| **Validation Engine** | 90% | 92% | ✅ |
-| **TTB Rules** | 85% | 88% | ✅ |
-| **Label Parser** | 80% | 83% | ✅ |
-| **API Endpoints** | 80% | 81% | ✅ |
-| **Web UI Components** | 70% | 72% | ✅ |
+| Module                | Target | Current | Status |
+| --------------------- | ------ | ------- | ------ |
+| **Validation Engine** | 90%    | 92%     | ✅     |
+| **TTB Rules**         | 85%    | 88%     | ✅     |
+| **Label Parser**      | 80%    | 83%     | ✅     |
+| **API Endpoints**     | 80%    | 81%     | ✅     |
+| **Web UI Components** | 70%    | 72%     | ✅     |
 
 [View Detailed Coverage Report →](./03-test-coverage.md)
 
 ## Test Data
 
 Pre-loaded test data automatically seeded:
+
 - **9 test applications** with various configurations
 - **12 label image scenarios** from simple to edge cases
 - **Sample CSV files** for batch validation
@@ -89,22 +93,27 @@ Pre-loaded test data automatically seeded:
 ## Key Testing Scenarios
 
 ### 1. Valid Label (Should Pass)
+
 ✅ Label matches application exactly  
 → Result: **Valid** with 95%+ confidence
 
 ### 2. Minor Discrepancy (Should Warn)
+
 ⚠️ ABV off by 0.2%, producer name slightly different  
 → Result: **Warning** with 80-85% confidence
 
 ### 3. Major Issue (Should Fail)
+
 ❌ Missing government warning, wrong class type  
 → Result: **Error** with required fixes noted
 
 ### 4. Missing Application
+
 ⚠️ Label data exists but no matching COLA application  
 → Result: **Warning** about missing application
 
 ### 5. Batch Processing
+
 📦 100 labels with mix of valid/warning/error  
 → Result: Aggregated report with statistics
 
@@ -126,6 +135,7 @@ Testing Files
 ## Continuous Integration
 
 GitHub Actions automatically run:
+
 1. **Lint** - Code style (`pnpm lint`)
 2. **Type Check** - TypeScript (`pnpm type-check`)
 3. **Unit Tests** - All tests (`pnpm test`)
@@ -138,7 +148,7 @@ Push a PR and CI pipeline validates everything.
 
 - [**Development Testing**](./01-testing-dev.md) - Run tests locally
 - [**Production Testing**](./02-testing-prod.md) - Test live deployment
-- [**Manual Testing**](./03-manual-testing.md) - UI testing workflows
+- [**Test Coverage**](./03-test-coverage.md) - Dev vs prod validation evidence
 - [**Test Data**](../test-data/index.md) - Use sample data
 
 ---

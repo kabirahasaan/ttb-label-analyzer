@@ -25,13 +25,15 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: Base requirements only described single-label validation
 
 **What We Implemented**:
+
 - ✅ Batch validation page (`/batch-validation`)
 - ✅ Multi-image upload support
 - ✅ Bulk application-to-label matching
 - ✅ Progress indicators for batch operations
 - ✅ Batch results export (JSON, CSV)
 
-**Evidence**: 
+**Evidence**:
+
 - `apps/web/src/app/batch-validation/page.tsx`
 - `apps/api/src/app/modules/validation/validation.controller.ts` - batch endpoints
 - E2E test: `e2e/batch-validation.spec.ts` (9 tests)
@@ -47,6 +49,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: No mention of export functionality in requirements
 
 **What We Implemented**:
+
 - ✅ Export validation results as JSON
 - ✅ Export validation results as CSV
 - ✅ Export all results at once
@@ -54,6 +57,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Structured data format for integration
 
 **Evidence**:
+
 - `apps/web/src/lib/file.ts` - download utilities
 - Export buttons on validation results page
 - Unit tests: `apps/web/src/lib/__tests__/file.test.ts`
@@ -69,6 +73,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: Requirements mentioned "TTB compliance" but didn't specify government warning rules
 
 **What We Implemented**:
+
 - ✅ Government warning presence check
 - ✅ Warning text format validation
 - ✅ Required warning content verification
@@ -76,6 +81,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Alcohol impairment warning validation
 
 **Evidence**:
+
 - `libs/ttb-rules/src/rules/government-warning.rule.ts`
 - All 9 test applications include complete government warnings
 - Rule validation tests
@@ -91,6 +97,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: No monitoring or health check requirements specified
 
 **What We Implemented**:
+
 - ✅ `/health` endpoint with database status
 - ✅ Uptime tracking
 - ✅ Version information
@@ -98,6 +105,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Production monitoring ready
 
 **Evidence**:
+
 - `apps/api/src/app/modules/health/health.controller.ts`
 - Production health check: https://ttb-label-analyzer-production.up.railway.app/health
 - Returns: `{"status":"ok","database":{"status":"connected"},"uptime":1787.2}`
@@ -113,6 +121,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: Requirements only mentioned "validate" but not "store results"
 
 **What We Implemented**:
+
 - ✅ Validation results page (`/validation-results`)
 - ✅ Historical validation records
 - ✅ Result detail view
@@ -120,6 +129,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Permanent storage of validation outcomes
 
 **Evidence**:
+
 - `apps/web/src/app/validation-results/page.tsx`
 - Database schema: `prisma/schema.prisma` - ValidationResult model
 - API: `GET /validate/results` endpoint
@@ -135,6 +145,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: Requirements showed manual entry but implied need for bulk import
 
 **What We Implemented**:
+
 - ✅ CSV upload for batch application creation
 - ✅ JSON format support
 - ✅ Bulk import validation
@@ -142,6 +153,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Template CSV download
 
 **Evidence**:
+
 - Application form with "Batch Upload" tab
 - `POST /applications/batch` endpoint
 - Integration test: `apps/api/test/application.e2e-spec.ts`
@@ -157,6 +169,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: No test data strategy in requirements
 
 **What We Implemented**:
+
 - ✅ 9 pre-seeded test applications
 - ✅ 12 test label images
 - ✅ Sample CSV files
@@ -164,6 +177,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Zero-setup demo capability
 
 **Evidence**:
+
 - `libs/test-data-generator/test-data/applications.json`
 - `apps/web/public/test-images/` directory
 - Auto-seed on API startup
@@ -180,6 +194,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: No UX requirements for loading states
 
 **What We Implemented**:
+
 - ✅ Step-by-step validation progress
 - ✅ Loading spinners
 - ✅ Toast notifications for success/errors
@@ -187,6 +202,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Real-time status updates
 
 **Evidence**:
+
 - Upload label page - 3-step workflow visualization
 - Batch validation - progress indicators
 - Components: `apps/web/src/components/ui/`
@@ -202,6 +218,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: No API documentation requirements
 
 **What We Implemented**:
+
 - ✅ Swagger/OpenAPI documentation
 - ✅ Interactive API explorer
 - ✅ Request/response examples
@@ -209,6 +226,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Authentication documentation (prep for future)
 
 **Evidence**:
+
 - Swagger UI: `/api/docs` endpoint (configured)
 - NestJS Swagger decorators throughout controllers
 - DTOs with validation annotations
@@ -224,6 +242,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: Requirements mentioned COLA numbers but not format rules
 
 **What We Implemented**:
+
 - ✅ COLA number format validation
 - ✅ Pattern: `COLA-YYYY-###`
 - ✅ Year range validation
@@ -231,6 +250,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Automatic uppercase conversion
 
 **Evidence**:
+
 - All test data follows format: COLA-2024-001, COLA-2024-002, etc.
 - Validation rules enforce format
 - Application form shows format hint
@@ -246,6 +266,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: No mobile requirements specified
 
 **What We Implemented**:
+
 - ✅ Fully responsive design
 - ✅ Mobile-first approach
 - ✅ Touch-friendly controls
@@ -253,6 +274,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Mobile navigation
 
 **Evidence**:
+
 - Tailwind CSS responsive utilities throughout
 - Playwright tests on mobile devices (iPhone 12, Pixel 5)
 - All pages tested on multiple viewports
@@ -268,6 +290,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: No error handling UX requirements
 
 **What We Implemented**:
+
 - ✅ User-friendly error messages
 - ✅ Actionable guidance ("Try this...")
 - ✅ Severity indicators (Warning vs Error)
@@ -275,6 +298,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Graceful degradation
 
 **Evidence**:
+
 - Form validation with helpful messages
 - Error boundaries in React components
 - API error responses with clear descriptions
@@ -291,6 +315,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: "Tests" mentioned but no specifics on coverage, types, or automation
 
 **What We Implemented**:
+
 - ✅ 55+ automated tests
 - ✅ Unit tests (15+) for logic
 - ✅ Integration tests (12+) for APIs
@@ -299,6 +324,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ Single command: `npm test`
 
 **Evidence**:
+
 - `TEST_IMPLEMENTATION_SUMMARY.md`
 - Coverage reports in `coverage/` directory
 - All test suites passing
@@ -315,6 +341,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: Requirements focused on features, not deployment
 
 **What We Implemented**:
+
 - ✅ Production deployment (Vercel + Railway)
 - ✅ Environment variable management
 - ✅ CORS configuration
@@ -322,6 +349,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ CI/CD ready infrastructure
 
 **Evidence**:
+
 - Live app: https://ttb-label-analyzer.vercel.app
 - Live API: https://ttb-label-analyzer-production.up.railway.app
 - Production test results: 18/19 tests passing
@@ -338,6 +366,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 **What Was Missing**: No documentation requirements beyond basic README
 
 **What We Implemented**:
+
 - ✅ Reviewer guide with 10-minute path
 - ✅ Requirements traceability matrix
 - ✅ Design decisions document
@@ -346,6 +375,7 @@ During stakeholder analysis, we identified several **implicit requirements** —
 - ✅ GitHub Pages deployment
 
 **Evidence**:
+
 - 20+ documentation files in `docs/`
 - GitHub Pages: https://kabirahasaan.github.io/ttb-label-analyzer/
 - Quick start guides, testing guides, design rationale
@@ -356,18 +386,18 @@ During stakeholder analysis, we identified several **implicit requirements** —
 
 ## Summary of Hidden Features Implemented
 
-| Feature Category | Hidden Requirements | Implementation Status |
-|------------------|--------------------|-----------------------|
-| **Batch Operations** | Bulk validation, bulk import | ✅ Complete |
-| **Export & Reporting** | JSON/CSV export, audit trail | ✅ Complete |
-| **Compliance Rules** | Government warnings, COLA format | ✅ Complete |
-| **Monitoring** | Health checks, uptime tracking | ✅ Complete |
-| **Data Management** | History, persistence, search | ✅ Complete |
-| **User Experience** | Progress, loading, feedback | ✅ Complete |
-| **Testing** | Comprehensive test coverage | ✅ Complete |
-| **Deployment** | Production-ready infrastructure | ✅ Complete |
-| **Documentation** | Reviewer guides, API docs | ✅ Complete |
-| **Mobile Support** | Responsive design | ✅ Complete |
+| Feature Category       | Hidden Requirements              | Implementation Status |
+| ---------------------- | -------------------------------- | --------------------- |
+| **Batch Operations**   | Bulk validation, bulk import     | ✅ Complete           |
+| **Export & Reporting** | JSON/CSV export, audit trail     | ✅ Complete           |
+| **Compliance Rules**   | Government warnings, COLA format | ✅ Complete           |
+| **Monitoring**         | Health checks, uptime tracking   | ✅ Complete           |
+| **Data Management**    | History, persistence, search     | ✅ Complete           |
+| **User Experience**    | Progress, loading, feedback      | ✅ Complete           |
+| **Testing**            | Comprehensive test coverage      | ✅ Complete           |
+| **Deployment**         | Production-ready infrastructure  | ✅ Complete           |
+| **Documentation**      | Reviewer guides, API docs        | ✅ Complete           |
+| **Mobile Support**     | Responsive design                | ✅ Complete           |
 
 **Total Hidden Features**: 15 major feature areas beyond base requirements
 
@@ -376,21 +406,25 @@ During stakeholder analysis, we identified several **implicit requirements** —
 ## How These Were Identified
 
 ### 1. Stakeholder Interview Analysis
+
 - Read between the lines of casual remarks
 - Identified pain points in current manual process
 - Noted concerns about scale and efficiency
 
 ### 2. Domain Knowledge
+
 - TTB regulations research (government warnings mandatory)
 - Alcohol industry compliance requirements
 - Typical production workflows for beverage companies
 
 ### 3. Production Readiness Standards
+
 - Real systems need monitoring (health checks)
 - Real systems need audit trails (history)
 - Real systems need bulk operations (batch processing)
 
 ### 4. User Experience Best Practices
+
 - Users need feedback (progress indicators)
 - Users need recovery options (error handling)
 - Users need efficiency (export, bulk upload)
@@ -404,6 +438,7 @@ Implementing these hidden requirements transforms the system from:
 **✗ Basic prototype** → **✓ Production-ready application**
 
 **Key Differentiators**:
+
 - **Operational Efficiency**: Batch validation saves hours vs manual one-by-one processing
 - **Compliance Confidence**: Government warning validation prevents TTB rejections
 - **Integration Ready**: API documentation and export enable ecosystem integration
@@ -417,7 +452,7 @@ Implementing these hidden requirements transforms the system from:
 These hidden requirements can be validated by asking stakeholders:
 
 - ✓ "Do you need to validate multiple labels at once?" → Batch validation
-- ✓ "Do you need to export results for compliance officers?" → Export functionality  
+- ✓ "Do you need to export results for compliance officers?" → Export functionality
 - ✓ "Do you have existing COLA data to import?" → Bulk upload
 - ✓ "Do you need to reference past validations?" → History/persistence
 - ✓ "Do you need to know when the system is down?" → Health monitoring
@@ -428,18 +463,18 @@ Each "yes" confirms a hidden requirement was correctly identified and addressed.
 
 ## Comparison: Base vs. Complete Implementation
 
-| Aspect | Base Requirements | Complete Implementation |
-|--------|-------------------|------------------------|
-| Label Validation | ✓ Single label | ✓ Single + Batch |
-| Data Entry | ✓ Manual form | ✓ Manual + CSV bulk |
-| Results | ✓ Show on screen | ✓ Show + Export + History |
-| Monitoring | ✗ Not specified | ✓ Health checks |
-| Testing | ✓ "Tests" mentioned | ✓ 55+ tests, 88% coverage |
-| Documentation | ✓ README | ✓ 20+ docs, GitHub Pages |
-| Deployment | ✗ Not specified | ✓ Production (Vercel + Railway) |
-| API | ✓ Basic endpoints | ✓ Full REST + Swagger docs |
-| UX | ✗ Not specified | ✓ Progress, errors, mobile |
-| Compliance | ✓ Basic rules | ✓ Gov warnings, COLA format |
+| Aspect           | Base Requirements   | Complete Implementation         |
+| ---------------- | ------------------- | ------------------------------- |
+| Label Validation | ✓ Single label      | ✓ Single + Batch                |
+| Data Entry       | ✓ Manual form       | ✓ Manual + CSV bulk             |
+| Results          | ✓ Show on screen    | ✓ Show + Export + History       |
+| Monitoring       | ✗ Not specified     | ✓ Health checks                 |
+| Testing          | ✓ "Tests" mentioned | ✓ 55+ tests, 88% coverage       |
+| Documentation    | ✓ README            | ✓ 20+ docs, GitHub Pages        |
+| Deployment       | ✗ Not specified     | ✓ Production (Vercel + Railway) |
+| API              | ✓ Basic endpoints   | ✓ Full REST + Swagger docs      |
+| UX               | ✗ Not specified     | ✓ Progress, errors, mobile      |
+| Compliance       | ✓ Basic rules       | ✓ Gov warnings, COLA format     |
 
 ---
 
@@ -448,6 +483,7 @@ Each "yes" confirms a hidden requirement was correctly identified and addressed.
 By carefully analyzing stakeholder interviews and applying domain knowledge, we identified and implemented **15 major hidden requirements** that weren't explicitly documented but are critical for a production-ready TTB label validation system.
 
 This demonstrates:
+
 - ✅ **Deep problem understanding** beyond written requirements
 - ✅ **Stakeholder empathy** - anticipating real-world needs
 - ✅ **Production mindset** - building for actual use, not just a demo
@@ -458,6 +494,7 @@ The result is a system that doesn't just meet requirements — it solves the act
 ---
 
 **Related Documentation**:
+
 - [Design Decisions & Assumptions](./design-decisions.md)
 - [Extra Features](./extra-features.md)
 - [Requirements Traceability](./requirements-traceability.md)

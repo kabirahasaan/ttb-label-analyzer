@@ -1,3 +1,9 @@
+---
+title: AC Implementation Summary
+layout: default
+permalink: /ac-implementation-summary
+---
+
 # Acceptance Criteria Implementation Summary
 
 Last updated: March 6, 2026

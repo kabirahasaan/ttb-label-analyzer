@@ -1,3 +1,9 @@
+---
+title: TTB Rules Integration
+layout: default
+permalink: /ttb-rules-integration
+---
+
 # TTB Rules Integration Guide
 
 This guide explains how to integrate the TTB dynamic rule fetching system with your validation engine and API.

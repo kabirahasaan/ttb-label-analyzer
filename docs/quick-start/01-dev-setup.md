@@ -53,28 +53,31 @@ pnpm install
 
 ### What Gets Installed?
 
-| Package | Purpose | Location |
-|---------|---------|----------|
-| **NestJS** | Backend API framework | `apps/api` |
-| **Next.js** | Frontend React framework | `apps/web` |
-| **PostgreSQL** | Database (via Docker) | Container |
+| Package        | Purpose                     | Location     |
+| -------------- | --------------------------- | ------------ |
+| **NestJS**     | Backend API framework       | `apps/api`   |
+| **Next.js**    | Frontend React framework    | `apps/web`   |
+| **PostgreSQL** | Database (via Docker)       | Container    |
 | **TypeScript** | Type safety across codebase | All packages |
-| **Jest** | Unit/integration tests | All packages |
-| **Playwright** | E2E UI tests | `e2e/` |
+| **Jest**       | Unit/integration tests      | All packages |
+| **Playwright** | E2E UI tests                | `e2e/`       |
 
 ### Troubleshooting Installation
 
 **Issue**: "Cannot find pnpm"
+
 ```bash
 npm install -g pnpm@latest
 ```
 
 **Issue**: "Peer dependency conflicts"
+
 ```bash
 pnpm install --no-strict-peer-dependencies
 ```
 
 **Issue**: "Port already in use"
+
 ```bash
 # Kill process on the port
 lsof -ti:3000 | xargs kill -9    # For web app
@@ -113,6 +116,7 @@ docker-compose up
 Open three terminal tabs:
 
 **Tab 1: API Server**
+
 ```bash
 pnpm nx run api:serve
 # Output: [NestFactory] Nest application successfully started
@@ -121,6 +125,7 @@ pnpm nx run api:serve
 ```
 
 **Tab 2: Web App**
+
 ```bash
 pnpm nx run web:serve
 # Output: ▲ Next.js X.X.X
@@ -129,6 +134,7 @@ pnpm nx run web:serve
 ```
 
 **Tab 3: Database (Optional)**
+
 ```bash
 docker-compose up postgres
 # Output: PostgreSQL is ready
@@ -137,6 +143,7 @@ docker-compose up postgres
 ## Step 4: Verify Everything Works
 
 ### Check API Health
+
 ```bash
 curl http://localhost:3001/health
 
@@ -145,16 +152,19 @@ curl http://localhost:3001/health
 ```
 
 ### List Test Data
+
 ```bash
-curl http://localhost:3001/applications | jq '.' 
+curl http://localhost:3001/applications | jq '.'
 
 # Expected: List of pre-seeded test applications
 ```
 
 ### Access Web App
+
 Open browser: http://localhost:3000
 
 You should see the TTB Label Analyzer interface with:
+
 - Navigation bar at top
 - "Upload Label" section
 - "Batch Validation" option
@@ -162,6 +172,7 @@ You should see the TTB Label Analyzer interface with:
 - "Validation Results" to view history
 
 ### Access API Documentation
+
 Open browser: http://localhost:3001/api/docs
 
 Interactive Swagger UI showing all API endpoints.
@@ -189,6 +200,7 @@ Development Environment
 ## Common Development Tasks
 
 ### Run Tests
+
 ```bash
 # All tests
 pnpm test
@@ -201,17 +213,20 @@ pnpm test --watch libs/ttb-rules
 ```
 
 ### Run API Only (No Web)
+
 ```bash
 pnpm nx run api:serve
 ```
 
 ### Run Web Only (No API)
+
 ```bash
 # First start API separately, then:
 pnpm nx run web:serve
 ```
 
 ### Build for Production
+
 ```bash
 # Build both API and web
 pnpm build
@@ -222,6 +237,7 @@ pnpm build
 ```
 
 ### View Code Coverage
+
 ```bash
 pnpm test:coverage
 
@@ -234,6 +250,7 @@ open coverage/index.html
 ### Default Development Values
 
 `.env` file (auto-created):
+
 ```bash
 # API
 API_HOST=localhost
@@ -252,6 +269,7 @@ NEXT_PUBLIC_API_URL=http://localhost:3001
 ### Customizing Variables
 
 Create `.env.local` to override:
+
 ```bash
 # Use different API port for development
 API_PORT=4000
@@ -265,21 +283,22 @@ DATABASE_URL=postgresql://user:pass@remote.host:5432/prod_db
 1. **[Quick Demo](./02-quick-demo.md)** - Run your first validation
 2. **[Test Guide](../testing/index.md)** - Learn how to test
 3. **[Test Data](../test-data/index.md)** - Understand sample data
-4. **[API Reference](../api/index.md)** - Explore endpoints
+4. **[API Docs (Production)](https://ttb-label-analyzer-production.up.railway.app/api/docs)** - Explore endpoints
 
 ## Getting Help
 
-| Issue | Solution |
-|-------|----------|
-| Port already in use | `lsof -ti:PORT \| xargs kill -9` |
-| Dependencies won't install | `pnpm store prune && pnpm install` |
-| API won't start | Check `DATABASE_URL` in `.env` |
-| Web app shows 404 | Make sure API is running on `:3001` |
-| Tests failing | Delete `node_modules` and reinstall |
+| Issue                      | Solution                            |
+| -------------------------- | ----------------------------------- |
+| Port already in use        | `lsof -ti:PORT \| xargs kill -9`    |
+| Dependencies won't install | `pnpm store prune && pnpm install`  |
+| API won't start            | Check `DATABASE_URL` in `.env`      |
+| Web app shows 404          | Make sure API is running on `:3001` |
+| Tests failing              | Delete `node_modules` and reinstall |
 
 ## IDE Setup (VSCode)
 
 ### Recommended Extensions
+
 - TypeScript Vue Plugin
 - ESLint
 - Prettier
@@ -287,7 +306,9 @@ DATABASE_URL=postgresql://user:pass@remote.host:5432/prod_db
 - PostgreSQL
 
 ### Workspace Settings
+
 Create `.vscode/settings.json`:
+
 ```json
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",

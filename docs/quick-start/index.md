@@ -22,24 +22,25 @@ Get the TTB Label Compliance Validation Platform running in minutes.
 
 ## Choose Your Path
 
-| Path | Time | For You |
-|------|------|---------|
-| [**Development Setup**](./01-dev-setup.md) | 10 min | Developers building features |
-| [**Quick Demo**](./02-quick-demo.md) | 5 min | Quick hands-on testing |
+| Path                                            | Time   | For You                             |
+| ----------------------------------------------- | ------ | ----------------------------------- |
+| [**Development Setup**](./01-dev-setup.md)      | 10 min | Developers building features        |
+| [**Quick Demo**](./02-quick-demo.md)            | 5 min  | Quick hands-on testing              |
 | [**Production Deployment**](./03-production.md) | 15 min | Operations/DevOps deploying to prod |
 
 ## System Requirements
 
-| Tool | Version | Install |
-|------|---------|---------|
-| **Node.js** | 20+ | [nodejs.org](https://nodejs.org) |
-| **PNPM** | 8+ | `npm install -g pnpm` |
-| **Git** | 2.0+ | [git-scm.com](https://git-scm.com) |
-| **Docker** (optional) | 20+ | [docker.com](https://docker.com) |
+| Tool                  | Version | Install                            |
+| --------------------- | ------- | ---------------------------------- |
+| **Node.js**           | 20+     | [nodejs.org](https://nodejs.org)   |
+| **PNPM**              | 8+      | `npm install -g pnpm`              |
+| **Git**               | 2.0+    | [git-scm.com](https://git-scm.com) |
+| **Docker** (optional) | 20+     | [docker.com](https://docker.com)   |
 
 ## Running the App
 
 ### Development Mode (Local)
+
 ```bash
 # Install dependencies
 pnpm install
@@ -53,6 +54,7 @@ pnpm dev
 ```
 
 ### Production Mode (with Docker)
+
 ```bash
 docker-compose up
 # Web app: http://localhost
@@ -69,12 +71,14 @@ docker-compose up
 ## Troubleshooting
 
 **Port already in use?**
+
 ```bash
 # Find and kill process on port 3001
 lsof -ti:3001 | xargs kill -9
 ```
 
 **Dependency issues?**
+
 ```bash
 # Clear cache and reinstall
 pnpm store prune
@@ -83,6 +87,7 @@ pnpm install
 ```
 
 **Database won't connect?**
+
 ```bash
 # Restart Docker and check logs
 docker-compose down
@@ -95,5 +100,5 @@ docker-compose logs api
 - [Full Development Guide](01-dev-setup.md)
 - [Testing Guide](../testing/index.md)
 - [Test Data Guide](../test-data/index.md)
-- [API Documentation](../api/index.md)
-- [Deployment Guide](../deployment/index.md)
+- [API Docs (Production)](https://ttb-label-analyzer-production.up.railway.app/api/docs)
+- [Production Deployment Guide](03-production.md)

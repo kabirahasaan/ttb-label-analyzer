@@ -1,3 +1,9 @@
+---
+title: Test Data (Legacy)
+layout: default
+permalink: /test-data-legacy
+---
+
 # Test Data & Fixtures Guide
 
 Comprehensive guide to test data, fixtures, and manual testing for the TTB Label Compliance Validation Platform.

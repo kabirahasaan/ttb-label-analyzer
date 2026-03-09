@@ -1,3 +1,9 @@
+---
+title: Accessibility Audit
+layout: default
+permalink: /accessibility-audit
+---
+
 # Accessibility Audit Report
 
 **Date**: March 6, 2026  

@@ -1,3 +1,9 @@
+---
+title: Security
+layout: default
+permalink: /security
+---
+
 # Security Policy
 
 Comprehensive security guidelines for the TTB Label Compliance Validation Platform. This document covers threat mitigation, vulnerability management, and compliance requirements.

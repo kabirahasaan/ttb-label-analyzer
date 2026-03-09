@@ -1,6 +1,9 @@
 - title: Home
   url: /
 
+- title: Getting Started for Users
+  url: /getting-started-users
+
 - title: Getting Started (Quick Start)
   url: /quick-start/
 
@@ -48,3 +51,36 @@
 
 - title: Legacy Reference
   url: /legacy-reference
+
+- title: Accessibility Audit
+  url: /accessibility-audit
+
+- title: Getting Started (Legacy)
+  url: /getting-started-legacy
+
+- title: Architecture
+  url: /architecture
+
+- title: Security
+  url: /security
+
+- title: Testing (Legacy)
+  url: /testing-legacy
+
+- title: Test Data (Legacy)
+  url: /test-data-legacy
+
+- title: Implementation Complete
+  url: /implementation-complete
+
+- title: AC Implementation Summary
+  url: /ac-implementation-summary
+
+- title: TTB Rules Quick Start
+  url: /ttb-rules-quick-start
+
+- title: TTB Rules Integration
+  url: /ttb-rules-integration
+
+- title: TTB System Overview
+  url: /ttb-system-overview

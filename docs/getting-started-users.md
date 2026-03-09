@@ -8,7 +8,7 @@ nav_order: 2
 
 A complete guide for developers, QA engineers, and operations teams to get the TTB Label Analyzer running.
 
-> **Note**: For context on design decisions, UX choices, and system assumptions, see [Design Decisions & Assumptions](./design-decisions.md).
+> **Note**: For context on design decisions, UX choices, and system assumptions, see [Design Decisions & Assumptions](./design-decisions.html).
 
 ## Choose Your Path
 
@@ -16,10 +16,10 @@ A complete guide for developers, QA engineers, and operations teams to get the T
 
 **Time: 15 minutes**
 
-1. [Development Setup](./quick-start/01-dev-setup.md) - Install everything locally
-2. [Quick Demo](./quick-start/02-quick-demo.md) - Run your first validation
-3. [Development Testing](./testing/01-testing-dev.md) - Write and run tests
-4. [Test Data Guide](./test-data/index.md) - Understand sample data
+1. [Development Setup](./quick-start/01-dev-setup.html) - Install everything locally
+2. [Quick Demo](./quick-start/02-quick-demo.html) - Run your first validation
+3. [Development Testing](./testing/01-testing-dev.html) - Write and run tests
+4. [Test Data Guide](./test-data/) - Understand sample data
 
 Then you can:
 
@@ -31,10 +31,10 @@ Then you can:
 
 **Time: 10 minutes**
 
-1. [Quick Demo](./quick-start/02-quick-demo.md) - Try the app yourself
-2. [Production Testing](./testing/02-testing-prod.md) - Test live deployment
-3. [Test Coverage](./testing/03-test-coverage.md) - Review complete dev vs prod test evidence
-4. [Label Images Guide](./label-images/index.md) - Work with images
+1. [Quick Demo](./quick-start/02-quick-demo.html) - Try the app yourself
+2. [Production Testing](./testing/02-testing-prod.html) - Test live deployment
+3. [Test Coverage](./testing/03-test-coverage.html) - Review complete dev vs prod test evidence
+4. [Label Images Guide](./label-images/) - Work with images
 
 Then you can:
 
@@ -47,10 +47,10 @@ Then you can:
 
 **Time: 20 minutes**
 
-1. [Production Deployment](./quick-start/03-production.md) - Deploy to Vercel + Railway
-2. [Production Testing](./testing/02-testing-prod.md) - Verify deployment
-3. [Test Data Guide](./test-data/index.md) - Load test data
-4. [Application Data Management](./application-data/index.md) - Manage applications
+1. [Production Deployment](./quick-start/03-production.html) - Deploy to Vercel + Railway
+2. [Production Testing](./testing/02-testing-prod.html) - Verify deployment
+3. [Test Data Guide](./test-data/) - Load test data
+4. [Application Data Management](./application-data/) - Manage applications
 
 Then you can:
 
@@ -78,7 +78,7 @@ open http://localhost:3000
 
 ✅ Done! API running at `http://localhost:3001`
 
-[See Full Setup Guide →](./quick-start/01-dev-setup.md)
+[See Full Setup Guide →](./quick-start/01-dev-setup.html)
 
 ## First 15 Minutes - Validate Your First Label
 
@@ -107,22 +107,22 @@ Following the Quick Start above, now:
    - Rules that passed/failed
    - Extracted data from image
 
-[Full Demo Guide →](./quick-start/02-quick-demo.md)
+[Full Demo Guide →](./quick-start/02-quick-demo.html)
 
 ## What Each Guide Covers
 
 | Guide                                              | For        | Time      | What You'll Learn               |
 | -------------------------------------------------- | ---------- | --------- | ------------------------------- |
-| **[Quick Start](./quick-start/index.md)**          | Everyone   | 5 min     | Get running in minutes          |
-| **[Dev Setup](./quick-start/01-dev-setup.md)**     | Developers | 10 min    | Full local environment          |
-| **[Quick Demo](./quick-start/02-quick-demo.md)**   | Everyone   | 15 min    | Run first validation            |
-| **[Deployment](./quick-start/03-production.md)**   | DevOps     | 20 min    | Deploy to production            |
-| **[Dev Testing](./testing/01-testing-dev.md)**     | Developers | Varies    | Write tests locally             |
-| **[Prod Testing](./testing/02-testing-prod.md)**   | QA/DevOps  | 30 min    | Test live deployment            |
-| **[Test Coverage](./testing/03-test-coverage.md)** | QA         | 20-30 min | Dev vs prod validation evidence |
-| **[Test Data](./test-data/index.md)**              | Everyone   | Reference | Sample data details             |
-| **[App Data](./application-data/index.md)**        | QA/DevOps  | Reference | Manage applications             |
-| **[Label Images](./label-images/index.md)**        | QA/Dev     | Reference | Work with images                |
+| **[Quick Start](./quick-start/)**          | Everyone   | 5 min     | Get running in minutes          |
+| **[Dev Setup](./quick-start/01-dev-setup.html)**     | Developers | 10 min    | Full local environment          |
+| **[Quick Demo](./quick-start/02-quick-demo.html)**   | Everyone   | 15 min    | Run first validation            |
+| **[Deployment](./quick-start/03-production.html)**   | DevOps     | 20 min    | Deploy to production            |
+| **[Dev Testing](./testing/01-testing-dev.html)**     | Developers | Varies    | Write tests locally             |
+| **[Prod Testing](./testing/02-testing-prod.html)**   | QA/DevOps  | 30 min    | Test live deployment            |
+| **[Test Coverage](./testing/03-test-coverage.html)** | QA         | 20-30 min | Dev vs prod validation evidence |
+| **[Test Data](./test-data/)**              | Everyone   | Reference | Sample data details             |
+| **[App Data](./application-data/)**        | QA/DevOps  | Reference | Manage applications             |
+| **[Label Images](./label-images/)**        | QA/Dev     | Reference | Work with images                |
 
 ## System Requirements
 
@@ -194,7 +194,7 @@ You don't need to set anything up - it's pre-configured:
 ✅ API documentation available  
 ✅ All tests pass
 
-[Learn about test data →](./test-data/index.md)
+[Learn about test data →](./test-data/)
 
 ## Development vs Production
 
@@ -211,7 +211,7 @@ Setup: pnpm dev
 ✅ Hot reload
 ✅ Full debugging
 
-[Setup guide →](./quick-start/01-dev-setup.md)
+[Setup guide →](./quick-start/01-dev-setup.html)
 
 ### Production (Deployed)
 
@@ -227,33 +227,33 @@ Setup: Vercel + Railway
 ✅ Backups
 ✅ Global CDN
 
-[Deployment guide →](./quick-start/03-production.md)
+[Deployment guide →](./quick-start/03-production.html)
 
 ## Common Tasks
 
 ### Task: Create Test Data
 
-→ [Application Data Management](./application-data/index.md)
+→ [Application Data Management](./application-data/)
 
 ### Task: Find Test Images
 
-→ [Label Images Guide](./label-images/index.md)
+→ [Label Images Guide](./label-images/)
 
 ### Task: Run Tests Locally
 
-→ [Development Testing](./testing/01-testing-dev.md)
+→ [Development Testing](./testing/01-testing-dev.html)
 
 ### Task: Test Live Deployment
 
-→ [Production Testing](./testing/02-testing-prod.md)
+→ [Production Testing](./testing/02-testing-prod.html)
 
 ### Task: Deploy to Production
 
-→ [Production Deployment](./quick-start/03-production.md)
+→ [Production Deployment](./quick-start/03-production.html)
 
 ### Task: Understand Test Data
 
-→ [Test Data Guide](./test-data/index.md)
+→ [Test Data Guide](./test-data/)
 
 ## Troubleshooting
 
@@ -269,10 +269,10 @@ Setup: Vercel + Railway
 
 ## Next Steps
 
-1. **First time?** → [Quick Start](./quick-start/index.md)
-2. **Want to code?** → [Dev Setup](./quick-start/01-dev-setup.md)
-3. **Want to test?** → [Testing Guide](./testing/index.md)
-4. **Want to deploy?** → [Deploy Guide](./quick-start/03-production.md)
+1. **First time?** → [Quick Start](./quick-start/)
+2. **Want to code?** → [Dev Setup](./quick-start/01-dev-setup.html)
+3. **Want to test?** → [Testing Guide](./testing/)
+4. **Want to deploy?** → [Deploy Guide](./quick-start/03-production.html)
 5. **Need help?** → [Check FAQ](#faq)
 
 ## FAQ
@@ -296,23 +296,23 @@ A: Typically 2-10 seconds depending on image quality.
 A: In `apps/web/public/test-images/` locally, or download from repo.
 
 **Q: How do I deploy?**  
-A: [See deployment guide](./quick-start/03-production.md)
+A: [See deployment guide](./quick-start/03-production.html)
 
 **Q: Is it production ready?**  
 A: Yes, deployed and running on Vercel + Railway.
 
 ## Document Quick Links
 
-- [Quick Start](./quick-start/index.md)
-- [Development Setup](./quick-start/01-dev-setup.md)
-- [Quick Demo](./quick-start/02-quick-demo.md)
-- [Production Deployment](./quick-start/03-production.md)
-- [Testing Guide](./testing/index.md)
-- [Development Testing](./testing/01-testing-dev.md)
-- [Production Testing](./testing/02-testing-prod.md)
-- [Test Data](./test-data/index.md)
-- [Application Data](./application-data/index.md)
-- [Label Images](./label-images/index.md)
+- [Quick Start](./quick-start/)
+- [Development Setup](./quick-start/01-dev-setup.html)
+- [Quick Demo](./quick-start/02-quick-demo.html)
+- [Production Deployment](./quick-start/03-production.html)
+- [Testing Guide](./testing/)
+- [Development Testing](./testing/01-testing-dev.html)
+- [Production Testing](./testing/02-testing-prod.html)
+- [Test Data](./test-data/)
+- [Application Data](./application-data/)
+- [Label Images](./label-images/)
 
 ---
 

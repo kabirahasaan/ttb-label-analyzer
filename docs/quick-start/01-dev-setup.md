@@ -280,9 +280,9 @@ DATABASE_URL=postgresql://user:pass@remote.host:5432/prod_db
 
 ## Next Steps
 
-1. **[Quick Demo](./02-quick-demo.md)** - Run your first validation
-2. **[Test Guide](../testing/index.md)** - Learn how to test
-3. **[Test Data](../test-data/index.md)** - Understand sample data
+1. **[Quick Demo](./02-quick-demo.html)** - Run your first validation
+2. **[Test Guide](../testing/)** - Learn how to test
+3. **[Test Data](../test-data/)** - Understand sample data
 4. **[API Docs (Production)](https://ttb-label-analyzer-production.up.railway.app/api/docs)** - Explore endpoints
 
 ## Getting Help
@@ -319,4 +319,4 @@ Create `.vscode/settings.json`:
 
 ---
 
-**Next**: [Run Your First Validation →](./02-quick-demo.md)
+**Next**: [Run Your First Validation →](./02-quick-demo.html)

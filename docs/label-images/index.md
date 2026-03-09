@@ -565,10 +565,10 @@ pnpm build:web  # Verify build succeeds
 
 ## Next Steps
 
-- [**Testing Guide**](../testing/index.md) - Full testing procedures
-- [**Test Data**](../test-data/index.md) - Sample data details
+- [**Testing Guide**](../testing/) - Full testing procedures
+- [**Test Data**](../test-data/) - Sample data details
 - [**API Docs (Production)**](https://ttb-label-analyzer-production.up.railway.app/api/docs) - API endpoint documentation
 
 ---
 
-**Back**: [Documentation →](../index.md)
+**Back**: [Documentation →](../)

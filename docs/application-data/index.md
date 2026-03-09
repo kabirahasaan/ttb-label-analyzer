@@ -455,10 +455,10 @@ Must include both amount and unit:
 
 ## Next Steps
 
-- [**Label Images Guide**](../label-images/index.md) - Upload and validate labels
-- [**Testing Guide**](../testing/index.md) - Test with applications
-- [**Test Data**](../test-data/index.md) - Use sample data
+- [**Label Images Guide**](../label-images/) - Upload and validate labels
+- [**Testing Guide**](../testing/) - Test with applications
+- [**Test Data**](../test-data/) - Use sample data
 
 ---
 
-**Back**: [Documentation →](../index.md)
+**Back**: [Documentation →](../)

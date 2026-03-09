@@ -408,7 +408,7 @@ describe('TTBRulesStorage', () => {
 1. ✅ **Run fetcher**: `npm run fetch:ttb-rules`
 2. ✅ **Check stats**: `npm run fetch:ttb-rules:stats`
 3. ✅ **Review rules**: Look at `libs/ttb-rules/data/rules/all-rules.json`
-4. ✅ **Integrate**: Follow [TTB_RULES_INTEGRATION.md](./TTB_RULES_INTEGRATION.md)
+4. ✅ **Integrate**: Follow [TTB_RULES_INTEGRATION.md](./TTB_RULES_INTEGRATION.html)
 5. ✅ **Test**: Add validation tests using rules
 6. ✅ **Deploy**: Add to Docker/CI pipeline (examples provided)
 7. ✅ **Monitor**: Set up weekly updates via GitHub Actions

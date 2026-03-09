@@ -867,10 +867,10 @@ docker volume prune
 
 ### Documentation
 
-- **Full Setup**: See [README.md](./README.md)
-- **Architecture**: See [ARCHITECTURE.md](./ARCHITECTURE.md)
-- **Security**: See [SECURITY.md](./SECURITY.md)
-- **Testing**: See [TESTING.md](./TESTING.md)
+- **Full Setup**: See [README.md](./README.html)
+- **Architecture**: See [ARCHITECTURE.md](./ARCHITECTURE.html)
+- **Security**: See [SECURITY.md](./SECURITY.html)
+- **Testing**: See [TESTING.md](./TESTING.html)
 
 ### API Documentation
 
@@ -892,7 +892,7 @@ docker volume prune
 3. ✅ Open http://localhost:3000
 4. ✅ Upload a test label
 5. ✅ View validation results
-6. 📖 Read [README.md](./README.md) for architecture details
+6. 📖 Read [README.md](./README.html) for architecture details
 
 ## Local Development Setup
 
@@ -1209,7 +1209,7 @@ git push origin feature/label-validation
 ## Getting Help
 
 - **API Docs**: http://localhost:3001/api/docs
-- **Architecture**: See [ARCHITECTURE.md](./ARCHITECTURE.md)
-- **Security**: See [SECURITY.md](./SECURITY.md)
-- **Testing**: See [TESTING.md](./TESTING.md)
+- **Architecture**: See [ARCHITECTURE.md](./ARCHITECTURE.html)
+- **Security**: See [SECURITY.md](./SECURITY.html)
+- **Testing**: See [TESTING.md](./TESTING.html)
 - **Code Issues**: Check GitHub issues

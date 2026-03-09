@@ -563,4 +563,4 @@ The combination of comprehensive development testing and thorough production val
 3. Set up real user monitoring
 4. Increase coverage to 90%+ target
 
-For detailed test implementation, see [Test Implementation Summary](./test-implementation-summary.md).
+For detailed test implementation, see [Test Implementation Summary](./test-implementation-summary.html).

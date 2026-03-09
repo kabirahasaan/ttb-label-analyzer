@@ -306,10 +306,10 @@ Check the error in Railway Deployments logs:
 
 ## Next Steps
 
-1. **[Production Testing](../testing/02-testing-prod.md)** - Validate live environment
-2. **[Test Coverage](../testing/03-test-coverage.md)** - Review dev vs prod quality evidence
-3. **[Architecture](../ARCHITECTURE.md)** - Plan scale and operational evolution
+1. **[Production Testing](../testing/02-testing-prod.html)** - Validate live environment
+2. **[Test Coverage](../testing/03-test-coverage.html)** - Review dev vs prod quality evidence
+3. **[Architecture](../ARCHITECTURE.html)** - Plan scale and operational evolution
 
 ---
 
-**Back**: [Quick Start →](./index.md)
+**Back**: [Quick Start →](./)

@@ -11,7 +11,7 @@ Test the application after deployment to Vercel/Railway production environment.
 
 ## Prerequisites
 
-- Application deployed to production (see [Deployment Guide](../quick-start/03-production.md))
+- Application deployed to production (see [Deployment Guide](../quick-start/03-production.html))
 - Production URLs:
   - **Web**: `https://ttb-label-analyzer.vercel.app` (your Vercel URL)
   - **API**: `https://ttb-label-analyzer-production.up.railway.app` (your Railway URL)
@@ -223,7 +223,7 @@ fetch('https://ttb-label-analyzer-production.up.railway.app/health')
 
 For comprehensive test coverage analysis including development vs production comparison, see:
 
-[**Test Coverage Report →**](./03-test-coverage.md)
+[**Test Coverage Report →**](./03-test-coverage.html)
 
 ---
 
@@ -522,10 +522,10 @@ Test that documentation is accessible:
 
 ## Next Steps
 
-1. **[Test Coverage](./03-test-coverage.md)** - Dev vs prod verification matrix
-2. **[Design Decisions](../design-decisions.md)** - Architecture and workflow rationale
-3. **[Application Data Guide](../application-data/index.md)** - Production data management
+1. **[Test Coverage](./03-test-coverage.html)** - Dev vs prod verification matrix
+2. **[Design Decisions](../design-decisions.html)** - Architecture and workflow rationale
+3. **[Application Data Guide](../application-data/)** - Production data management
 
 ---
 
-**Back**: [Testing Guide →](./index.md)
+**Back**: [Testing Guide →](./)

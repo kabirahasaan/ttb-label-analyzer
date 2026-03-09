@@ -1,180 +1,100 @@
 ---
-title: Documentation Home
+title: Home
 nav_order: 1
-description: Enterprise-grade documentation hub for the TTB Label Compliance Validation Platform
-permalink: /
 ---
 
-# TTB Label Compliance Validation Platform
-{: .fs-9 }
+# Reviewer Documentation Hub
 
-Enterprise-grade documentation for reviewers, stakeholders, and technical teams.
-{: .fs-6 .fw-300 }
+This is the single-page navigation hub for reviewers. Use this page to access every document quickly, follow a guided review path, and jump to technical evidence without searching through the repository.
 
-[Start 10-Minute Review](reviewer-guide){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[View Full Site Map](site-map){: .btn .fs-5 .mb-4 .mb-md-0 }
+<a href="./reviewer-guide.html" class="btn btn-primary">Start 10-Minute Review</a>
+<a href="./site-map.html" class="btn">Open Full Site Map</a>
+<a href="./hidden-requirements.html" class="btn">See Hidden Requirements</a>
+<a href="./testing/03-test-coverage.html" class="btn">Open Test Coverage</a>
 
----
+## Project Snapshot
 
-## Quick Access
-
-<div class="code-example" markdown="1">
-
-### For Reviewers
-- **[10-Minute Executive Review](reviewer-guide)** - Fast compliance and delivery validation
-- **[Hidden Requirements Analysis](hidden-requirements)** - Identified implicit stakeholder needs  
-- **[Requirements Traceability](requirements-traceability)** - Full requirement-to-implementation mapping
-
-### For Technical Teams
-- **[Testing Hub](testing/)** - Complete test strategy and coverage reports
-- **[Architecture Documentation](ARCHITECTURE)** - System design and technical decisions
-- **[Security Policy](SECURITY)** - Security practices and compliance
-
-### For Product Teams
-- **[Product & UX Decisions](product-ux)** - Design rationale and user experience
-- **[Getting Started for Users](getting-started-users)** - Role-based onboarding guides
-- **[Implemented Features](implemented-features)** - Complete feature inventory
-
-</div>
-
----
-
-## Project Overview
-
-**Platform**: TTB Label Compliance Validation System  
-**Purpose**: Automated validation of alcohol beverage labels against TTB regulations  
-**Stack**: Next.js 14, NestJS 10, TypeScript, PostgreSQL, Nx Monorepo  
-**Deployment**: Vercel (Web) + Railway (API)  
-**Test Coverage**: 88% development coverage, 55+ automated tests  
-
-### Live Deployments
-
-- **Live Application**: [https://ttb-label-analyzer.vercel.app](https://ttb-label-analyzer.vercel.app)
-- **API Health Check**: [https://ttb-label-analyzer-production.up.railway.app/health](https://ttb-label-analyzer-production.up.railway.app/health)
-- **API Documentation**: [Swagger UI](https://ttb-label-analyzer-production.up.railway.app/api/docs) (when API is running)
-
----
+- Stack: Next.js 14, NestJS 10, TypeScript, Nx monorepo, PostgreSQL
+- Validation scope: OCR extraction, TTB rules, COLA cross-check, single + batch workflows
+- Test scope: 55+ automated tests
+- Coverage: 88% development coverage, 95% production validation pass rate
+- Live app: `https://ttb-label-analyzer.vercel.app`
+- Live API health: `https://ttb-label-analyzer-production.up.railway.app/health`
 
 ## Recommended Review Paths
 
 ### Path A: Executive Review (10 minutes)
-{: .text-delta }
 
-For stakeholders validating delivery completeness and business value.
-
-1. [Reviewer Guide](reviewer-guide) - Validation workflow and checklist  
-2. [Hidden Requirements Analysis](hidden-requirements) - Implicit requirements identified  
-3. [Requirements Traceability](requirements-traceability) - Requirement mapping  
-4. [Implemented Features](implemented-features) - Delivered functionality  
+1. [Reviewer Guide](./reviewer-guide.html)
+2. [Hidden Requirements Analysis](./hidden-requirements.html)
+3. [Requirement Traceability](./requirements-traceability.html)
+4. [Implemented Features](./implemented-features.html)
 
 ### Path B: Product and UX Review (15-20 minutes)
-{: .text-delta }
 
-For product managers and UX reviewers assessing user experience.
-
-1. [Getting Started for Users](getting-started-users) - User onboarding guide  
-2. [Design Decisions](design-decisions) - Assumptions and trade-offs  
-3. [Product and UX Decisions](product-ux) - Product strategy  
-4. [Extra Features](extra-features) - Beyond-baseline functionality  
+1. [Getting Started for Users](./getting-started-users.html)
+2. [Design Decisions and Assumptions](./design-decisions.html)
+3. [Product and UX Decisions](./product-ux.html)
+4. [Extra Features](./extra-features.html)
 
 ### Path C: Engineering and Quality Review (20-30 minutes)
-{: .text-delta }
 
-For technical reviewers assessing code quality and architecture.
-
-1. [Architecture](ARCHITECTURE) - System design and patterns  
-2. [Testing Hub](testing/) - Test strategy and coverage  
-3. [Test Coverage Report](testing/03-test-coverage) - Detailed coverage metrics  
-4. [Security](SECURITY) - Security practices and policies  
-5. [Implementation Complete](IMPLEMENTATION_COMPLETE) - Delivery verification  
-
----
+1. [Architecture](./ARCHITECTURE.html)
+2. [Testing Hub](./testing/)
+3. [Test Coverage Report](./testing/03-test-coverage.html)
+4. [Security](./SECURITY.html)
+5. [Implementation Complete](./IMPLEMENTATION_COMPLETE.html)
 
 ## Documentation Catalog
 
-### Core Reviewer Documentation
+### Core Reviewer Docs
 
-| Document                                          | Purpose                                                      |
-|:--------------------------------------------------|:-------------------------------------------------------------|
-| [Reviewer Guide](reviewer-guide)                  | Fast reviewer workflow and validation checklist              |
-| [Hidden Requirements Analysis](hidden-requirements) | Implicit stakeholder requirements identified and implemented |
-| [Requirements Traceability](requirements-traceability) | Requirement-to-implementation mapping                        |
-| [Implemented Features](implemented-features)      | Delivered feature inventory                                  |
-| [Extra Features](extra-features)                  | Beyond-baseline functionality                                |
-| [Design Decisions](design-decisions)              | Assumptions, trade-offs, and architecture rationale          |
+| Document                                                   | Purpose                                                      |
+| ---------------------------------------------------------- | ------------------------------------------------------------ |
+| [Reviewer Guide](./reviewer-guide.html)                      | Fast reviewer workflow and validation checklist              |
+| [Hidden Requirements Analysis](./hidden-requirements.html)   | Implicit stakeholder requirements identified and implemented |
+| [Requirement Traceability](./requirements-traceability.html) | Requirement-to-implementation mapping                        |
+| [Implemented Features](./implemented-features.html)          | Delivered feature inventory                                  |
+| [Extra Features](./extra-features.html)                      | Beyond-baseline functionality                                |
+| [Design Decisions](./design-decisions.html)                  | Assumptions, trade-offs, and architecture rationale          |
 
-### Technical Documentation
+### Hands-On Reviewer Guides
 
-| Document                                     | Focus                                   |
-|:---------------------------------------------|:----------------------------------------|
-| [Architecture](ARCHITECTURE)                 | System architecture and design patterns |
-| [Testing Hub](testing/)                      | Comprehensive testing strategy          |
-| [Test Coverage](testing/03-test-coverage)    | Coverage reports and metrics            |
-| [Security Policy](SECURITY)                  | Security practices and compliance       |
-| [TTB Rules Quick Start](TTB_RULES_QUICK_START) | Rules workflow bootstrapping            |
-| [TTB Rules Integration](TTB_RULES_INTEGRATION) | Integration implementation details      |
-| [TTB System Overview](TTB_SYSTEM_OVERVIEW)   | Rules engine architecture               |
+| Guide                                                   | Audience                            |
+| ------------------------------------------------------- | ----------------------------------- |
+| [Getting Started for Users](./getting-started-users.html) | Reviewer, QA, DevOps                |
+| [Quick Start](./quick-start/)                   | Reviewer and developers             |
+| [Testing Hub](./testing/)                       | QA and engineering reviewers        |
+| [Test Data](./test-data/)                       | Test and demo users                 |
+| [Application Data](./application-data/)           | Data setup and management reviewers |
+| [Label Images](./label-images/)                   | OCR and upload workflow reviewers   |
 
-### User Guides
+### Legacy Technical References
 
-| Guide                                           | Audience                            |
-|:------------------------------------------------|:------------------------------------|
-| [Getting Started for Users](getting-started-users) | Reviewers, QA, DevOps               |
-| [Quick Start](quick-start/)                     | Developers and reviewers            |
-| [Test Data Guide](test-data/)                   | Test and demo users                 |
-| [Application Data](application-data/)           | Data setup and management           |
-| [Label Images](label-images/)                   | OCR and upload workflow testing     |
+| Reference                                           | Focus                                   |
+| --------------------------------------------------- | --------------------------------------- |
+| [Legacy Reference](./legacy-reference.html)           | Central index for legacy technical docs |
+| [Getting Started (Legacy)](./GETTING_STARTED.html)    | Deep setup details                      |
+| [Architecture](./ARCHITECTURE.html)                   | System architecture details             |
+| [Testing (Legacy)](./TESTING.html)                    | Expanded testing strategy               |
+| [Test Data (Legacy)](./TEST_DATA.html)                | Fixtures and scenarios                  |
+| [Security](./SECURITY.html)                           | Security policy and practices           |
+| [TTB Rules Quick Start](./TTB_RULES_QUICK_START.html) | Rules workflow bootstrapping            |
+| [TTB Rules Integration](./TTB_RULES_INTEGRATION.html) | Integration details                     |
+| [TTB System Overview](./TTB_SYSTEM_OVERVIEW.html)     | Rules system implementation             |
+| [Accessibility Audit](./accessibility-audit.html)     | Accessibility findings and remediation  |
 
-### Legacy and Reference Documentation
+## Reviewer Evidence Map
 
-| Reference                                 | Purpose                                   |
-|:------------------------------------------|:------------------------------------------|
-| [Legacy Reference](legacy-reference)      | Central index for legacy technical docs   |
-| [Getting Started (Legacy)](GETTING_STARTED) | Deep setup and configuration details      |
-| [Testing (Legacy)](TESTING)               | Expanded testing strategy                 |
-| [Test Data (Legacy)](TEST_DATA)           | Fixtures and test scenarios               |
-| [Accessibility Audit](accessibility-audit) | Accessibility findings and remediation    |
+- Business and product intent: [Hidden Requirements Analysis](./hidden-requirements.html)
+- UX assumptions and trade-offs: [Design Decisions](./design-decisions.html)
+- Delivery against requirements: [Requirement Traceability](./requirements-traceability.html)
+- Build quality and verification: [Test Coverage](./testing/03-test-coverage.html)
+- Deployment and docs publishing: [Deployment (GitHub Pages)](./github-pages.html)
 
----
+## GitHub Pages Access
 
-## Compliance and Quality Assurance
+- Docs hub URL: `https://kabirahasaan.github.io/ttb-label-analyzer/docs/index.html`
+- Full docs map: `https://kabirahasaan.github.io/ttb-label-analyzer/docs/site-map.html`
 
-### Testing and Validation
-- **Unit Tests**: 70%+ coverage requirement (88% achieved)
-- **Integration Tests**: Full API endpoint coverage
-- **E2E Tests**: Cross-browser validation (Chromium, Firefox, WebKit)
-- **Accessibility**: WCAG 2.1 Level AA target compliance
-
-### Security and Compliance
-- **Security Policy**: [View SECURITY.md](SECURITY)
-- **Data Protection**: PostgreSQL with Prisma ORM
-- **Audit Trail**: Complete logging of all validation operations
-- **License**: Proprietary (UNLICENSED)
-
-### Documentation Standards
-- **Accessibility**: WCAG 2.1 Level AA compliant documentation
-- **Navigation**: Multiple access paths for different user roles
-- **Search**: Full-text search enabled across all documentation
-- **Maintenance**: Last updated March 2026
-
----
-
-## Quick Links
-
-### Repository and Source
-- **GitHub Repository**: [kabirahasaan/ttb-label-analyzer](https://github.com/kabirahasaan/ttb-label-analyzer)
-- **Documentation Source**: [docs/](https://github.com/kabirahasaan/ttb-label-analyzer/tree/main/docs)
-
-### Support and Contact
-- **Issues**: [GitHub Issues](https://github.com/kabirahasaan/ttb-label-analyzer/issues)
-- **Documentation**: Start at this hub or use [Site Map](site-map) for full navigation
-
----
-
-{: .note }
-> **Accessibility Statement**  
-> This documentation is designed to meet WCAG 2.1 Level AA accessibility standards. If you encounter any accessibility issues, please report them via GitHub Issues.
-
-{: .important }
-> **For Government and Enterprise Reviewers**  
-> This platform is designed for regulatory compliance use cases. See [Security](SECURITY), [Testing Hub](testing/), and [Requirements Traceability](requirements-traceability) for compliance evidence.
+If the repository root URL shows README-style content, use the two links above for the reviewer docs experience.

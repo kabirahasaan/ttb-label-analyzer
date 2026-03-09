@@ -11,7 +11,7 @@ Run and write tests in your local development environment with live reload and d
 
 ## Prerequisites
 
-- Development environment set up ([see setup guide](../quick-start/01-dev-setup.md))
+- Development environment set up ([see setup guide](../quick-start/01-dev-setup.html))
 - API running on `localhost:3001`
 - Tests pass: `pnpm test --listTests`
 
@@ -482,9 +482,9 @@ it('slow test', async () => {
 
 ## Next Steps
 
-1. **[Production Testing](./02-testing-prod.md)** - Test deployment
-2. **[Test Coverage](./03-test-coverage.md)** - Dev vs prod coverage analysis
-3. **[Test Data](../test-data/index.md)** - Sample data guide
+1. **[Production Testing](./02-testing-prod.html)** - Test deployment
+2. **[Test Coverage](./03-test-coverage.html)** - Dev vs prod coverage analysis
+3. **[Test Data](../test-data/)** - Sample data guide
 
 ---
 
@@ -502,8 +502,8 @@ Current development test coverage: **88%**
 
 For detailed coverage breakdown and comparison with production testing, see:
 
-[**Test Coverage Report →**](./03-test-coverage.md)
+[**Test Coverage Report →**](./03-test-coverage.html)
 
 ---
 
-**Back**: [Testing Guide →](./index.md)
+**Back**: [Testing Guide →](./)

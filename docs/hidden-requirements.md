@@ -495,7 +495,7 @@ The result is a system that doesn't just meet requirements — it solves the act
 
 **Related Documentation**:
 
-- [Design Decisions & Assumptions](./design-decisions.md)
-- [Extra Features](./extra-features.md)
-- [Requirements Traceability](./requirements-traceability.md)
-- [Test Coverage](./testing/03-test-coverage.md)
+- [Design Decisions & Assumptions](./design-decisions.html)
+- [Extra Features](./extra-features.html)
+- [Requirements Traceability](./requirements-traceability.html)
+- [Test Coverage](./testing/03-test-coverage.html)

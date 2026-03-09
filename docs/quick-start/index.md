@@ -24,9 +24,9 @@ Get the TTB Label Compliance Validation Platform running in minutes.
 
 | Path                                            | Time   | For You                             |
 | ----------------------------------------------- | ------ | ----------------------------------- |
-| [**Development Setup**](./01-dev-setup.md)      | 10 min | Developers building features        |
-| [**Quick Demo**](./02-quick-demo.md)            | 5 min  | Quick hands-on testing              |
-| [**Production Deployment**](./03-production.md) | 15 min | Operations/DevOps deploying to prod |
+| [**Development Setup**](./01-dev-setup.html)      | 10 min | Developers building features        |
+| [**Quick Demo**](./02-quick-demo.html)            | 5 min  | Quick hands-on testing              |
+| [**Production Deployment**](./03-production.html) | 15 min | Operations/DevOps deploying to prod |
 
 ## System Requirements
 
@@ -63,10 +63,10 @@ docker-compose up
 
 ## Next Steps
 
-1. **[Explore the Interface](./02-quick-demo.md)** - Get familiar with the UI
-2. **[Understand Test Data](../test-data/index.md)** - Learn about sample data
-3. **[Run Tests](../testing/index.md)** - Validate everything works
-4. **[Deploy to Production](./03-production.md)** - Take it live
+1. **[Explore the Interface](./02-quick-demo.html)** - Get familiar with the UI
+2. **[Understand Test Data](../test-data/)** - Learn about sample data
+3. **[Run Tests](../testing/)** - Validate everything works
+4. **[Deploy to Production](./03-production.html)** - Take it live
 
 ## Troubleshooting
 
@@ -98,7 +98,7 @@ docker-compose logs api
 ## Resources
 
 - [Full Development Guide](01-dev-setup.md)
-- [Testing Guide](../testing/index.md)
-- [Test Data Guide](../test-data/index.md)
+- [Testing Guide](../testing/)
+- [Test Data Guide](../test-data/)
 - [API Docs (Production)](https://ttb-label-analyzer-production.up.railway.app/api/docs)
 - [Production Deployment Guide](03-production.md)

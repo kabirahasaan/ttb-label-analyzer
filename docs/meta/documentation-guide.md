@@ -6,7 +6,7 @@ permalink: /meta/documentation-guide
 
 # Documentation Guide
 
-> **Quick Navigation**: All documentation is in the `/docs` directory. Start with [docs/index.md](../index.md).
+> **Quick Navigation**: All documentation is in the `/docs` directory. Start with [docs/index.md](../).
 
 ## Documentation Structure
 
@@ -49,27 +49,27 @@ ttb-label-analyzer/
 
 ### For New Users
 
-1. 🏠 **[Documentation Index](../index.md)** - Start here!
-2. 🚀 **[Getting Started](../GETTING_STARTED.md)** - Setup guide
-3. 🧪 **[Test Data](../TEST_DATA.md)** - Pre-loaded test fixtures
+1. 🏠 **[Documentation Index](../)** - Start here!
+2. 🚀 **[Getting Started](../GETTING_STARTED.html)** - Setup guide
+3. 🧪 **[Test Data](../TEST_DATA.html)** - Pre-loaded test fixtures
 
 ### For Developers
 
-1. 🏗️ **[Architecture](../ARCHITECTURE.md)** - System design
-2. ✅ **[Testing](../TESTING.md)** - Testing strategies
-3. 📊 **[TTB Rules Quick Start](../TTB_RULES_QUICK_START.md)** - Rules system
+1. 🏗️ **[Architecture](../ARCHITECTURE.html)** - System design
+2. ✅ **[Testing](../TESTING.html)** - Testing strategies
+3. 📊 **[TTB Rules Quick Start](../TTB_RULES_QUICK_START.html)** - Rules system
 
 ### For DevOps
 
-1. 🚀 **[Getting Started](../GETTING_STARTED.md)** - Docker & deployment
-2. 🔒 **[Security](../SECURITY.md)** - Security guidelines
-3. 🏗️ **[Architecture](../ARCHITECTURE.md)** - Infrastructure
+1. 🚀 **[Getting Started](../GETTING_STARTED.html)** - Docker & deployment
+2. 🔒 **[Security](../SECURITY.html)** - Security guidelines
+3. 🏗️ **[Architecture](../ARCHITECTURE.html)** - Infrastructure
 
 ## Recent Updates (March 7, 2026)
 
 ### ✨ New Documentation
 
-- **[TEST_DATA.md](../TEST_DATA.md)** - Comprehensive test data guide
+- **[TEST_DATA.md](../TEST_DATA.html)** - Comprehensive test data guide
   - 9 pre-seeded test applications
   - 10 label validation scenarios
   - Manual testing workflows
@@ -78,9 +78,9 @@ ttb-label-analyzer/
 
 ### 📝 Updated Documentation
 
-- **[index.md](../index.md)** - Added TEST_DATA.md reference
-- **[TESTING.md](../TESTING.md)** - Added test fixtures overview
-- **[README.md](./README.md)** - Updated documentation links
+- **[index.md](../)** - Added TEST_DATA.md reference
+- **[TESTING.md](../TESTING.html)** - Added test fixtures overview
+- **[README.md](./README.html)** - Updated documentation links
 
 ### 🗑️ Cleaned Up
 
@@ -100,14 +100,14 @@ ttb-label-analyzer/
 
 | I want to...                | See this document                                           |
 | --------------------------- | ----------------------------------------------------------- |
-| Set up the project          | [GETTING_STARTED.md](../GETTING_STARTED.md)                 |
-| Understand the architecture | [ARCHITECTURE.md](../ARCHITECTURE.md)                       |
-| Write or run tests          | [TESTING.md](../TESTING.md)                                 |
-| Use test data for testing   | [TEST_DATA.md](../TEST_DATA.md)                             |
-| Integrate TTB rules         | [TTB_RULES_QUICK_START.md](../TTB_RULES_QUICK_START.md)     |
-| Learn security practices    | [SECURITY.md](../SECURITY.md)                               |
-| Check implementation status | [IMPLEMENTATION_COMPLETE.md](../IMPLEMENTATION_COMPLETE.md) |
-| See all documentation       | [index.md](../index.md)                                     |
+| Set up the project          | [GETTING_STARTED.md](../GETTING_STARTED.html)                 |
+| Understand the architecture | [ARCHITECTURE.md](../ARCHITECTURE.html)                       |
+| Write or run tests          | [TESTING.md](../TESTING.html)                                 |
+| Use test data for testing   | [TEST_DATA.md](../TEST_DATA.html)                             |
+| Integrate TTB rules         | [TTB_RULES_QUICK_START.md](../TTB_RULES_QUICK_START.html)     |
+| Learn security practices    | [SECURITY.md](../SECURITY.html)                               |
+| Check implementation status | [IMPLEMENTATION_COMPLETE.md](../IMPLEMENTATION_COMPLETE.html) |
+| See all documentation       | [index.md](../)                                     |
 
 ## Contributing to Documentation
 
@@ -136,16 +136,16 @@ curl http://localhost:3001/applications | jq '.[] | "\(.colaNumber || "No COLA")
 # Producer: Mountain View Brewery
 ```
 
-**See [docs/TEST_DATA.md](../TEST_DATA.md) for complete testing guide.**
+**See [docs/TEST_DATA.md](../TEST_DATA.html) for complete testing guide.**
 
 ---
 
 ## Support
 
-- 📚 **Documentation**: [docs/index.md](../index.md)
+- 📚 **Documentation**: [docs/index.md](../)
 - 🔧 **API Docs**: http://localhost:3001/api/docs (when running)
-- 🚀 **Quick Start**: [docs/GETTING_STARTED.md](../GETTING_STARTED.md)
-- 🧪 **Testing**: [docs/TEST_DATA.md](../TEST_DATA.md)
+- 🚀 **Quick Start**: [docs/GETTING_STARTED.md](../GETTING_STARTED.html)
+- 🧪 **Testing**: [docs/TEST_DATA.md](../TEST_DATA.html)
 
 ---
 

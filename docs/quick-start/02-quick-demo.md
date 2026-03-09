@@ -11,7 +11,7 @@ Get hands-on with the platform in 15 minutes. You'll upload a label, create an a
 
 ## Prerequisites
 
-Make sure you have [Development Setup](./01-dev-setup.md) complete:
+Make sure you have [Development Setup](./01-dev-setup.html) complete:
 
 - API running on http://localhost:3001
 - Web app running on http://localhost:3000
@@ -303,10 +303,10 @@ pnpm dev
 
 ## Next Steps
 
-1. **[Learn about Test Data](../test-data/index.md)** - Understand the sample data
-2. **[Testing Guide](../testing/index.md)** - Write and run tests
+1. **[Learn about Test Data](../test-data/)** - Understand the sample data
+2. **[Testing Guide](../testing/)** - Write and run tests
 3. **[API Docs (Production)](https://ttb-label-analyzer-production.up.railway.app/api/docs)** - Detailed endpoint documentation
-4. **[Deploy to Production](./03-production.md)** - Take it live
+4. **[Deploy to Production](./03-production.html)** - Take it live
 
 ## Tips for Best Results
 
@@ -346,5 +346,5 @@ pnpm dev
 
 ---
 
-**Back to**: [Quick Start →](./index.md)  
-**Next**: [Production Deployment →](./03-production.md)
+**Back to**: [Quick Start →](./)  
+**Next**: [Production Deployment →](./03-production.html)

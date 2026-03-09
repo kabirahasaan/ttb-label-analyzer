@@ -1345,7 +1345,7 @@ npm run test:coverage -- --checkCoverageThresholds
 
 ## Test Data
 
-💡 **See [TEST_DATA.md](./TEST_DATA.md) for comprehensive test data documentation, pre-seeded fixtures, and manual testing workflows.**
+💡 **See [TEST_DATA.md](./TEST_DATA.html) for comprehensive test data documentation, pre-seeded fixtures, and manual testing workflows.**
 
 The application includes automatically seeded test data for development and testing:
 

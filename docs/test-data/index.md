@@ -374,10 +374,10 @@ pnpm nx run api:serve
 
 ## Next Steps
 
-- [**Application Data Management**](../application-data/index.md) - Manage applications
-- [**Label Images Guide**](../label-images/index.md) - Work with label images
-- [**Testing Guide**](../testing/index.md) - Run tests with data
+- [**Application Data Management**](../application-data/) - Manage applications
+- [**Label Images Guide**](../label-images/) - Work with label images
+- [**Testing Guide**](../testing/) - Run tests with data
 
 ---
 
-**Back**: [Documentation →](../index.md)
+**Back**: [Documentation →](../)

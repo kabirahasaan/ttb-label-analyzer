@@ -69,14 +69,14 @@ All project documentation is now organized in the `/docs` directory with a compr
 
 ### Start Here
 
-👉 **[docs/index.md](../index.md)** - Complete documentation index
+👉 **[docs/index.md](../)** - Complete documentation index
 
 ### Most Common Docs
 
-- **Setup**: [docs/GETTING_STARTED.md](../GETTING_STARTED.md)
-- **Testing**: [docs/TEST_DATA.md](../TEST_DATA.md)
-- **Development**: [docs/ARCHITECTURE.md](../ARCHITECTURE.md)
-- **TTB Rules**: [docs/TTB_RULES_QUICK_START.md](../TTB_RULES_QUICK_START.md)
+- **Setup**: [docs/GETTING_STARTED.md](../GETTING_STARTED.html)
+- **Testing**: [docs/TEST_DATA.md](../TEST_DATA.html)
+- **Development**: [docs/ARCHITECTURE.md](../ARCHITECTURE.html)
+- **TTB Rules**: [docs/TTB_RULES_QUICK_START.md](../TTB_RULES_QUICK_START.html)
 
 ## Documentation Principles
 
@@ -112,31 +112,31 @@ All project documentation is now organized in the `/docs` directory with a compr
 
 Read the docs in this order:
 
-1. **[docs/index.md](../index.md)** - Complete navigation guide
-2. **[docs/GETTING_STARTED.md](../GETTING_STARTED.md)** - Setup instructions
-3. **[docs/TTB_RULES_QUICK_START.md](../TTB_RULES_QUICK_START.md)** - Rule system guide
+1. **[docs/index.md](../)** - Complete navigation guide
+2. **[docs/GETTING_STARTED.md](../GETTING_STARTED.html)** - Setup instructions
+3. **[docs/TTB_RULES_QUICK_START.md](../TTB_RULES_QUICK_START.html)** - Rule system guide
 
 ### By Role
 
 **Developers**:
 
-- Start: [index.md](../index.md)
-- Then: [ARCHITECTURE.md](../ARCHITECTURE.md) → [TTB_RULES_INTEGRATION.md](../TTB_RULES_INTEGRATION.md) → [TTB_RULES_EXAMPLES.ts](../TTB_RULES_EXAMPLES.ts)
+- Start: [index.md](../)
+- Then: [ARCHITECTURE.md](../ARCHITECTURE.html) → [TTB_RULES_INTEGRATION.md](../TTB_RULES_INTEGRATION.html) → [TTB_RULES_EXAMPLES.ts](../TTB_RULES_EXAMPLES.ts)
 
 **DevOps/Infrastructure**:
 
-- Start: [GETTING_STARTED.md](../GETTING_STARTED.md)
-- Then: [SECURITY.md](../SECURITY.md) → [TTB_RULES_INTEGRATION.md](../TTB_RULES_INTEGRATION.md)
+- Start: [GETTING_STARTED.md](../GETTING_STARTED.html)
+- Then: [SECURITY.md](../SECURITY.html) → [TTB_RULES_INTEGRATION.md](../TTB_RULES_INTEGRATION.html)
 
 **QA/Testing**:
 
-- Start: [TESTING.md](../TESTING.md)
-- Then: [TTB_RULES_INTEGRATION.md](../TTB_RULES_INTEGRATION.md) (for integration tests)
+- Start: [TESTING.md](../TESTING.html)
+- Then: [TTB_RULES_INTEGRATION.md](../TTB_RULES_INTEGRATION.html) (for integration tests)
 
 **Compliance/Audit**:
 
-- Start: [IMPLEMENTATION_COMPLETE.md](../IMPLEMENTATION_COMPLETE.md)
-- Then: [TTB_SYSTEM_OVERVIEW.md](../TTB_SYSTEM_OVERVIEW.md) → [SECURITY.md](../SECURITY.md)
+- Start: [IMPLEMENTATION_COMPLETE.md](../IMPLEMENTATION_COMPLETE.html)
+- Then: [TTB_SYSTEM_OVERVIEW.md](../TTB_SYSTEM_OVERVIEW.html) → [SECURITY.md](../SECURITY.html)
 
 ## Navigation Tips
 
@@ -172,9 +172,9 @@ Read the docs in this order:
 
 ## Next Steps
 
-1. Review [docs/index.md](../index.md) for navigation
-2. Follow [docs/GETTING_STARTED.md](../GETTING_STARTED.md) for setup
-3. Check project [README.md](./README.md) for quick overview
+1. Review [docs/index.md](../) for navigation
+2. Follow [docs/GETTING_STARTED.md](../GETTING_STARTED.html) for setup
+3. Check project [README.md](./README.html) for quick overview
 4. Refer to specific guides as needed
 
 ## References

@@ -493,6 +493,6 @@ The system is intentionally designed to evolve based on stakeholder feedback and
 ---
 
 **Questions?** Contact the development team or refer to:
-- [Getting Started Guide](./quick-start/index.md)
-- [Architecture Docs](./ARCHITECTURE.md)
+- [Getting Started Guide](./quick-start/)
+- [Architecture Docs](./ARCHITECTURE.html)
 - [API Documentation](https://ttb-label-analyzer-production.up.railway.app/api/docs)

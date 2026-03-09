@@ -255,14 +255,14 @@ A: Run `npm run fetch:ttb-rules -- --clear-cache`
 
 1. ✅ Run `npm run fetch:ttb-rules`
 2. ✅ Check stats with `npm run fetch:ttb-rules:stats`
-3. ✅ See [TTB_RULES_INTEGRATION.md](./TTB_RULES_INTEGRATION.md) to use in validation
+3. ✅ See [TTB_RULES_INTEGRATION.md](./TTB_RULES_INTEGRATION.html) to use in validation
 4. ✅ Run tests: `npm test`
 
 ## References
 
 - [TTB Official Website](https://www.ttb.gov/)
-- [TTB Rules README](./libs/ttb-rules/README.md) - Full documentation
-- [Integration Guide](./TTB_RULES_INTEGRATION.md) - Backend/frontend integration
+- [TTB Rules README](./libs/ttb-rules/README.html) - Full documentation
+- [Integration Guide](./TTB_RULES_INTEGRATION.html) - Backend/frontend integration
 - [CFR 27 - Alcohol Labeling](https://www.ecfr.gov/current/title-27)
 
 ---

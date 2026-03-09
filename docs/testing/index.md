@@ -56,9 +56,9 @@ pnpm test validation.service --testPathPattern=validation
 
 **Choose your environment:**
 
-- [**Development Testing**](./01-testing-dev.md) - Local development with live reload
-- [**Production Testing**](./02-testing-prod.md) - Test deployment on Vercel/Railway
-- [**Test Coverage**](./03-test-coverage.md) - Coverage analysis for dev vs prod
+- [**Development Testing**](./01-testing-dev.html) - Local development with live reload
+- [**Production Testing**](./02-testing-prod.html) - Test deployment on Vercel/Railway
+- [**Test Coverage**](./03-test-coverage.html) - Coverage analysis for dev vs prod
 
 ## Test Coverage Summary
 
@@ -77,7 +77,7 @@ pnpm test validation.service --testPathPattern=validation
 | **API Endpoints**     | 80%    | 81%     | ✅     |
 | **Web UI Components** | 70%    | 72%     | ✅     |
 
-[View Detailed Coverage Report →](./03-test-coverage.md)
+[View Detailed Coverage Report →](./03-test-coverage.html)
 
 ## Test Data
 
@@ -88,7 +88,7 @@ Pre-loaded test data automatically seeded:
 - **Sample CSV files** for batch validation
 - **Known validation results** for comparison
 
-[Learn more about Test Data →](../test-data/index.md)
+[Learn more about Test Data →](../test-data/)
 
 ## Key Testing Scenarios
 
@@ -146,12 +146,12 @@ Push a PR and CI pipeline validates everything.
 
 ## Next Steps
 
-- [**Development Testing**](./01-testing-dev.md) - Run tests locally
-- [**Production Testing**](./02-testing-prod.md) - Test live deployment
-- [**Test Coverage**](./03-test-coverage.md) - Dev vs prod validation evidence
-- [**Test Implementation Summary**](./test-implementation-summary.md) - Detailed testing implementation inventory
-- [**Test Data**](../test-data/index.md) - Use sample data
+- [**Development Testing**](./01-testing-dev.html) - Run tests locally
+- [**Production Testing**](./02-testing-prod.html) - Test live deployment
+- [**Test Coverage**](./03-test-coverage.html) - Dev vs prod validation evidence
+- [**Test Implementation Summary**](./test-implementation-summary.html) - Detailed testing implementation inventory
+- [**Test Data**](../test-data/) - Use sample data
 
 ---
 
-**Back**: [Documentation →](../index.md)
+**Back**: [Documentation →](../)

@@ -620,7 +620,7 @@ describe('Application API', () => {
 });
 ```
 
-See [TESTING.md](./TESTING.md) for comprehensive testing documentation.
+See [TESTING.md](./TESTING.html) for comprehensive testing documentation.
 
 ---
 
@@ -678,10 +678,10 @@ npm run dev
 
 ## Additional Resources
 
-- [Main Testing Guide](./TESTING.md) - Automated testing strategies
+- [Main Testing Guide](./TESTING.html) - Automated testing strategies
 - [API Documentation](http://localhost:3001/api/docs) - Swagger docs (when API running)
-- [Getting Started Guide](./GETTING_STARTED.md) - Setup and installation
-- [Architecture Documentation](./ARCHITECTURE.md) - System design
+- [Getting Started Guide](./GETTING_STARTED.html) - Setup and installation
+- [Architecture Documentation](./ARCHITECTURE.html) - System design
 
 ---
 

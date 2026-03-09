@@ -49,8 +49,8 @@ This is the single-page navigation hub for reviewers. Use this page to access ev
 
 ### Core Reviewer Docs
 
-| Document                                                   | Purpose                                                      |
-| ---------------------------------------------------------- | ------------------------------------------------------------ |
+| Document                                                     | Purpose                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Reviewer Guide](./reviewer-guide.html)                      | Fast reviewer workflow and validation checklist              |
 | [Hidden Requirements Analysis](./hidden-requirements.html)   | Implicit stakeholder requirements identified and implemented |
 | [Requirement Traceability](./requirements-traceability.html) | Requirement-to-implementation mapping                        |
@@ -60,19 +60,19 @@ This is the single-page navigation hub for reviewers. Use this page to access ev
 
 ### Hands-On Reviewer Guides
 
-| Guide                                                   | Audience                            |
-| ------------------------------------------------------- | ----------------------------------- |
+| Guide                                                     | Audience                            |
+| --------------------------------------------------------- | ----------------------------------- |
 | [Getting Started for Users](./getting-started-users.html) | Reviewer, QA, DevOps                |
-| [Quick Start](./quick-start/)                   | Reviewer and developers             |
-| [Testing Hub](./testing/)                       | QA and engineering reviewers        |
-| [Test Data](./test-data/)                       | Test and demo users                 |
-| [Application Data](./application-data/)           | Data setup and management reviewers |
-| [Label Images](./label-images/)                   | OCR and upload workflow reviewers   |
+| [Quick Start](./quick-start/)                             | Reviewer and developers             |
+| [Testing Hub](./testing/)                                 | QA and engineering reviewers        |
+| [Test Data](./test-data/)                                 | Test and demo users                 |
+| [Application Data](./application-data/)                   | Data setup and management reviewers |
+| [Label Images](./label-images/)                           | OCR and upload workflow reviewers   |
 
 ### Legacy Technical References
 
-| Reference                                           | Focus                                   |
-| --------------------------------------------------- | --------------------------------------- |
+| Reference                                             | Focus                                   |
+| ----------------------------------------------------- | --------------------------------------- |
 | [Legacy Reference](./legacy-reference.html)           | Central index for legacy technical docs |
 | [Getting Started (Legacy)](./GETTING_STARTED.html)    | Deep setup details                      |
 | [Architecture](./ARCHITECTURE.html)                   | System architecture details             |
